@@ -46,7 +46,7 @@ function custom_register_taxonomies() {
 }
 add_action('init', 'custom_register_taxonomies'); // Registra las taxonomías en la inicialización de WordPress
 
-// Función para registrar el tipo de entrada personalizado "image" and "partner"
+// Función para registrar el tipo de entrada personalizado "image" and "sponsor"
 function custom_register_post_type() {
     $labels = array(
         'name' => __('sliders'),
@@ -99,6 +99,32 @@ function custom_register_post_type() {
     );
 
     register_post_type('partner', $args2);
+
+    $labels3 = array(
+        'name' => __('sponsors'),
+        'singular_name' => __('sponsor'),
+        'add_new' => __('Agregar Nuevo sponsor'),
+        'add_new_item' => __('Agregar Nuevo sponsor'),
+        'edit_item' => __('Editar sponsor'),
+        'new_item' => __('Nuevo sponsor'),
+        'view_item' => __('Ver sponsor'),
+        'search_items' => __('Buscar sponsors'),
+        'not_found' => __('No se encontraron sponsors'),
+        'not_found_in_trash' => __('No se encontraron sponsors en la papelera'),
+        'menu_name' => __('sponsors'),
+    );
+
+    $args3 = array(
+        'labels' => $labels3,
+        'public' => true,
+        'supports' => array('title'),
+        'has_archive' => true,
+        'rewrite' => array('slug' => 'sponsor'),
+        'menu_icon' => 'dashicons-images-alt2', // Icono del menú (opcional)
+        'show_in_rest' => true, // Habilita Gutenberg editor
+    );
+
+    register_post_type('sponsor', $args3);
 
     $labels1 = array(
         'name' => __('images'),
