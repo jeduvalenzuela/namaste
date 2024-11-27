@@ -81,15 +81,15 @@
         <div id="loader" class="th-preloader">
             <div class="animation-preloader">
                 <div class="txt-loading">
-                    <span preloader-text="T" class="characters">H </span>
+                    <span preloader-text="H" class="characters">H </span>
 
                     <span preloader-text="O" class="characters">O </span>
 
-                    <span preloader-text="U" class="characters">L </span>
+                    <span preloader-text="L" class="characters">L </span>
 
-                    <span preloader-text="R" class="characters">A </span>
+                    <span preloader-text="A" class="characters">A </span>
 
-                    <span preloader-text="M" class="characters">:D </span>
+                    <span preloader-text=":D" class="characters">:D </span>
                 </div>
             </div>
         </div>
