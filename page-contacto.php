@@ -5,164 +5,114 @@ Template Name: Contacto
 
 get_header(); ?>
 
-<section class="page_title ds s-parallax s-overlay s-pt-160 s-pb-80">
-				<div class="container">
-					<div class="row">
+<!--==============================
+    Breadcumb
+============================== -->
+<div class="breadcumb-wrapper " data-bg-src="<?php echo get_stylesheet_directory_uri();?>/assets/img/bg/breadcumb-bg-contacto.jpg">
+        <div class="container">
+            <div class="breadcumb-content">
+                <h1 class="breadcumb-title" style="color: darkcyan">Contactanos</h1>
+            </div>
+        </div>
+    </div><!--==============================
+Contact Area  
+==============================-->
+    <div class="space">
+        <div class="container">
+            <div class="title-area text-center">
+                <span class="sub-title">Contactanos</span>
+                <h2 class="sec-title">Estamos a tu disposición</h2>
+            </div>
+            <div class="row gy-4 justify-content-center">
+                <div class="col-xl-4 col-lg-6">
+                    <div class="about-contact-grid style2">
+                        <div class="about-contact-icon">
+                            <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/icon/location-dot2.svg" alt="">
+                        </div>
+                        <div class="about-contact-details">
+                            <h6 class="box-title">Nos encontramos en</h6>
+                            <p class="about-contact-details-text"><strong>La Plata</strong> - Prov. de Buenos Aires</p>
+                            <p class="about-contact-details-text">Argentina</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-6">
+                    <div class="about-contact-grid">
+                        <div class="about-contact-icon">
+                            <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/icon/call.svg" alt="">
+                        </div>
+                        <div class="about-contact-details">
+                            <h6 class="box-title">Nuestras lineas</h6>
+                            <p class="about-contact-details-text"><a href="tel:01234567890">+54 9 221 4567 8901</a></p>
+                            <p class="about-contact-details-text"><a href="tel:01234567890">+54 9 221 4567 8901</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-6">
+                    <div class="about-contact-grid">
+                        <div class="about-contact-icon">
+                            <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/icon/mail.svg" alt="">
+                        </div>
+                        <div class="about-contact-details">
+                            <h6 class="box-title">Email Address</h6>
+                            <p class="about-contact-details-text"><a href="mailto:mailinfo00@tourm.com">info@namaste.tur.ar</a></p>
+                            <p class="about-contact-details-text"><a href="mailto:support24@tourm.com">ventas@namaste.tur.ar</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!--==============================
+Video Area  
+==============================-->
+    <div class="space-extra2-top space-extra2-bottom" data-bg-src="<?php echo get_stylesheet_directory_uri();?>/assets/img/bg/video_bg_1.jpg">
+        <div class="container">
+            <div class="row flex-row-reverse justify-content-center align-items-center">
+                <div class="col-lg-6">
+                    <div class="video-box1">
+                        <a href="https://www.youtube.com/watch?v=cQfIUPw72Dk" class="play-btn style2 popup-video"><i class="fa-sharp fa-solid fa-play"></i></a>
+                    </div>
 
-						<div class="col-md-12">
-							<h1>Comunicate para más info</h1>
-							<ol class="breadcrumb">
-								<li class="breadcrumb-item">
-									<a href="./">Inicio</a>
-								</li>
-								<li class="breadcrumb-item">
-									<a href="#">Contacto</a>
-								</li>
-							</ol>
-						</div>
-
-					</div>
-				</div>
-			</section>
-
-			<section class="ls ms page_map">
-
-				<div class="marker">
-					<div class="marker-address">Boulevard Almirante Brown 860, Puerto Madryn, Patagonia Argentina</div>
-					<div class="marker-title">Sede Centro</div>
-					<div class="marker-description">
-
-						<ul class="list-unstyled">
-							<li>
-								<span class="icon-inline">
-									<span class="icon-styled color-main">
-										<i class="fa fa-map-marker"></i>
-									</span>
-
-									<span>
-										Puerto Madryn, Boulevard Almirante Brown 860
-									</span>
-								</span>
-							</li>
-
-							<li>
-								<span class="icon-inline">
-									<span class="icon-styled color-main">
-										<i class="fa fa-phone"></i>
-									</span>
-
-									<span>
-										+ 549 280-4327476
-									</span>
-								</span>
-							</li>
-							<li>
-								<span class="icon-inline">
-									<span class="icon-styled color-main">
-										<i class="fa fa-envelope"></i>
-									</span>
-
-									<span>
-										lobolarsenbuceo@gmail.com
-									</span>
-								</span>
-							</li>
-						</ul>
-					</div>
-
-					<img class="marker-icon" src="<?php echo get_stylesheet_directory_uri();?>/images/map_marker_icon.png" alt="img">
-				</div>
-				<!-- .marker -->
-			</section>
-
-			<section class="ls s-py-90 s-py-xl-160">
-				<div class="container">
-					<div class="row">
-
-						<div class="col-lg-8 animate" data-animation="scaleAppear">
-							<div class="hero-bg p-60">
-
-								<?php echo do_shortcode( '[contact-form-7 id="0a15edd" title="Formulario de contacto 1"]' ); ?>
-
-							</div>
-							<div class="divider-60 divider-lg-0"></div>
-						</div>
-						<!--.col-* -->
-
-						<div class="col-lg-4 animate" data-animation="scaleAppear">
-							<div class="hero-bg p-60">
-
-								<h4>Comunicate</h4>
-
-								<div class="media mb-20">
-									<div class="icon-styled color-main fs-40">
-										<i class="fa fa-map-marker"></i>
-									</div>
-
-									<div class="media-body">
-										<h5 class="mt-0">
-											Dirección:
-										</h5>
-										<p>
-											<?php echo the_field('direccion'); ?>
-										</p>
-									</div>
-								</div>
-
-								<div class="media mb-20">
-									<div class="icon-styled color-main fs-40">
-										<i class="fa fa-phone-square"></i>
-									</div>
-
-									<div class="media-body">
-										<h5 class="mt-0">
-											Celular:
-										</h5>
-										<p>
-										<?php echo the_field('telefono'); ?>
-										</p>
-									</div>
-								</div>
-
-								<div class="media mb-20">
-									<div class="icon-styled color-main fs-40">
-										<i class="fa fa-envelope"></i>
-									</div>
-
-									<div class="media-body">
-										<h5 class="mt-0">
-											Email:
-										</h5>
-										<p>
-										<?php echo the_field('email'); ?>
-										</p>
-									</div>
-								</div>
-
-								<div class="divider-30 divider-xl-50"></div>
-
-								<h4 class="mt-0">Social Links</h4>
-
-								<p class="social-icons">
-									<a href="<?php echo the_field('facebook'); ?>" class="fa bg-icon rounded-icon fa-facebook" title="facebook"></a>
-									<a href="<?php echo the_field('instagram'); ?>" class="fa bg-icon rounded-icon fa-instagram" title="instagram"></a>
-									<a href="<?php echo the_field('youtube'); ?>" class="fa bg-icon rounded-icon fa-youtube" title="YouTube"></a>
-								</p>
-
-							</div>
-						</div>
-						<!--.col-* -->
-
-
-					</div>
-				</div>
-			</section>
-	<!-- Async script executes immediately and must be after any DOM elements used in callback. -->
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBh_V0Po-IkgYtuRNjLxmPBLs4GbXxeGKM&callback=initGoogleMap&libraries=&v=weekly"
-      async
-    ></script>
-
-	<script src='https://www.google.com/recaptcha/api.js?render=6Lc9ltkaAAAAAO7D3x2X53gdmmuuovhZwSB8k6AW'></script>
+                </div>
+                <div class="col-lg-6">
+                    <div>
+                        <form action="mail.php" method="POST" class="contact-form style2 ajax-contact">
+                            <h3 class="sec-title mb-30 text-capitalize">Envianos tus inquietudes</h3>
+                            <div class="row">
+                                <div class="col-12 form-group">
+                                    <input type="text" class="form-control" name="name" id="name3" placeholder="Nombre completo">
+                                    <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/icon/user.svg" alt="">
+                                </div>
+                                <div class="col-12 form-group">
+                                    <input type="email" class="form-control" name="email3" id="email3" placeholder="Tu Mail">
+                                    <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/icon/mail.svg" alt="">
+                                </div>
+                                <div class="form-group col-12">
+                                    <textarea name="message" id="message" cols="30" rows="3" class="form-control" placeholder="Dejanos tu consulta"></textarea>
+                                    <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/icon/chat.svg" alt="">
+                                </div>
+                                <div class="form-btn col-12 mt-24"><button type="submit" class="th-btn style3">Enviar mensaje
+                                        <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/icon/plane.svg" alt=""></button>
+                                </div>
+                            </div>
+                            <p class="form-messages mb-0 mt-3"></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!--==============================
+Map Area  
+==============================-->
+    <div class="">
+        <div class="container-fluid">
+            <div class="contact-map style2">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52343.08435776054!2d-57.994369756729434!3d-34.9204308694999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a2e62b1f0085a1%3A0xbcfc44f0547312e3!2sLa%20Plata%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1732020145199!5m2!1ses-419!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div class="contact-icon">
+                    <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/icon/location-dot3.svg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
 
 <?php get_footer(); ?>

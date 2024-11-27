@@ -4,113 +4,280 @@ Template Name: Nosotros
 */
 get_header(); ?>
 
-<section class="page_title ds s-parallax s-overlay s-pt-160 s-pb-80">
-				<div class="container">
-					<div class="row">
+    <!--==============================
+    Breadcumb
+============================== -->
+<div class="breadcumb-wrapper " data-bg-src="<?php echo get_stylesheet_directory_uri();?>/assets/img/bg/breadcumb-bg.jpg">
+        <div class="container">
+            <div class="breadcumb-content">
+                <h1 class="breadcumb-title" style="color: darkcyan">Somos Namaste Wellness Trips</h1>
+                <ul class="breadcumb-menu" style="color: darkcyan">
+                    <li><a href="index.html" style="color: darkcyan">Inicio</a></li>
+                    <li style="color: darkcyan">Nos Presentamos</li>
+                </ul>
+            </div>
+        </div>
+    </div><!--==============================
+About Area  
+==============================-->
+    <div class="about-area position-relative overflow-hidden overflow-hidden space" id="about-sec">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-7">
+                    <div class="img-box3">
+                        <div class="img1">
+                            <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/normal/about_3_1.jpg" alt="About">
+                        </div>
+                        <div class="img2">
+                            <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/normal/about_3_2.jpg" alt="About">
+                        </div>
+                        <div class="img3 movingX">
+                            <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/normal/about_3_3.jpg" alt="About">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-5">
+                    <div class="ps-xl-4">
+                        <div class="title-area mb-20">
+                            <span class="sub-title style1 ">Bienvenidos</span>
+                            <h2 class="sec-title mb-20 pe-xl-5 me-xl-5 heading">Nosotros somos Namaste Wellness Trips</h2>
+                        </div>
+                        <p class="pe-xl-5">Somos un equipo de profesionales apasionados por el turismo, con años de experiencia dedicados a hacer realidad los sueños de viajeros como tú.</p>
+                        <p class="mb-30 pe-xl-5"> Nuestra creatividad y dedicación nos impulsan a diseñar paquetes turísticos únicos, pensados para que vivas momentos inolvidables y descubras el mundo de una manera especial. En Namaste Viajes, cada aventura es una oportunidad para crear recuerdos que atesorarás para siempre.</p>
+                        <div class="about-item-wrap">
+                            <div class="about-item style2">
+                                <div class="about-item_img"><img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/icon/about_1_1.svg" alt=""></div>
+                                <div class="about-item_centent">
+                                    <h5 class="box-title">Viejes Exclusivos</h5>
+                                    <p class="about-item_text">Diseñados a medida para que vivas experiencias únicas e inigualables en cada destino.</p>
+                                </div>
+                            </div>
+                            <div class="about-item style2">
+                                <div class="about-item_img"><img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/icon/about_1_2.svg" alt=""></div>
+                                <div class="about-item_centent">
+                                    <h5 class="box-title">Tu seguridad primero</h5>
+                                    <p class="about-item_text">Tu seguridad es nuestra prioridad, asegurando cada detalle para un viaje sin preocupaciones.</p>
+                                </div>
+                            </div>
+                            <div class="about-item style2">
+                                <div class="about-item_img"><img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/icon/about_1_3.svg" alt=""></div>
+                                <div class="about-item_centent">
+                                    <h5 class="box-title">Guías Profesionales</h5>
+                                    <p class="about-item_text">Expertos locales apasionados que harán de tu aventura un viaje lleno de conocimiento y encanto.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+<!--==============================
+Team Area  
+==============================-->
+    <section class="team-area3 position-relative bg-top-center space" data-bg-src="<?php echo get_stylesheet_directory_uri();?>/assets/img/bg/team_bg_2.jpg">
+        <div class="container z-index-common">
+            <div class="title-area text-center">
+                <span class="sub-title">Nuestro equipo</span>
+                <h2 class="sec-title">Nos presentamos</h2>
+            </div>
+            <div class="slider-area">
+                <div class="swiper th-slider teamSlider3 has-shadow" id="teamSlider3" data-slider-options='{"breakpoints":{"0":{"slidesPerView":1},"576":{"slidesPerView":"1"},"768":{"slidesPerView":"2"},"992":{"slidesPerView":"3"},"1200":{"slidesPerView":"3"}}}'>
+                    <div class="swiper-wrapper">
+                        <!-- Single Item -->
+                        <div class="swiper-slide">
+                            <div class="th-team team-grid">
+                                <div class="team-img">
+                                    <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/team/team_img_1.jpg" alt="Team">
+                                </div>
+                                <div class="team-img2">
+                                    <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/team/team_1_1.jpg" alt="Team">
+                                </div>
+                                <div class="team-content">
+                                    <div class="media-body">
+                                        <h3 class="box-title"><a href="tour-guider-details.html">Cecilia Namaste</a></h3>
+                                        <span class="team-desig">Ceo & founder</span>
 
-						<div class="col-md-12">
-							<h1>Quiénes Somos</h1>
-							<ol class="breadcrumb">
-								<li class="breadcrumb-item">
-									<a href="./">Inicio</a>
-								</li>
-								<li class="breadcrumb-item">
-									<a href="#">Lobo Larsen</a>
-								</li>
-							</ol>
-						</div>
+                                        <div class="th-social">
+                                            <a target="_blank" href="https://facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                                            <a target="_blank" href="https://linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
+                                            <a target="_blank" href="https://instagram.com/"><i class="fab fa-instagram"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-					</div>
-				</div>
-			</section>
+                        <!-- Single Item -->
+                        <div class="swiper-slide">
+                            <div class="th-team team-grid">
+                                <div class="team-img">
+                                    <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/team/team_img_1.jpg" alt="Team">
+                                </div>
+                                <div class="team-img2">
+                                    <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/team/team_1_2.jpg" alt="Team">
+                                </div>
+                                <div class="team-content">
+                                    <div class="media-body">
+                                        <h3 class="box-title"><a href="tour-guider-details.html">Ailen Willson</a></h3>
+                                        <span class="team-desig">Recepcionista</span>
+                                        <div class="th-social">
+                                            <a target="_blank" href="https://facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                                            <a target="_blank" href="https://linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
+                                            <a target="_blank" href="https://instagram.com/"><i class="fab fa-instagram"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-			<!-- Section Counter -->
-			<section class="ls section-counter s-overlay mobile-overlay s-py-90 s-py-xl-45 c-gutter-40">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-7">
-							<p class="text-center text-md-left color-darkgrey mb-1">
-								<span class="line-left"><?php the_title(); ?> </span>
-							</p>
-							<h3 class="text-center text-md-left mt-0 mb-2 special-heading color-darkgrey">
-								<span><?php the_field('titulo'); ?></span>
-							</h3>
-							<p class="text-center text-md-left color-darkgrey fs-20 fw-500">
-								<span><?php the_field('subtitulo'); ?></span>
-							</p>
-							<div class="divider-60 divider-xl-30">
-								<?php the_content(); ?>
-							</div>
-							
-						</div>
-					</div>
-				</div>
-			</section>
+                        <!-- Single Item -->
+                        <div class="swiper-slide">
+                            <div class="th-team team-grid">
+                                <div class="team-img">
+                                    <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/team/team_img_1.jpg" alt="Team">
+                                </div>
+                                <div class="team-img2">
+                                    <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/team/team_1_3.jpg" alt="Team">
+                                </div>
+                                <div class="team-content">
+                                    <div class="media-body">
+                                        <h3 class="box-title"><a href="tour-guider-details.html">Lucia Jones</a></h3>
+                                        <span class="team-desig">Secretaria administrativa</span>
+										<div class="th-social">
+                                            <a target="_blank" href="https://facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                                            <a target="_blank" href="https://linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
+                                            <a target="_blank" href="https://instagram.com/"><i class="fab fa-instagram"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-			<!-- Section Team -->
-			<section class="ls ms s-py-90 s-py-xl-60">
-				<div class="container">
-					<div class="row">
-						<div class="col-12">
-							<p class="text-center color-darkgrey mb-1">
-								<span class="line-left">Nuestro Staff</span>
-							</p>
-							<h3 class="text-center mt-0 mb-2 special-heading color-darkgrey">
-								<span>Nos presentamos</span>
-							</h3>
+                        <!-- Single Item -->
+                        <div class="swiper-slide">
+                            <div class="th-team team-grid">
+                                <div class="team-img">
+                                    <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/team/team_img_1.jpg" alt="Team">
+                                </div>
+                                <div class="team-img2">
+                                    <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/team/team_1_4.jpg" alt="Team">
+                                </div>
+                                <div class="team-content">
+                                    <div class="media-body">
+                                        <h3 class="box-title"><a href="tour-guider-details.html">Paula Prova</a></h3>
+                                        <span class="team-desig">Guia turística</span>
+										<div class="th-social">
+                                            <a target="_blank" href="https://facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                                            <a target="_blank" href="https://linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
+                                            <a target="_blank" href="https://instagram.com/"><i class="fab fa-instagram"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-							<div class="divider-40 divider-xl-60"></div>
+                        <!-- Single Item -->
+                        <div class="swiper-slide">
+                            <div class="th-team team-grid">
+                                <div class="team-img">
+                                    <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/team/team_img_1.jpg" alt="Team">
+                                </div>
+                                <div class="team-img2">
+                                    <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/team/team_1_5.jpg" alt="Team">
+                                </div>
+                                <div class="team-content">
+                                    <div class="media-body">
+                                        <h3 class="box-title"><a href="tour-guider-details.html">Sandra Maliha</a></h3>
+                                        <span class="team-desig">Guia turística</span>
+										<div class="th-social">
+                                            <a target="_blank" href="https://facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                                            <a target="_blank" href="https://linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
+                                            <a target="_blank" href="https://instagram.com/"><i class="fab fa-instagram"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-							<div class="owl-carousel" data-responsive-lg="3" data-responsive-md="2" data-responsive-sm="1" data-responsive-xs="1" data-nav="false" data-margin="60" data-loop="true" data-autoplay="true">
-								
+                        <!-- Single Item -->
+                        <div class="swiper-slide">
+                            <div class="th-team team-grid">
+                                <div class="team-img">
+                                    <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/team/team_img_1.jpg" alt="Team">
+                                </div>
+                                <div class="team-img2">
+                                    <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/team/team_1_6.jpg" alt="Team">
+                                </div>
+                                <div class="team-content">
+                                    <div class="media-body">
+                                        <h3 class="box-title"><a href="tour-guider-details.html">Daiane Mahmud</a></h3>
+                                        <span class="team-desig">Guia turística</span>
+										<div class="th-social">
+                                            <a target="_blank" href="https://facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                                            <a target="_blank" href="https://linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
+                                            <a target="_blank" href="https://instagram.com/"><i class="fab fa-instagram"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-									<?php $args = array(
-										'post_type' => 'partner',
-										'posts_per_page' => -1, // Número de posts a mostrar, puedes cambiarlo según sea necesario
-									);
+                        <!-- Single Item -->
+                        <div class="swiper-slide">
+                            <div class="th-team team-grid">
+                                <div class="team-img">
+                                    <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/team/team_img_1.jpg" alt="Team">
+                                </div>
+                                <div class="team-img2">
+                                    <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/team/team_1_7.jpg" alt="Team">
+                                </div>
+                                <div class="team-content">
+                                    <div class="media-body">
+                                        <h3 class="box-title"><a href="tour-guider-details.html">Mariela Hawkins</a></h3>
+                                        <span class="team-desig">Guia turística</span>
+										<div class="th-social">
+                                            <a target="_blank" href="https://facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                                            <a target="_blank" href="https://linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
+                                            <a target="_blank" href="https://instagram.com/"><i class="fab fa-instagram"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-									// Crear la consulta personalizada
-									$cursos_query = new WP_Query($args);
+                        <!-- Single Item -->
+                        <div class="swiper-slide">
+                            <div class="th-team team-grid">
+                                <div class="team-img">
+                                    <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/team/team_img_1.jpg" alt="Team">
+                                </div>
+                                <div class="team-img2">
+                                    <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/team/team_1_8.jpg" alt="Team">
+                                </div>
+                                <div class="team-content">
+                                    <div class="media-body">
+                                        <h3 class="box-title"><a href="tour-guider-details.html">Mariana Wilson</a></h3>
+                                        <span class="team-desig">Guia turística</span>
+										<div class="th-social">
+                                            <a target="_blank" href="https://facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                                            <a target="_blank" href="https://linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
+                                            <a target="_blank" href="https://instagram.com/"><i class="fab fa-instagram"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-									// Comprobar si hay posts
-									if ($cursos_query->have_posts()) :
-										// Iniciar el loop
-										while ($cursos_query->have_posts()) : $cursos_query->the_post(); 
-											$image = get_field('foto'); ?>
+                    </div>
 
-											<div class="vertical-item hero-bg text-center team-layout">
-												<div class="item-media">
-													<?php if( $image ){
-														echo '<img src="' . esc_url($image['url']) . '" alt="' . esc_attr($image['alt']) . '" />';
-													} ?>
-													<div class="media-links">
-														<a class="abs-link" title=""></a>
-													</div>
-												</div>
-												<div class="item-content">
-													<h5 class="mb-0">
-														<a><?php the_title(); ?></a>
-													</h5>
+                    <div class="slider-pagination"></div>
 
-													<p class="team-position pb-xl-3">
-														<?php the_field('responsabilidad'); ?>
-													</p>
-													<p class="team-position pb-xl-3">
-														<?php the_field('presentacion'); ?>
-													</p>
-
-												</div>
-											</div>
-
-										<?php endwhile;
-										// Restaurar la consulta global de post
-										wp_reset_postdata();
-									else :
-									endif; ?>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
+                </div>
+                <button data-slider-prev="#teamSlider3" class="slider-arrow slider-prev"><img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/icon/right-arrow2.svg" alt=""></button>
+                <button data-slider-next="#teamSlider3" class="slider-arrow slider-next"><img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/icon/left-arrow2.svg" alt=""></button>
+            </div>
+        </div>
+    </section>
 
 <?php get_footer(); ?>
