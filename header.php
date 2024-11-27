@@ -2,96 +2,190 @@
 //template Traviara 
 ?>
 
-<!DOCTYPE html>
-<html class="no-js">
-<!--<![endif]-->
+<!doctype html>
+<html class="no-js" lang="zxx">
 
 <head>
-	<title>Lobo Larsen Buceo - Puerto Madryn - Chubut - Patagonia Argentina</title>
-	<meta charset="utf-8">
-	<!--[if IE]>
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<![endif]-->
-	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Namaste Wellness Trips - La Plata - Tour - Agency - Incoming</title>
+    <meta name="author" content="Tourm">
+    <meta name="description" content="Tourm - Travel & Tour Booking Agency HTML Template ">
+    <meta name="keywords" content="Tourm - Travel & Tour Booking Agency HTML Template ">
+    <meta name="robots" content="INDEX,FOLLOW">
 
-	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-	<link rel="apple-touch-icon" sizes="180x180" href="<?php echo get_stylesheet_directory_uri();?>/images/favicon/apple-touch-icon.png">
-	<link rel="icon" type="image/png" href="<?php echo get_stylesheet_directory_uri();?>/images/favicon/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="<?php echo get_stylesheet_directory_uri();?>/images/favicon/favicon-16x16.png" sizes="16x16">
-	<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri();?>/css/bootstrap.min.css">
-	<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri();?>/css/animations.css">
-	<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri();?>/css/font-awesome.css">
-	<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri();?>/css/icomoon.css">
-	<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri();?>/css/main.css" class="color-switcher-link">
-	<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri();?>/css/shop.css" class="color-switcher-link">
-	<script src="<?php echo get_stylesheet_directory_uri();?>/js/vendor/modernizr-2.6.2.min.js"></script>
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- Favicons - Place favicon.ico in the root directory -->
+    <link rel="apple-touch-icon" sizes="57x57" href="<?php echo get_stylesheet_directory_uri();?>/assets/img/favicons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="<?php echo get_stylesheet_directory_uri();?>/assets/img/favicons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="<?php echo get_stylesheet_directory_uri();?>/assets/img/favicons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="<?php echo get_stylesheet_directory_uri();?>/assets/img/favicons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="<?php echo get_stylesheet_directory_uri();?>/assets/img/favicons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="<?php echo get_stylesheet_directory_uri();?>/assets/img/favicons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="<?php echo get_stylesheet_directory_uri();?>/assets/img/favicons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="<?php echo get_stylesheet_directory_uri();?>/assets/img/favicons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="<?php echo get_stylesheet_directory_uri();?>/assets/img/favicons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="<?php echo get_stylesheet_directory_uri();?>/assets/img/favicons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo get_stylesheet_directory_uri();?>/assets/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="<?php echo get_stylesheet_directory_uri();?>/assets/img/favicons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo get_stylesheet_directory_uri();?>/assets/img/favicons/favicon-16x16.png">
+    <link rel="manifest" href="<?php echo get_stylesheet_directory_uri();?>/assets/img/favicons/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="<?php echo get_stylesheet_directory_uri();?>/assets/img/favicons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
 
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-204TQ2CJJJ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!--==============================
+	  Google Fonts
+	============================== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Manrope:wght@200..800&family=Montez&display=swap" rel="stylesheet">
 
-  gtag('config', 'G-204TQ2CJJJ');
-</script>
+    <!--==============================
+	    All CSS File
+	============================== -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri();?>/assets/css/bootstrap.min.css">
+    <!-- Fontawesome Icon -->
+    <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri();?>/assets/css/fontawesome.min.css">
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri();?>/assets/css/magnific-popup.min.css">
 
-	<!--[if lt IE 9]>
-		<script src="js/vendor/html5shiv.min.js"></script>
-		<script src="js/vendor/respond.min.js"></script>
-		<script src="js/vendor/jquery-1.12.4.min.js"></script>
-	<![endif]-->
-<?php wp_head(); ?>
+    <!-- Swiper css -->
+    <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri();?>/assets/css/swiper-bundle.min.css">
+
+    <!-- Theme Custom CSS -->
+    <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri();?>/assets/css/style.css">
 
 </head>
 
 <body>
 
-	<div class="preloader">
-		<div class="preloader_image pulse"></div>
-	</div>
+    <!--[if lte IE 9]>
+    	<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  	<![endif]-->
 
-	<div id="canvas">
-		<div id="box_wrapper">
+    <!--==============================
+     Preloader
+  ==============================-->
+    <div id="preloader" class="preloader ">
+        <button class="th-btn preloaderCls">Bienvenidos :D</button>
+        <div class="preloader-inner">
+            <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/logo.png" alt="">
+        </div>
 
-			<!-- template sections -->
+        <div id="loader" class="th-preloader">
+            <div class="animation-preloader">
+                <div class="txt-loading">
+                    <span preloader-text="T" class="characters">H </span>
 
-			<div class="header_absolute ds cover-background ">
-				<!-- header with three Bootstrap columns - left for logo, center for navigation and right for includes-->
-				<header class="page_header ds ms s-overlay">
-					<div class="container-fluid">
-						<div class="row align-items-center">
-							<div class="col-xl-2 col-lg-3 col-11">
-								<a href="<?php echo home_url( '/' ); ?>" class="logo">
-									<img src="<?php echo get_stylesheet_directory_uri();?>/images/logo.png" alt="Lobo Larsen">
-								</a>
-							</div>
-							<div class="col-xl-8 col-lg-5 col-1">
-								<!-- main nav start -->
-								<nav class="top-nav">
-									<?php
-									wp_nav_menu(array(
-										'theme_location' => 'menu-principal',
-										'container' => false,
-										'menu_class' => 'nav sf-menu',
-										'fallback_cb' => false,
-									));
-									?>
-								</nav>
-								<!-- eof main nav -->
-							</div>
-							<div class="col-xl-2 col-lg-3 text-right d-none d-lg-block">
-								<a class="fs-20 links-maincolor-hover" href="tel:+5492804516314"><mark>+54 9</mark> 280-4327476</a>
-							</div>
-						</div>
-					</div>
-					<!-- header toggler -->
-					<span class="toggle_menu"><span></span></span>
-				</header>
+                    <span preloader-text="O" class="characters">O </span>
 
-			</div>
+                    <span preloader-text="U" class="characters">L </span>
+
+                    <span preloader-text="R" class="characters">A </span>
+
+                    <span preloader-text="M" class="characters">:D </span>
+                </div>
+            </div>
+        </div>
+
+    </div> 
+<!--==============================
+    Mobile Menu
+  ============================== -->
+    <div class="th-menu-wrapper onepage-nav">
+        <div class="th-menu-area text-center">
+            <button class="th-menu-toggle"><i class="fal fa-times"></i></button>
+            <div class="mobile-logo">
+                <a href="home-travel.html"><img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/logo.png" alt="Tourm"></a>
+            </div>
+            <div class="th-mobile-menu">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="nospresentamos.html">Nos Presentamos</a></li>
+                    <li><a href="salidasgrupales.html">Salidas Grupales</a></li>
+					<li><a href="salidasgrupales.html">Incoming</a></li>
+					<li><a href="shop.html">Pedidos</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </div> 
+<!--==============================
+Header Area  
+==============================-->
+    <header class="th-header header-layout1 header-layout2">
+        <div class="header-top">
+            <div class="container th-container">
+                <div class="row justify-content-center justify-content-lg-between align-items-center">
+                    <div class="col-auto d-none d-md-block">
+                        <div class="header-links">
+                            <ul>
+                                <li class="d-none d-xl-inline-block"><i class="fa-sharp fa-regular  fa-location-dot"></i>
+                                    <span>Local virtual - La Plata, Argentina</span>
+                                </li>
+                                <li class="d-none d-xl-inline-block"><i class="fa-regular fa-clock"></i>
+                                    <span>9hs a 18hs</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <div class="header-right">
+                            <div class="currency-menu">
+                                <select class="form-select nice-select">
+                                    <option selected="">Idiomas</option>
+                                    <option>CNY</option>
+                                    <option>EUR</option>
+                                    <option>AUD</option>
+                                </select>
+                            </div>
+                            <div class="header-links">
+                                <ul>
+                                    <li><a href="#login-form" class="popup-content">Ingresar / Registrarme<i class="fa-regular fa-user"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sticky-wrapper">
+            <!-- Main Menu Area -->
+            <div class="menu-area" data-bg-src="<?php echo get_stylesheet_directory_uri();?>/assets/img/bg/line-pattern.png">
+                <div class="container th-container">
+                    <div class="row align-items-center justify-content-between">
+                        <div class="col-auto">
+                            <div class="header-logo">
+                                <a href="home-travel.html"><img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/logo.png" alt="Tourm"></a>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <nav class="main-menu d-none d-xl-inline-block">
+                                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="nospresentamos.html">Nos Presentamos</a></li>
+                    <li><a href="salidasgrupales.html">Salidas Grupales</a></li>
+					<li><a href="salidasgrupales.html">Incoming</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+                            </nav>
+                            <button type="button" class="th-menu-toggle d-block d-xl-none"><i class="far fa-bars"></i></button>
+                        </div>
+                        <div class="col-auto d-none d-xl-block">
+                            <div class="header-button">
+                                <a href="presupuesto.html" class="th-btn style3 th-icon">Tu Presupuesto</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
