@@ -195,6 +195,69 @@ Category Area
                     <div class="slider-area tour-slider slider-drag-wrap">
                         <div class="swiper th-slider has-shadow" data-slider-options='{"breakpoints":{"0":{"slidesPerView":1},"576":{"slidesPerView":"1"},"768":{"slidesPerView":"2"},"992":{"slidesPerView":"3"},"1200":{"slidesPerView":"3"},"1400":{"slidesPerView":"4"}}}'>
                             <div class="swiper-wrapper">
+
+								<?php
+								// Asegúrate de que WooCommerce está activo
+								if (class_exists('WooCommerce')) {
+
+									// Configurar los argumentos de la consulta
+									$args = array(
+										'post_type' => 'product', // Tipo de post: producto
+										'posts_per_page' => 8,  // Número de productos a mostrar (-1 para todos)
+										'product_cat' => 'grupales', // Slug de la categoría a filtrar
+										'post_status' => 'publish', // Solo productos publicados
+									);
+
+									// Crear la consulta personalizada
+									$grupales = new WP_Query($args);
+
+									// Verificar si hay productos
+									if ($grupales->have_posts()) {
+										echo '<div class="custom-product-loop">';
+
+										// Recorrer los productos
+										while ($grupales->have_posts()) {
+											$grupales->the_post();
+
+											// Obtener el objeto del producto
+											$product_grupales = wc_get_product(get_the_ID()); ?>
+
+												<div class="swiper-slide">
+													<div class="tour-box th-ani gsap-cursor">
+														<div class="tour-box_img global-img">
+															<?php echo woocommerce_get_product_thumbnail('medium'); ?>
+															<!--img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/tour/tour_box_1.jpg" alt="image"-->
+														</div>
+														<div class="tour-content">
+															<h3 class="box-title"><a href="tour-details.html"><?php echo get_the_title(); ?></a></h3>
+															<div class="tour-rating"><i class="fa-light fa-calendar"></i>
+																<a href="<?php echo get_permalink(); ?>" class="woocommerce-review-link">Salida: <strong>01 al 08 de abril 2024</strong></a>
+															</div>
+															<h4 class="tour-box_price"><span class="currency"><?php echo $product_grupales->get_price_html(); ?></span>/x Persona</h4>
+															<div class="tour-action">
+																<span><i class="fa-light fa-clock"></i><?php echo get_field('dias'); ?> Días</span>
+																<a href="<?php echo get_permalink(); ?>" class="th-btn style4 th-icon">Ver info</a>
+															</div>
+														</div>
+													</div>
+												</div>											
+
+											<?php // Mostrar información del producto
+										}
+
+										echo '</div>';
+									} else {
+										// Mensaje si no hay productos
+										echo '<p>No hay productos disponibles en esta categoría.</p>';
+									}
+
+									// Restablecer consulta global
+									wp_reset_postdata();
+								}
+								?>
+
+
+
                                 <div class="swiper-slide">
                                     <div class="tour-box th-ani gsap-cursor">
                                         <div class="tour-box_img global-img">
