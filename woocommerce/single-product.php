@@ -130,10 +130,10 @@ tour Area
                                 </div>
                             <?php } ?>
 
-                            <?php $en_cuenta = get_field();
-                            if(!empty($en_cuenta){
+                            <?php $en_cuenta = get_field('tener_en_cuenta');
+                            if(!empty($en_cuenta)){
                                 echo '<blockquote><p>' . $en_cuenta . '</p><cite>A tener en cuenta / Importante</cite></blockquote>';
-                            })
+                            }
                             ?>
                             
 							
