@@ -106,15 +106,18 @@ tour Area
                             <h2 class="box-title">¿Qué incluye la propuesta?</h2>
 							 <div class="checklist style2">
                                     <ul>
-                                        <li>Aéreos a Rio de Janeiro de Aerolíneas Argentinas(Vuelo Directo). Incluye 1 equipaje de hasta 23kg en bodega</li>
-                                        <li>Traslados a Buzios, de llegada y salida.</li>
-                                        <li>Alojamiento: 7 noches en Hotel Buzios Espiritualidade</li>
-                                        <li>Media Pensión. Alimentación Vegetariana. Desayuno + Almuerzo (sin bebidas)</li>
-                                        <li>Clases de Yoga</li>
-                                        <li>Meditación en el Oratorio y en el Laberinto de David</li>
-                                        <li>Caminatas guiadas por la floresta a playas paradisíacas</li>
-										<li>Actividades en Pirámide Sinética</li>
-										<li>Kit Espiritual</li>
+                                        <?php
+                                        // Obtener los términos de la taxonomía "incluye" relacionados con el post actual.
+                                        $incluye_terms = get_the_terms(get_the_ID(), 'incluye');
+                                        
+                                        if ($incluye_terms && !is_wp_error($incluye_terms)) {
+                                            foreach ($incluye_terms as $term) {
+                                                echo '<li>' . esc_html($term->name) . '</li>';
+                                            }
+                                        } else {
+                                            echo '<li>No hay información disponible.</li>';
+                                        }
+                                        ?>
                                     </ul>
                                </div>
                             
@@ -122,8 +125,18 @@ tour Area
 							<h2 class="box-title">¿Qué no incluye?</h2>
 							 <div class="checklist style2">
                                     <ul>
-                                        <li>Asistencia al viajero (Consultar precios promocionales vigentes)</li>
-                                        <li>Comidas y Servicios no indicados en el itinerario.</li>
+                                        <?php
+                                        // Obtener los términos de la taxonomía "no-incluye" relacionados con el post actual.
+                                        $no_incluye_terms = get_the_terms(get_the_ID(), 'no-incluye');
+                                        
+                                        if ($no_incluye_terms && !is_wp_error($no_incluye_terms)) {
+                                            foreach ($no_incluye_terms as $term) {
+                                                echo '<li>' . esc_html($term->name) . '</li>';
+                                            }
+                                        } else {
+                                            echo '<li>No hay información disponible.</li>';
+                                        }
+                                        ?>
                                     </ul>
                                </div>
                             <blockquote>
