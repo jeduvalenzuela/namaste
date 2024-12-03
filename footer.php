@@ -32,11 +32,11 @@
                             <div class="menu-all-pages-container">
                                 <ul class="menu">
 
-                                    <li><a href="index.html">Inicio</a></li>
-                                    <li><a href="nospresentamos.html">Nos Presentamos</a></li>
-                                    <li><a href="service.html">Salidas Grupales</a></li>
-                                    <li><a href="contacto.html">Incoming</a></li>
-                                    <li><a href="contacto.html">Contaco</a></li>
+                                    <li><a href="<?php echo home_url( '/' ); ?>">Inicio</a></li>
+                                    <li><a href="<?php echo home_url( '/nosotros/' ); ?>">Nos Presentamos</a></li>
+                                    <li><a href="<?php echo home_url( '/categoria-producto/grupales/' ); ?>">Salidas Grupales</a></li>
+                                    <li><a href="<?php echo home_url( '/categoria-producto/incoming/' ); ?>">Incoming</a></li>
+                                    <li><a href="<?php echo home_url( '/contacto/' ); ?>">Contaco</a></li>
                                 </ul>
                             </div>
                         </div>
