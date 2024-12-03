@@ -191,82 +191,61 @@ Category Area
                 </div>
             </div>
             <div class="tab-content" id="nav-tabContent">
-                <div class="tab-pane fade active show" id="nav-step1" role="tabpanel">
-                    <div class="slider-area tour-slider slider-drag-wrap">
-                        <div class="swiper th-slider has-shadow" data-slider-options='{"breakpoints":{"0":{"slidesPerView":1},"576":{"slidesPerView":"1"},"768":{"slidesPerView":"2"},"992":{"slidesPerView":"3"},"1200":{"slidesPerView":"3"},"1400":{"slidesPerView":"4"}}}'>
-                            <div class="swiper-wrapper">
-
+				<div class="tab-pane fade active show" id="nav-step1" role="tabpanel">
+					<div class="slider-area tour-slider slider-drag-wrap">
+						<div class="swiper th-slider has-shadow" data-slider-options='{"breakpoints":{"0":{"slidesPerView":1},"576":{"slidesPerView":"1"},"768":{"slidesPerView":"2"},"992":{"slidesPerView":"3"},"1200":{"slidesPerView":"3"},"1400":{"slidesPerView":"4"}}}'>
+							<div class="swiper-wrapper">
 								<?php
-								// Asegúrate de que WooCommerce está activo
-								if (class_exists('WooCommerce')) {
+								// Consulta personalizada de productos de WooCommerce
+								$args = array(
+									'post_type' => 'product', // Tipo de post: productos
+									'posts_per_page' => 10, // Número de productos a mostrar
+									'product_cat' => 'grupales', // Slug de la categoría
+									'post_status' => 'publish' // Solo productos publicados
+								);
+								$loop = new WP_Query($args);
 
-									// Configurar los argumentos de la consulta
-									$args = array(
-										'post_type' => 'product', // Tipo de post: producto
-										'posts_per_page' => 8,  // Número de productos a mostrar (-1 para todos)
-										'product_cat' => 'grupales', // Slug de la categoría a filtrar
-										'post_status' => 'publish', // Solo productos publicados
-									);
-
-									// Crear la consulta personalizada
-									$grupales = new WP_Query($args);
-
-									// Verificar si hay productos
-									if ($grupales->have_posts()) {
-										echo '<div class="custom-product-loop">';
-
-										// Recorrer los productos
-										while ($grupales->have_posts()) {
-											$grupales->the_post();
-
-											// Obtener el objeto del producto
-											$product_grupales = wc_get_product(get_the_ID()); ?>
-
-												<div class="swiper-slide">
-													<div class="tour-box th-ani gsap-cursor">
-														<div class="tour-box_img global-img">
-															<?php echo woocommerce_get_product_thumbnail('medium'); ?>
-															<!--img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/tour/tour_box_1.jpg" alt="image"-->
-														</div>
-														<div class="tour-content">
-															<h3 class="box-title"><a href="tour-details.html"><?php echo get_the_title(); ?></a></h3>
-															<div class="tour-rating"><i class="fa-light fa-calendar"></i>
-																<a href="<?php echo get_permalink(); ?>" class="woocommerce-review-link">Salida: <strong>01 al 08 de abril 2024</strong></a>
-															</div>
-															<h4 class="tour-box_price"><span class="currency"><?php echo $product_grupales->get_price_html(); ?></span>/x Persona</h4>
-															<div class="tour-action">
-																<span><i class="fa-light fa-clock"></i><?php echo get_field('dias'); ?> Días</span>
-																<a href="<?php echo get_permalink(); ?>" class="th-btn style4 th-icon">Ver info</a>
-															</div>
-														</div>
-													</div>
-												</div>											
-
-											<?php // Mostrar información del producto
-										}
-
-										echo '</div>';
-									} else {
-										// Mensaje si no hay productos
-										echo '<p>No hay productos disponibles en esta categoría.</p>';
-									}
-
-									// Restablecer consulta global
-									wp_reset_postdata();
-								}
+								if ($loop->have_posts()) :
+									while ($loop->have_posts()) : $loop->the_post();
+										$product = wc_get_product(get_the_ID()); // Obtener producto actual
 								?>
+										<div class="swiper-slide">
+											<div class="tour-box th-ani gsap-cursor">
+												<div class="tour-box_img global-img">
+													<img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'medium'); ?>" alt="<?php echo get_the_title(); ?>">
+												</div>
+												<div class="tour-content">
+													<h3 class="box-title"><a href="<?php echo get_permalink(); ?>"><?php echo get_the_title(); ?></a></h3>
+													<div class="tour-rating"><i class="fa-light fa-calendar"></i>
+														<a href="<?php echo get_permalink(); ?>" class="woocommerce-review-link">
+															Salida: <strong><?php echo get_field('salidas', get_the_ID()); // Campo ACF para fecha de salida ?></strong>
+														</a>
+													</div>
+													<h4 class="tour-box_price"><span class="currency"><?php echo $product->get_price_html(); ?></span>/x Persona</h4>
+													<div class="tour-action">
+														<span><i class="fa-light fa-clock"></i><?php echo get_field('dias', get_the_ID()); // Campo ACF para duración ?></span>
+														<a href="<?php echo get_permalink(); ?>" class="th-btn style4 th-icon">Ver info</a>
+													</div>
+												</div>
+											</div>
+										</div>
+								<?php
+									endwhile;
+									wp_reset_postdata(); // Restablecer datos globales de consulta
+								else :
+									echo '<p>No hay productos disponibles en esta categoría.</p>';
+								endif;
+								?>
+							</div>
+							<div class="slider-pagination"></div>
+						</div>
+						<div class="destination-btn text-center mt-50">
+							<a href="salidasgrupales.html" class="th-btn style3 th-icon">Ver más Salidas Grupales</a>
+						</div>
+					</div>
+				</div>
+			</div>
 
-
-
-                                
-                            </div>
-
-                            <div class="slider-pagination"></div>
-                        </div>
-						<div class="destination-btn text-center mt-50"> <a href="salidasgrupales.html" class="th-btn style3 th-icon">Ver mas Salidas Grupales</a></div>
-                    </div>
-                </div>
-            </div>
         </div>
     </section><!--==============================
 Gallery Area  
