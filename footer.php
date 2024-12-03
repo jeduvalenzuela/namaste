@@ -13,7 +13,7 @@
                         <div class="widget footer-widget">
                             <div class="th-widget-about">
                                 <div class="about-logo">
-                                    <a href="home-travel.html"><img src="<?php echo get_stylesheet_directory_uri();?>assets/img/logo2.svg" alt="Tourm"></a>
+                                    <a href="home-travel.html"><img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/logo2.svg" alt="Tourm"></a>
                                 </div>
                                 <p class="about-text">En Namaste Viajes, creemos que cada aventura comienza con un sueño, y estamos aquí para hacerlo realidad.</p>
                                 <div class="th-social">
@@ -47,7 +47,7 @@
                             <div class="th-widget-contact">
                                 <div class="info-box_text">
                                     <div class="icon">
-                                        <img src="<?php echo get_stylesheet_directory_uri();?>assets/img/icon/phone.svg" alt="img">
+                                        <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/icon/phone.svg" alt="img">
                                     </div>
                                     <div class="details">
                                         <p><a href="tel:+01234567890" class="info-box_link">+54 9 2215 07-9520</a></p>
@@ -56,14 +56,14 @@
                                 </div>
                                 <div class="info-box_text">
                                     <div class="icon">
-                                        <img src="<?php echo get_stylesheet_directory_uri();?>assets/img/icon/envelope.svg" alt="img">
+                                        <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/icon/envelope.svg" alt="img">
                                     </div>
                                     <div class="details">
                                         <p><a href="mailto:support24@tourm.com" class="info-box_link">info@namaste.tur.ar</a></p>
                                     </div>
                                 </div>
                                 <div class="info-box_text">
-                                    <div class="icon"><img src="<?php echo get_stylesheet_directory_uri();?>assets/img/icon/location-dot.svg" alt="img"></div>
+                                    <div class="icon"><img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/icon/location-dot.svg" alt="img"></div>
                                     <div class="details">
                                         <p>La Plata - Buenos Aires Argentina</p>
                                     </div>
@@ -71,7 +71,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-xl-4"><div class="widget mb-0 footer-widget"><h4 class="widget_title">Recibí nuestras novedades</h4><div class="newsletter-widget"><div class="footer-search-contact mt-30"><form><input class="form-control" type="email" placeholder="Ingresa tu Email" wfd-id="id3"></form><div class="footer-btn mt-10"><button type="submit" class="th-btn btn-fw style1">Suscribirme<img src="<?php echo get_stylesheet_directory_uri();?>assets/img/icon/plane2.svg" alt=""></button></div></div></div></div>
+                    <div class="col-md-6 col-xl-4"><div class="widget mb-0 footer-widget"><h4 class="widget_title">Recibí nuestras novedades</h4><div class="newsletter-widget"><div class="footer-search-contact mt-30"><form><input class="form-control" type="email" placeholder="Ingresa tu Email" wfd-id="id3"></form><div class="footer-btn mt-10"><button type="submit" class="th-btn btn-fw style1">Suscribirme<img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/icon/plane2.svg" alt=""></button></div></div></div></div>
 					</div>
                 </div>
             </div>
@@ -92,7 +92,7 @@
             </div>
         </div>
         <div class="shape-mockup movingX d-none d-xxl-block" data-top="24%" data-left="5%">
-            <img src="<?php echo get_stylesheet_directory_uri();?>assets/img/shape/shape_8.png" alt="shape">
+            <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/shape/shape_8.png" alt="shape">
         </div>
     </footer>
 
@@ -188,36 +188,36 @@ modal Area
 ============================== -->
     <!-- Jquery -->
     <!-- Jquery -->
-    <script src="<?php echo get_stylesheet_directory_uri();?>assets/js/vendor/jquery-3.6.0.min.js"></script>
+    <script src="<?php echo get_stylesheet_directory_uri();?>/assets/js/vendor/jquery-3.6.0.min.js"></script>
     <!-- Swiper Js -->
-    <script src="<?php echo get_stylesheet_directory_uri();?>assets/js/swiper-bundle.min.js"></script>
+    <script src="<?php echo get_stylesheet_directory_uri();?>/assets/js/swiper-bundle.min.js"></script>
     <!-- Bootstrap -->
-    <script src="<?php echo get_stylesheet_directory_uri();?>assets/js/bootstrap.min.js"></script>
+    <script src="<?php echo get_stylesheet_directory_uri();?>/assets/js/bootstrap.min.js"></script>
     <!-- Magnific Popup -->
-    <script src="<?php echo get_stylesheet_directory_uri();?>assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="<?php echo get_stylesheet_directory_uri();?>/assets/js/jquery.magnific-popup.min.js"></script>
     <!-- Counter Up -->
-    <script src="<?php echo get_stylesheet_directory_uri();?>assets/js/jquery.counterup.min.js"></script>
+    <script src="<?php echo get_stylesheet_directory_uri();?>/assets/js/jquery.counterup.min.js"></script>
     <!-- Range Slider -->
-    <script src="<?php echo get_stylesheet_directory_uri();?>assets/js/jquery-ui.min.js"></script>
+    <script src="<?php echo get_stylesheet_directory_uri();?>/assets/js/jquery-ui.min.js"></script>
     <!-- imagesloaded -->
-    <script src="<?php echo get_stylesheet_directory_uri();?>assets/js/imagesloaded.pkgd.min.js"></script>
+    <script src="<?php echo get_stylesheet_directory_uri();?>/assets/js/imagesloaded.pkgd.min.js"></script>
     <!-- isotope -->
-    <script src="<?php echo get_stylesheet_directory_uri();?>assets/js/isotope.pkgd.min.js"></script>
+    <script src="<?php echo get_stylesheet_directory_uri();?>/assets/js/isotope.pkgd.min.js"></script>
     <!-- gsap -->
-    <script src="<?php echo get_stylesheet_directory_uri();?>assets/js/gsap.min.js"></script>
+    <script src="<?php echo get_stylesheet_directory_uri();?>/assets/js/gsap.min.js"></script>
 
     <!-- circle-progress -->
-    <script src="<?php echo get_stylesheet_directory_uri();?>assets/js/circle-progress.js"></script>
+    <script src="<?php echo get_stylesheet_directory_uri();?>/assets/js/circle-progress.js"></script>
 
-    <script src="<?php echo get_stylesheet_directory_uri();?>assets/js/matter.min.js"></script>
-    <script src="<?php echo get_stylesheet_directory_uri();?>assets/js/matterjs-custom.js"></script>
+    <script src="<?php echo get_stylesheet_directory_uri();?>/assets/js/matter.min.js"></script>
+    <script src="<?php echo get_stylesheet_directory_uri();?>/assets/js/matterjs-custom.js"></script>
 
 
     <!-- nice select -->
-    <script src="<?php echo get_stylesheet_directory_uri();?>assets/js/nice-select.min.js"></script>
+    <script src="<?php echo get_stylesheet_directory_uri();?>/assets/js/nice-select.min.js"></script>
 
     <!-- Main Js File -->
-    <script src="<?php echo get_stylesheet_directory_uri();?>assets/js/main.js"></script>
+    <script src="<?php echo get_stylesheet_directory_uri();?>/assets/js/main.js"></script>
 </body>
 
 </html>
