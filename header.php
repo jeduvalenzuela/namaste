@@ -106,12 +106,12 @@
             </div>
             <div class="th-mobile-menu">
                 <ul>
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="nospresentamos.html">Nos Presentamos</a></li>
+                    <li><a href="<?php echo home_url( '/' ); ?>">Inicio</a></li>
+                    <li><a href="<?php echo home_url( '/nosotros/' ); ?>">Nos Presentamos</a></li>
                     <li><a href="salidasgrupales.html">Salidas Grupales</a></li>
 					<li><a href="salidasgrupales.html">Incoming</a></li>
 					<li><a href="shop.html">Pedidos</a></li>
-                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="<?php home_url( '/contacto/ '); ?>">Contacto</a></li>
                 </ul>
             </div>
         </div>
