@@ -136,7 +136,7 @@ destination Area
                                 </h4>
                                 <span class="destination-subtitle">Todo listo<br>para disfrutar!</span>
                             </div>
-                            <a href="contacto.html" class="th-btn style2">Ver info</a>
+                            <a href="<?php echo home_url( '/categoria-producto/paquetes/' ); ?>" class="th-btn style2">Ver info</a>
                         </div>
                     </div>
                     <div class="destination-list-wrap">
@@ -147,7 +147,7 @@ destination Area
                                 </h4>
                                 <span class="destination-subtitle">Descubrí Argentina, <br>Brasil y Chile</span>
                             </div>
-                            <a href="contacto.html" class="th-btn style2">Ver info</a>
+                            <a href="<?php echo home_url( '/categoria-producto/incoming/' ); ?>" class="th-btn style2">Ver info</a>
                         </div>
                     </div>
                     <div class="destination-list-wrap active">
@@ -158,7 +158,7 @@ destination Area
                                 </h4>
                                 <span class="destination-subtitle">25 Listing</span>
                             </div>
-                            <a href="contacto.html" class="th-btn style2">Ver info</a>
+                            <a href="<?php echo home_url( '/categoria-producto/grupales/' ); ?>" class="th-btn style2">Ver info</a>
                         </div>
                     </div>
                 </div>
@@ -240,7 +240,7 @@ Category Area
 							<div class="slider-pagination"></div>
 						</div>
 						<div class="destination-btn text-center mt-50">
-							<a href="salidasgrupales.html" class="th-btn style3 th-icon">Ver más Salidas Grupales</a>
+							<a href="<?php echo home_url( '/categoria-producto/grupales/' ); ?>" class="th-btn style3 th-icon">Ver más Salidas Grupales</a>
 						</div>
 					</div>
 				</div>
