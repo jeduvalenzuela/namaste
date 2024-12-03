@@ -103,58 +103,47 @@ tour Area
 
                             <?php the_content(); ?>
                             
-                            <h2 class="box-title">¿Qué incluye la propuesta?</h2>
-							 <div class="checklist style2">
+                            <?php $incluye_terms = get_the_terms(get_the_ID(), 'incluye');
+                            if ($incluye_terms && !is_wp_error($incluye_terms)) { ?>
+
+                                <h2 class="box-title">¿Qué incluye la propuesta?</h2>
+							    <div class="checklist style2">
                                     <ul>
-                                        <?php
-                                        // Obtener los términos de la taxonomía "incluye" relacionados con el post actual.
-                                        $incluye_terms = get_the_terms(get_the_ID(), 'incluye');
-                                        
-                                        if ($incluye_terms && !is_wp_error($incluye_terms)) {
-                                            foreach ($incluye_terms as $term) {
-                                                echo '<li>' . esc_html($term->name) . '</li>';
-                                            }
-                                        } else {
-                                            echo '<li>No hay información disponible.</li>';
-                                        }
-                                        ?>
+                                        <?php foreach ($incluye_terms as $term) {
+                                            echo '<li>' . esc_html($term->name) . '</li>';
+                                        } ?>
                                     </ul>
                                </div>
-                            
+                            <?php } ?>
+
 							<br><br>
-							<h2 class="box-title">¿Qué no incluye?</h2>
-							 <div class="checklist style2">
+
+                            <?php $no_incluye_terms = get_the_terms(get_the_ID(), 'no-incluye');
+                            if ($no_incluye_terms && !is_wp_error($no_incluye_terms)) { ?>
+                                <h2 class="box-title">¿Qué no incluye?</h2>
+                                <div class="checklist style2">
                                     <ul>
-                                        <?php
-                                        // Obtener los términos de la taxonomía "no-incluye" relacionados con el post actual.
-                                        $no_incluye_terms = get_the_terms(get_the_ID(), 'no-incluye');
-                                        
-                                        if ($no_incluye_terms && !is_wp_error($no_incluye_terms)) {
-                                            foreach ($no_incluye_terms as $term) {
-                                                echo '<li>' . esc_html($term->name) . '</li>';
-                                            }
-                                        } else {
-                                            echo '<li>No hay información disponible.</li>';
-                                        }
-                                        ?>
+                                        <?php foreach ($no_incluye_terms as $term) {
+                                            echo '<li>' . esc_html($term->name) . '</li>';
+                                        } ?>
                                     </ul>
-                               </div>
-                            <blockquote>
-                                <p>Join your neighbors for an eco-friendly social gathering as the day comes to a
-                                    conclusion. Savor refreshments made with sustainable ingredients and have discussions on
-                                    sustainable life. By fostering a sense of community.</p>
-                                <cite>A tener en cuenta / Importante</cite>
-                            </blockquote>
+                                </div>
+                            <?php } ?>
+
+                            <?php $en_cuenta = get_field();
+                            if(!empty($en_cuenta){
+                                echo '<blockquote><p>' . $en_cuenta . '</p><cite>A tener en cuenta / Importante</cite></blockquote>';
+                            })
+                            ?>
+                            
 							
-                            <p class="blog-text mb-35">Dinning: Prepare a dinner using fresh ingredients from your own garden
-                                or the local CSA program. The energy-efficient appliances in your kitchen make cooking a
-                                breeze while minimizing your overall energy consumption. Share a meal with neighbors, The
-                                quiet night offers a peaceful ambiance, reinforcing the community's commitment to a
-                                sustainable, low-impact lifestyle.</p>
-                            <p class="blog-text mb-35">
-                                Living sustainably at Realar Residence is more than a choice; it's an immersive experience
-                                that shapes every moment of your day. From the moment you wake up in your solar-powered home
-                                to the evening gatherings with like-minded neighbors</p>
+                            <?php $second_paragraph = get_field('segundo_parrafo');
+                            if(!empty($second_paragraph)){
+                                echo $second_paragraph;
+                            }
+                            ?>
+                                    
+
                         <div class="product-about">
 						<!-- <p class="price">Valor por <i class="far fa-user"> : u$d 1.285<del>u$d1.599</del></i></p> -->
                         <div class="actions">
