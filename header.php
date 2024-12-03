@@ -108,9 +108,8 @@
                 <ul>
                     <li><a href="<?php echo home_url( '/' ); ?>">Inicio</a></li>
                     <li><a href="<?php echo home_url( '/nosotros/' ); ?>">Nos Presentamos</a></li>
-                    <li><a href="salidasgrupales.html">Salidas Grupales</a></li>
-					<li><a href="salidasgrupales.html">Incoming</a></li>
-					<li><a href="shop.html">Pedidos</a></li>
+                    <li><a href="<?php echo home_url( '/categoria-producto/grupales/' ); ?>">Salidas Grupales</a></li>
+					<li><a href="<?php echo home_url( '/categoria-producto/inicoming/' ); ?>">Incoming</a></li>
                     <li><a href="<?php home_url( '/contacto/ '); ?>">Contacto</a></li>
                 </ul>
             </div>
@@ -169,11 +168,11 @@ Header Area
                         <div class="col-auto">
                             <nav class="main-menu d-none d-xl-inline-block">
                                 <ul>
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="nospresentamos.html">Nos Presentamos</a></li>
-                    <li><a href="salidasgrupales.html">Salidas Grupales</a></li>
-					<li><a href="salidasgrupales.html">Incoming</a></li>
-                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="<?php echo home_url( '/' ); ?>">Inicio</a></li>
+                    <li><a href="<?php echo home_url( '/nosotros/' ); ?>">Nos Presentamos</a></li>
+                    <li><a href="<?php echo home_url( '/categoria-producto/grupales/' ); ?>">Salidas Grupales</a></li>
+					<li><a href="<?php echo home_url( '/categoria-producto/incoming/' ); ?>">Incoming</a></li>
+                    <li><a href="<?php echo home_url( '/constacto/' ); ?>">Contacto</a></li>
                 </ul>
                             </nav>
                             <button type="button" class="th-menu-toggle d-block d-xl-none"><i class="far fa-bars"></i></button>
