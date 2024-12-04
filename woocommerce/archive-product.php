@@ -10,7 +10,12 @@
                 <h1 class="breadcumb-title" style="color: darkcyan">Salidas Grupales</h1>
             </div>
         </div>
-    </div><!--==============================
+    </div>
+    
+    
+    
+    
+    <!--==============================
 Product Area
 ==============================-->
     <section class="space">
@@ -20,7 +25,41 @@ Product Area
                     <div class="tab-content" id="nav-tabContent">
                         <div class="tab-pane fade active show" id="tab-grid" role="tabpanel" aria-labelledby="tab-destination-grid">
                             <div class="row gy-24 gx-24">
-                                <div class="col-md-6">
+
+                                <?php /**
+                                 * Hook: woocommerce_before_shop_loop.
+                                 *
+                                 * Agrega elementos antes del loop, como controles de orden o filtros.
+                                 */
+                                do_action('woocommerce_before_shop_loop');
+
+                                woocommerce_product_loop_start();
+
+                                if (wc_get_loop_prop('total')) {
+                                    while (have_posts()) {
+                                        the_post();
+
+                                        /**
+                                         * Hook: woocommerce_shop_loop.
+                                         *
+                                         * Agrega clases o atributos al loop de productos.
+                                         */
+                                        do_action('woocommerce_shop_loop');
+
+                                        wc_get_template_part('content', 'product'); // Carga la plantilla del producto individual.
+                                    }
+                                }
+
+                                woocommerce_product_loop_end();
+
+                                /**
+                                 * Hook: woocommerce_after_shop_loop.
+                                 *
+                                 * Agrega elementos después del loop, como paginación.
+                                 */
+                                do_action('woocommerce_after_shop_loop'); ?>
+
+                                <!--div class="col-md-6">
                                     <div class="tour-box th-ani">
                                         <div class="tour-box_img global-img">
                                             <a href="detalle-viaje.html" class="woocommerce-review-link"><img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/tour/tour_box_1.jpg" alt="image"></a>
@@ -113,7 +152,7 @@ Product Area
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div-->
                             </div>
                         </div>
                     </div>
