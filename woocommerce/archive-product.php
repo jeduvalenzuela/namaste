@@ -26,12 +26,7 @@ Product Area
                         <div class="tab-pane fade active show" id="tab-grid" role="tabpanel" aria-labelledby="tab-destination-grid">
                             <div class="row gy-24 gx-24">
 
-                                <?php /**
-                                 * Hook: woocommerce_before_shop_loop.
-                                 *
-                                 * Agrega elementos antes del loop, como controles de orden o filtros.
-                                 */
-                                do_action('woocommerce_before_shop_loop');
+                                <?php
 
                                 woocommerce_product_loop_start();
 
@@ -52,12 +47,7 @@ Product Area
 
                                 woocommerce_product_loop_end();
 
-                                /**
-                                 * Hook: woocommerce_after_shop_loop.
-                                 *
-                                 * Agrega elementos después del loop, como paginación.
-                                 */
-                                do_action('woocommerce_after_shop_loop'); ?>
+                                ?>
 
                                 <!--div class="col-md-6">
                                     <div class="tour-box th-ani">
