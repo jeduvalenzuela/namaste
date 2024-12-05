@@ -93,63 +93,7 @@ tour Area
                             <button data-slider-next="#tourSlider4" class="slider-arrow style3 slider-next"><img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/icon/hero-arrow-right.svg" alt=""></button>
                         </div>
 
-
-
-
-                        <div class="slider-area tour-slider1">
-                            <?php
-                            global $product;
-
-                            // Obtener el ID de la imagen destacada
-                            $featured_image_id = $product->get_image_id();
-
-                            // Obtener las imágenes de la galería
-                            $gallery_image_ids = $product->get_gallery_image_ids();
-
-                            // Combinar la imagen destacada con la galería
-                            $all_image_ids = array_merge([$featured_image_id], $gallery_image_ids);
-                            ?>
-
-                            <div class="swiper th-slider mb-4" id="tourSlider4">
-                                <div class="swiper-wrapper">
-                                    <?php foreach ($all_image_ids as $image_id): ?>
-                                        <?php
-                                        // Obtener URL de la imagen
-                                        $image_url = wp_get_attachment_image_url($image_id, 'full');
-                                        ?>
-                                        <div class="swiper-slide">
-                                            <div class="tour-slider-img">
-                                                <img src="<?php echo esc_url($image_url); ?>" alt="<?php echo get_post_meta($image_id, '_wp_attachment_image_alt', true); ?>">
-                                            </div>
-                                        </div>
-                                    <?php endforeach; ?>
-                                </div>
-                            </div>
-
-                            <div class="swiper th-slider tour-thumb-slider">
-                                <div class="swiper-wrapper">
-                                    <?php foreach ($all_image_ids as $image_id): ?>
-                                        <?php
-                                        // Obtener URL de la miniatura
-                                        $thumb_url = wp_get_attachment_image_url($image_id, 'thumbnail');
-                                        ?>
-                                        <div class="swiper-slide">
-                                            <div class="tour-slider-img">
-                                                <img src="<?php echo esc_url($thumb_url); ?>" alt="<?php echo get_post_meta($image_id, '_wp_attachment_image_alt', true); ?>">
-                                            </div>
-                                        </div>
-                                    <?php endforeach; ?>
-                                </div>
-                            </div>
-
-                            <button data-slider-prev="#tourSlider4" class="slider-arrow style3 slider-prev">
-                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/icon/hero-arrow-left.svg" alt="">
-                            </button>
-                            <button data-slider-next="#tourSlider4" class="slider-arrow style3 slider-next">
-                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/icon/hero-arrow-right.svg" alt="">
-                            </button>
-                        </div>
-
+                        
 						<br>
                         <div class="product-about">
                         	<h2 class="product-title"><?php the_title(); ?></h2>
@@ -309,22 +253,4 @@ tour Area
         </div>
     </section>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const mainSlider = new Swiper('#tourSlider4', {
-                effect: 'fade',
-                loop: true,
-                autoplay: {
-                    delay: 3000,
-                },
-                thumbs: {
-                    swiper: new Swiper('.tour-thumb-slider', {
-                        slidesPerView: 3,
-                        spaceBetween: 10,
-                        loop: true,
-                    }),
-                },
-            });
-        });
-    </script>
 <?php get_footer(); ?>
