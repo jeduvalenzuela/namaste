@@ -190,38 +190,26 @@ tour Area
                 </div>
                 <div class="col-xxl-4 col-lg-5">
                     <aside class="sidebar-area style2">
-						<div class="widget widget_search  ">
-                            <form class="search-form">
-                                <input type="text" placeholder="Search">
+                        <div class="widget widget_search">
+                            <form class="search-form" role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>">
+                                <input type="text" placeholder="Buscar" name="s">
+                                <input type="hidden" name="post_type" value="product">
                                 <button type="submit"><i class="far fa-search"></i></button>
                             </form>
                         </div>
 
-                        <div class="widget widget_categories  ">
-                            <h3 class="widget_title">Categorias</h3>
+                        <div class="widget widget_categories">
+                            <h3 class="widget_title">Categorías</h3>
                             <ul>
-                                <li>
-                                    <a href="blog.html"><img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/theme-img/map.svg" alt="">City Tour</a>
-                                    <span>(8)</span>
-                                </li>
-                                <li>
-                                    <a href="blog.html"><img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/theme-img/map.svg" alt="">Playas y Relax</a>
-                                    <span>(6)</span>
-                                </li>
-                                <li>
-                                    <a href="blog.html"><img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/theme-img/map.svg" alt="">Viajes de Aventura</a>
-                                    <span>(2)</span>
-                                </li>
-                                <li>
-                                    <a href="blog.html"><img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/theme-img/map.svg" alt="">Nuevas Culturas</a>
-                                    <span>(9)</span>
-                                </li>
-                                <li>
-                                    <a href="blog.html"><img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/theme-img/map.svg" alt="">Turismo religioso</a>
-                                    <span>(10)</span>
-                                </li>
+                                <?php
+                                $categories = get_terms('product_cat');
+                                foreach ($categories as $category) {
+                                    echo '<li><a href="' . get_term_link($category->term_id) . '"><img src="' . get_stylesheet_directory_uri() . '/assets/img/theme-img/map.svg" alt="">' . $category->name . '</a><span>(' . $category->count . ')</span></li>';
+                                }
+                                ?>
                             </ul>
                         </div>
+                        
                         <div class="widget widget_offer  " data-bg-src="<?php echo get_stylesheet_directory_uri();?>/assets/img/bg/widget_bg_1.jpg">
                             <div class="offer-banner">
                                 <div class="offer">
