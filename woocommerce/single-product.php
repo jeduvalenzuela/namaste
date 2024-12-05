@@ -26,7 +26,7 @@ tour Area
 
 
 
-                        <div class="slider-area tour-slider1">
+                        <!-- <div class="slider-area tour-slider1">
                             <?php
                             global $product;
 
@@ -79,7 +79,7 @@ tour Area
                                 <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/icon/hero-arrow-right.svg" alt="">
                             </button>
                         </div>
-
+                                    -->
 						<br>
                         <div class="product-about">
                         	<h2 class="product-title"><?php the_title(); ?></h2>
