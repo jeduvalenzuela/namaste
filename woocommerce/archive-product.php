@@ -10,7 +10,15 @@ get_header('shop');
 <div class="breadcumb-wrapper" data-bg-src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/bg/breadcumb-bg2.jpg">
     <div class="container">
         <div class="breadcumb-content">
-            <h1 class="breadcumb-title" style="color: darkcyan">Salidas Grupales</h1>
+            <h1 class="breadcumb-title" style="color: darkcyan">
+                <?php
+                if (is_product_category()) {
+                    single_cat_title();
+                } else {
+                    echo 'Tienda';
+                }
+                ?>
+            </h1>
         </div>
     </div>
 </div>
