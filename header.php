@@ -172,7 +172,7 @@ Header Area
                     <li><a href="<?php echo home_url( '/nosotros/' ); ?>">Nos Presentamos</a></li>
                     <li><a href="<?php echo home_url( '/categoria-producto/grupales/' ); ?>">Salidas Grupales</a></li>
 					<li><a href="<?php echo home_url( '/categoria-producto/incoming/' ); ?>">Incoming</a></li>
-                    <li><a href="<?php echo home_url( '/constacto/' ); ?>">Contacto</a></li>
+                    <li><a href="<?php echo home_url( '/contacto/' ); ?>">Contacto</a></li>
                 </ul>
                             </nav>
                             <button type="button" class="th-menu-toggle d-block d-xl-none"><i class="far fa-bars"></i></button>
