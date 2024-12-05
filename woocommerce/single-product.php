@@ -209,7 +209,7 @@ tour Area
                                 ?>
                             </ul>
                         </div>
-                        
+
                         <div class="widget widget_offer  " data-bg-src="<?php echo get_stylesheet_directory_uri();?>/assets/img/bg/widget_bg_1.jpg">
                             <div class="offer-banner">
                                 <div class="offer">
@@ -221,7 +221,7 @@ tour Area
                                         <h6 class="offer-title">Llamado a la acción</h6>
                                         <a class="offter-num" href="+256214203215">+123 4567 8912</a>
                                     </div>
-                                    <a href="contacto.html" class="th-btn style2 th-icon">Comunicarme</a>
+                                    <a href="<?php echo home_url( '/contacto/' ); ?>" class="th-btn style2 th-icon">Comunicarme</a>
                                 </div>
                             </div>
                         </div>
