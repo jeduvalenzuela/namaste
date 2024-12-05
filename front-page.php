@@ -132,7 +132,7 @@ destination Area
                         <div class="destination-list" data-bg-src="<?php echo get_stylesheet_directory_uri();?>/assets/img/destination/destination_2_2.jpg">
                             <div class="destination-content">
                                 <h4 class="box-title">
-                                    <a href="detalle-viaje.html">Paquetes</a>
+                                    <a href="<?php echo home_url( '/categoria-producto/paquetes/' ); ?>">Paquetes</a>
                                 </h4>
                                 <span class="destination-subtitle">Todo listo<br>para disfrutar!</span>
                             </div>
@@ -143,7 +143,7 @@ destination Area
                         <div class="destination-list" data-bg-src="<?php echo get_stylesheet_directory_uri();?>/assets/img/destination/destination_2_3.jpg">
                             <div class="destination-content">
                                 <h4 class="box-title">
-                                    <a href="detalle-viaje.html">Incoming</a>
+                                    <a href="<?php echo home_url( '/categoria-producto/incoming/' ); ?>">Incoming</a>
                                 </h4>
                                 <span class="destination-subtitle">Descubrí Argentina, <br>Brasil y Chile</span>
                             </div>
@@ -154,7 +154,7 @@ destination Area
                         <div class="destination-list" data-bg-src="<?php echo get_stylesheet_directory_uri();?>/assets/img/destination/destination_2_4.jpg">
                             <div class="destination-content">
                                 <h4 class="box-title">
-                                    <a href="detalle-viaje.html">Salidas Grupales</a>
+                                    <a href="<?php echo home_url( '/categoria-producto/grupales/' ); ?>">Salidas Grupales</a>
                                 </h4>
                                 <span class="destination-subtitle">25 Listing</span>
                             </div>
