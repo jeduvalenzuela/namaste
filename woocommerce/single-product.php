@@ -173,29 +173,29 @@ tour Area
                         </div>
                         <script>
                             document.addEventListener('DOMContentLoaded', function () {
-                            const plusBtns = document.querySelectorAll('.quantity-plus');
-                            const minusBtns = document.querySelectorAll('.quantity-minus');
+                                const plusBtns = document.querySelectorAll('.quantity-plus');
+                                const minusBtns = document.querySelectorAll('.quantity-minus');
 
-                            plusBtns.forEach(btn => {
-                                btn.addEventListener('click', function (e) {
-                                    e.preventDefault();
-                                    const qtyInput = this.parentElement.querySelector('.qty-input');
-                                    if (qtyInput) {
-                                        qtyInput.stepUp();
-                                    }
+                                plusBtns.forEach(btn => {
+                                    btn.addEventListener('click', function (e) {
+                                        e.preventDefault();
+                                        const qtyInput = this.parentElement.querySelector('.qty-input');
+                                        if (qtyInput) {
+                                            qtyInput.stepUp();
+                                        }
+                                    });
+                                });
+
+                                minusBtns.forEach(btn => {
+                                    btn.addEventListener('click', function (e) {
+                                        e.preventDefault();
+                                        const qtyInput = this.parentElement.querySelector('.qty-input');
+                                        if (qtyInput && qtyInput.value > 1) {
+                                            qtyInput.stepDown();
+                                        }
+                                    });
                                 });
                             });
-
-                            minusBtns.forEach(btn => {
-                                btn.addEventListener('click', function (e) {
-                                    e.preventDefault();
-                                    const qtyInput = this.parentElement.querySelector('.qty-input');
-                                    if (qtyInput && qtyInput.value > 1) {
-                                        qtyInput.stepDown();
-                                    }
-                                });
-                            });
-                        });
 
                         </script>
 
