@@ -157,6 +157,48 @@ tour Area
                             <button class="th-btn">Agregar a presupuesto</button>
                             <a href="#" class="icon-btn"><i class="far fa-heart"></i></a>
                         </div>
+
+                        <div class="actions">
+                            <form class="cart" method="post" enctype="multipart/form-data">
+                                <div class="quantity">
+                                    <input type="number" id="quantity" class="qty-input" step="1" min="1" max="100" name="quantity" value="1" title="Qty">
+                                    <button type="button" class="quantity-plus qty-btn"><i class="far fa-chevron-up"></i></button>
+                                    <button type="button" class="quantity-minus qty-btn"><i class="far fa-chevron-down"></i></button>
+                                </div>
+                                <button type="submit" name="add-to-cart" value="<?php echo get_the_ID(); ?>" class="th-btn">
+                                    <?php esc_html_e( 'Agregar al carrito', 'woocommerce' ); ?>
+                                </button>
+                            </form>
+                            <a href="#" class="icon-btn"><i class="far fa-heart"></i></a>
+                        </div>
+                        <script>
+                            document.addEventListener('DOMContentLoaded', function () {
+                            const plusBtns = document.querySelectorAll('.quantity-plus');
+                            const minusBtns = document.querySelectorAll('.quantity-minus');
+
+                            plusBtns.forEach(btn => {
+                                btn.addEventListener('click', function (e) {
+                                    e.preventDefault();
+                                    const qtyInput = this.parentElement.querySelector('.qty-input');
+                                    if (qtyInput) {
+                                        qtyInput.stepUp();
+                                    }
+                                });
+                            });
+
+                            minusBtns.forEach(btn => {
+                                btn.addEventListener('click', function (e) {
+                                    e.preventDefault();
+                                    const qtyInput = this.parentElement.querySelector('.qty-input');
+                                    if (qtyInput && qtyInput.value > 1) {
+                                        qtyInput.stepDown();
+                                    }
+                                });
+                            });
+                        });
+
+                        </script>
+
 						</div>
 						</div>
 						
