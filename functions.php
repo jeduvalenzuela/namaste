@@ -209,43 +209,7 @@ add_action( 'woocommerce_cart_updated', function() {
 } );
 
 
-//Procesar el presupuesto
-add_action('wp_ajax_registrar_presupuesto', 'registrar_presupuesto');
-add_action('wp_ajax_nopriv_registrar_presupuesto', 'registrar_presupuesto');
 
-function registrar_presupuesto() {
-    check_ajax_referer('solicitar_presupuesto_nonce', 'nonce');
-
-    if (!WC()->cart->get_cart_contents_count()) {
-        wp_send_json_error('El carrito está vacío.');
-    }
-
-    $order = wc_create_order();
-
-    foreach (WC()->cart->get_cart() as $cart_item) {
-        $product = $cart_item['data'];
-        $quantity = $cart_item['quantity'];
-
-        $order->add_product($product, $quantity);
-    }
-
-    // Añadir datos del cliente (opcional)
-    $order->set_address([
-        'first_name' => 'Cliente',
-        'last_name'  => 'Anonimo',
-        'email'      => 'cliente@ejemplo.com',
-    ], 'billing');
-
-    // Guardar la orden
-    $order->calculate_totals();
-    $order->update_status('on-hold', 'Presupuesto solicitado desde el carrito.');
-
-    // Vaciar el carrito
-    WC()->cart->empty_cart();
-
-    // Enviar respuesta AJAX con redirección
-    wp_send_json_success(['redirect_url' => home_url('/gracias-por-tu-solicitud')]);
-}
 
 // Procesar el formulario de registro personalizado
 function custom_register_user() {
@@ -302,3 +266,47 @@ function custom_register_user() {
 add_action('admin_post_nopriv_custom_register_user', 'custom_register_user');
 add_action('admin_post_custom_register_user', 'custom_register_user');
 
+
+// Crear una orden de WooCommerce sin pasar por checkout
+function custom_create_order_from_cart() {
+    if (!is_admin() && is_user_logged_in() && !empty(WC()->cart->get_cart())) {
+
+        // Obtener el usuario actual
+        $user_id = get_current_user_id();
+        $user = get_user_by('id', $user_id);
+
+        // Crear el pedido
+        $order = wc_create_order();
+
+        // Agregar los productos del carrito al pedido
+        foreach (WC()->cart->get_cart() as $cart_item_key => $cart_item) {
+            $product_id = $cart_item['product_id'];
+            $quantity = $cart_item['quantity'];
+
+            // Agregar el producto al pedido
+            $order->add_product( wc_get_product($product_id), $quantity );
+        }
+
+        // Agregar el método de envío (puedes agregar un método de envío específico aquí si es necesario)
+        $order->set_shipping_total(0); // En este caso, sin costo de envío
+        $order->set_total( WC()->cart->get_total('edit') ); // El total del carrito
+
+        // Establecer el estado de la orden (puedes establecer el estado como "pendiente" o "procesando")
+        $order->update_status('pending'); // Estado de la orden
+
+        // Asignar al usuario actual como cliente
+        $order->set_customer_id($user_id);
+        
+        // Guardar la orden
+        $order->save();
+
+        // Vaciar el carrito después de crear la orden
+        WC()->cart->empty_cart();
+
+        // Redirigir a una página de agradecimiento o mostrar un mensaje
+        wp_redirect( home_url('/presupuesto-confirmado') ); // Redirigir a una página de confirmación
+        exit;
+    } else {
+        wp_die('El carrito está vacío o no estás logueado.');
+    }
+}
