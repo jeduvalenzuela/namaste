@@ -21,7 +21,9 @@ Cart Area
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) :
+                        <?php 
+                        do_action( 'woocommerce_before_cart_contents' );
+                        foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) :
                             $product = $cart_item['data'];
                             $product_permalink = $product->is_visible() ? $product->get_permalink( $cart_item ) : '';
                             ?>
@@ -68,12 +70,22 @@ Cart Area
                                     ); ?>
                                 </td>
                             </tr>
-                        <?php endforeach; ?>
+                        <?php 
+                        endforeach; 
+                        do_action( 'woocommerce_cart_contents' );
+                        ?>
 
-                        <tr>
+<tr>
                             <td colspan="6" class="actions">
-                                <button type="submit" class="th-btn" name="update_cart"><?php esc_html_e( 'Actualizar carrito', 'woocommerce' ); ?></button>
-                                <?php //wp_nonce_field( 'woocommerce-cart' ); // Agrega el nonce de seguridad ?>
+                                <?php if ( wc_coupons_enabled() ) { ?>
+                                    <div class="coupon">
+                                        <label for="coupon_code"><?php esc_html_e( 'Coupon:', 'woocommerce' ); ?></label>
+                                        <input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="<?php esc_attr_e( 'Coupon code', 'woocommerce' ); ?>" />
+                                        <button type="submit" class="button" name="apply_coupon"><?php esc_attr_e( 'Apply coupon', 'woocommerce' ); ?></button>
+                                    </div>
+                                <?php } ?>
+                                <button type="submit" class="button" name="update_cart" value="<?php esc_attr_e( 'Update cart', 'woocommerce' ); ?>"><?php esc_html_e( 'Update cart', 'woocommerce' ); ?></button>
+                                <?php wp_nonce_field( 'woocommerce-cart', 'woocommerce-cart-nonce' ); ?>
                             </td>
                         </tr>
                     </tbody>
