@@ -177,3 +177,10 @@ function my_enqueue_scripts() {
     ));
 }
 add_action('wp_enqueue_scripts', 'my_enqueue_scripts');
+
+function enqueue_custom_slider_script() {
+    if (is_product()) {
+        wp_enqueue_script('custom-slider-script', get_stylesheet_directory_uri() . '/woocommmerce/js/custom-slider.js', array('jquery'), null, true);
+    }
+}
+add_action('wp_enqueue_scripts', 'enqueue_custom_slider_script');
