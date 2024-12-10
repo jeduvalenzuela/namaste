@@ -122,19 +122,6 @@ Cart Area
                                     <form action="#" method="post" id="shipping-form">
                                         <a href="#" class="shipping-calculator-button">Complete los datos</a>
                                         <div class="shipping-calculator-form">
-                                            <?php
-                                                // Obtener países
-                                                $countries = WC()->countries->get_countries();
-
-                                                // Mostrar países en el formulario
-                                                echo '<select name="country" id="country" class="form-select">';
-                                                echo '<option value="">País</option>';
-                                                foreach ($countries as $code => $name) {
-                                                    echo '<option value="' . esc_attr($code) . '">' . esc_html($name) . '</option>';
-                                                }
-                                                echo '</select>';
-
-                                            ?>
                                             <p class="form-row">
                                                 <input type="text" class="form-control" name="city" placeholder="Ciudad*" required>
                                             </p>
