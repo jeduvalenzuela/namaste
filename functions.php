@@ -267,49 +267,46 @@ add_action('admin_post_nopriv_custom_register_user', 'custom_register_user');
 add_action('admin_post_custom_register_user', 'custom_register_user');
 
 
-// Crear una orden de WooCommerce sin pasar por checkout
-function custom_create_order_from_cart() {
-    if (!is_admin() && is_user_logged_in() && !empty(WC()->cart->get_cart())) {
-
-        // Obtener el usuario actual
-        $user_id = get_current_user_id();
-        $user = get_user_by('id', $user_id);
-
-        // Crear el pedido
-        $order = wc_create_order();
-
-        // Agregar los productos del carrito al pedido
-        foreach (WC()->cart->get_cart() as $cart_item_key => $cart_item) {
-            $product_id = $cart_item['product_id'];
-            $quantity = $cart_item['quantity'];
-
-            // Agregar el producto al pedido
-            $order->add_product( wc_get_product($product_id), $quantity );
-        }
-
-        // Agregar el método de envío (puedes agregar un método de envío específico aquí si es necesario)
-        $order->set_shipping_total(0); // En este caso, sin costo de envío
-        $order->set_total( WC()->cart->get_total('edit') ); // El total del carrito
-
-        // Establecer el estado de la orden (puedes establecer el estado como "pendiente" o "procesando")
-        $order->update_status('pending'); // Estado de la orden
-
-        // Asignar al usuario actual como cliente
-        $order->set_customer_id($user_id);
-        
-        // Guardar la orden
-        $order->save();
-
-        // Vaciar el carrito después de crear la orden
-        WC()->cart->empty_cart();
-
-        // Redirigir a una página de agradecimiento o mostrar un mensaje
-        wp_redirect( home_url('/presupuesto-confirmado') ); // Redirigir a una página de confirmación
-        exit;
-    } else {
-        wp_die('El carrito está vacío o no estás logueado.');
+// Acción AJAX para crear presupuesto
+function custom_create_presupuesto() {
+    // Verificar la seguridad del nonce
+    if ( !isset($_POST['security']) || !wp_verify_nonce( $_POST['security'], 'cart_nonce' ) ) {
+        wp_send_json_error(array('message' => 'Nonce de seguridad no válido'));
+        return;
     }
+
+    // Verificar si el carrito está vacío
+    if ( WC()->cart->is_empty() ) {
+        wp_send_json_error(array('message' => 'El carrito está vacío.'));
+    }
+
+    // Crear la orden
+    $order = wc_create_order();
+
+    // Agregar productos del carrito al pedido
+    foreach (WC()->cart->get_cart() as $cart_item_key => $cart_item) {
+        $product_id = $cart_item['product_id'];
+        $quantity = $cart_item['quantity'];
+
+        // Agregar el producto al pedido
+        $order->add_product( wc_get_product($product_id), $quantity );
+    }
+
+    // Establecer el estado de la orden (pendiente, por ejemplo)
+    $order->update_status('pending'); 
+
+    // Vaciar el carrito
+    WC()->cart->empty_cart();
+
+    // Redirigir a una página de agradecimiento o confirmación
+    $redirect_url = home_url('/presupuesto-confirmado'); // Redirige a la página de confirmación
+
+    // Enviar respuesta exitosa con la URL de redirección
+    wp_send_json_success(array('redirect_url' => $redirect_url));
 }
-// Registrar la acción para crear la orden sin pasar por checkout
-add_action('admin_post_nopriv_create_order_from_cart', 'custom_create_order_from_cart');
-add_action('admin_post_create_order_from_cart', 'custom_create_order_from_cart');
+
+// Registrar la acción AJAX para usuarios logueados
+add_action('wp_ajax_crear_presupuesto', 'custom_create_presupuesto');
+// Registrar la acción AJAX para usuarios no logueados (si es necesario)
+add_action('wp_ajax_nopriv_crear_presupuesto', 'custom_create_presupuesto');
+

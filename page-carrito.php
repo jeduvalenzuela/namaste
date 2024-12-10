@@ -164,10 +164,56 @@ Cart Area
                     <div class="wc-proceed-to-checkout mb-30">
                         <?php if (is_user_logged_in()) : ?>
                             <button type="button" class="th-btn enviar">Solicitar Presupuesto</button>
+
+                            <script>
+                                jQuery(document).ready(function($) {
+                                    $('#solicitar-presupuesto').on('click', function() {
+                                        // Verificar si el carrito no está vacío
+                                        var carrito_vacio = false;
+                                        if (typeof wc_cart_params === 'undefined' || !wc_cart_params.cart_hash_key) {
+                                            carrito_vacio = true;
+                                        }
+
+                                        if (carrito_vacio) {
+                                            alert('Tu carrito está vacío.');
+                                            return;
+                                        }
+
+                                        // Si el carrito no está vacío, enviamos la solicitud AJAX
+                                        $.ajax({
+                                            url: wc_cart_params.ajax_url, // URL de la solicitud AJAX de WooCommerce
+                                            type: 'POST',
+                                            data: {
+                                                action: 'crear_presupuesto', // Acción personalizada para crear presupuesto
+                                                security: wc_cart_params.cart_nonce, // Seguridad AJAX
+                                            },
+                                            success: function(response) {
+                                                if (response.success) {
+                                                    window.location.href = response.redirect_url; // Redirigir al usuario después de crear la orden
+                                                } else {
+                                                    alert('Hubo un problema al generar tu presupuesto. Intenta de nuevo.');
+                                                }
+                                            },
+                                            error: function() {
+                                                alert('Error en la solicitud AJAX.');
+                                            }
+                                        });
+                                    });
+                                });
+                                <script type="text/javascript">
+                                    var wc_cart_params = <?php echo json_encode( array(
+                                        'ajax_url' => admin_url( 'admin-ajax.php' ),
+                                        'cart_nonce' => wp_create_nonce( 'cart_nonce' ),
+                                    ) ); ?>;
+                                </script>
+
+                            </script>
                         <?php else : ?>
                             <a href="#login-form" class="th-btn popup-content">Inicia sesión para solicitar presupuesto</a>
                         <?php endif; ?>
                     </div>
+
+
 
                 </div>
             </div>
