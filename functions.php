@@ -246,3 +246,59 @@ function registrar_presupuesto() {
     // Enviar respuesta AJAX con redirección
     wp_send_json_success(['redirect_url' => home_url('/gracias-por-tu-solicitud')]);
 }
+
+// Procesar el formulario de registro personalizado
+function custom_register_user() {
+    if (isset($_POST['username'], $_POST['firstname'], $_POST['lastname'], $_POST['new_email'], $_POST['new_email_confirm'])) {
+        $username = sanitize_text_field($_POST['username']);
+        $firstname = sanitize_text_field($_POST['firstname']);
+        $lastname = sanitize_text_field($_POST['lastname']);
+        $new_email = sanitize_email($_POST['new_email']);
+        $new_email_confirm = sanitize_email($_POST['new_email_confirm']);
+        
+        // Verifica si los correos electrónicos coinciden
+        if ($new_email !== $new_email_confirm) {
+            // Mostrar un error si los correos no coinciden
+            wp_die('Los correos electrónicos no coinciden.');
+        }
+
+        // Verifica si el correo ya está registrado
+        if (email_exists($new_email)) {
+            wp_die('El correo electrónico ya está registrado.');
+        }
+
+        // Crear la contraseña aleatoria
+        $password = wp_generate_password();
+
+        // Crear el nuevo usuario en WordPress
+        $user_id = wp_create_user($username, $password, $new_email);
+
+        // Verifica si el usuario fue creado correctamente
+        if (is_wp_error($user_id)) {
+            wp_die('Hubo un error al registrar al usuario.');
+        }
+
+        // Actualizar los campos del perfil del usuario (nombre y apellido)
+        wp_update_user([
+            'ID' => $user_id,
+            'first_name' => $firstname,
+            'last_name' => $lastname
+        ]);
+
+        // Asignar el rol de cliente de WooCommerce
+        $user = get_user_by('ID', $user_id);
+        $user->set_role('customer');
+
+        // Enviar correo electrónico con la contraseña
+        wp_mail($new_email, 'Bienvenido a nuestro sitio', 'Tu contraseña es: ' . $password);
+
+        // Redirigir al usuario a la página de éxito o al login
+        wp_redirect(home_url('/mi-cuenta')); // Redirigir al login o página que desees
+        exit;
+    }
+}
+
+// Registrar la acción para procesar el formulario
+add_action('admin_post_nopriv_custom_register_user', 'custom_register_user');
+add_action('admin_post_custom_register_user', 'custom_register_user');
+

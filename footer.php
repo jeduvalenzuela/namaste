@@ -148,11 +148,11 @@ modal Area
             </div>
             <div class="tab-pane fade active show" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
                 <h3 class="th-form-title mb-30">Iniciar registro</h3>
-                <form action="mail.php" method="POST" class="login-form ajax-contact">
+                <form action="<?php echo esc_url( admin_url('admin-post.php') ); ?>" method="POST" class="login-form">
                     <div class="row">
                         <div class="form-group col-12">
                             <label>Usuario*</label>
-                            <input type="text" class="form-control" name="usename" id="usename" required="required">
+                            <input type="text" class="form-control" name="username" id="username" required="required">
                         </div>
                         <div class="form-group col-12">
                             <label>Nombre*</label>
@@ -164,22 +164,23 @@ modal Area
                         </div>
                         <div class="form-group col-12">
                             <label for="new_email">Mail*</label>
-                            <input type="text" class="form-control" name="new_email" id="new_email" required="required">
+                            <input type="email" class="form-control" name="new_email" id="new_email" required="required">
                         </div>
                         <div class="form-group col-12">
                             <label for="new_email_confirm">Confirmar mail*</label>
-                            <input type="text" class="form-control" name="new_email_confirm" id="new_email_confirm" required="required">
+                            <input type="email" class="form-control" name="new_email_confirm" id="new_email_confirm" required="required">
                         </div>
                         <div class="statement">
                             <span class="register-notes">Se te enviará una contraseña por correo electrónico.</span>
                         </div>
 
                         <div class="form-btn mt-20 col-12">
-                            <button class="th-btn btn-fw th-radius2 ">Registrarme</button>
+                            <button class="th-btn btn-fw th-radius2">Registrarme</button>
                         </div>
                     </div>
                     <p class="form-messages mb-0 mt-3"></p>
                 </form>
+
             </div>
         </div>
     </div>
