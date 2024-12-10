@@ -119,6 +119,19 @@ Cart Area
                                                 </li>
                                             </ul>
                                             <div class="shipping-calculator-form">
+                                                <?php
+                                                    // Obtener países
+                                                    $countries = WC()->countries->get_countries();
+
+                                                    // Mostrar países en el formulario
+                                                    echo '<select name="country" id="country" class="form-select">';
+                                                    echo '<option value="">País</option>';
+                                                    foreach ($countries as $code => $name) {
+                                                        echo '<option value="' . esc_attr($code) . '">' . esc_html($name) . '</option>';
+                                                    }
+                                                    echo '</select>';
+
+                                                ?>
                                                 <p class="form-row">
                                                     <input type="text" class="form-control" name="city" placeholder="Ciudad*" required>
                                                 </p>
@@ -133,6 +146,32 @@ Cart Area
                                     </tr>
                                 </tbody>
                             </table>
+                            <script>
+                                        jQuery(document).ready(function($) {
+                                          	
+                                            // Cargar países
+                                            $.ajax({
+                                                url: ajaxurl, // URL de AJAX de WordPress
+                                                type: 'POST',
+                                                data: {
+                                                    action: 'load_countries'
+                                                },
+                                                success: function(response) {
+                                                    if (response.success) {
+                                                        const countrySelect = $('#country');
+                                                        response.data.forEach(country => {
+                                                            countrySelect.append('<option value="' + country.code + '">' + country.name + '</option>');
+                                                        });
+                                                    } else {
+                                                        console.error('Error al cargar los países');
+                                                    }
+                                                },
+                                                error: function() {
+                                                    console.error('Error en la solicitud AJAX');
+                                                }
+                                            });
+                                        });
+                                    </script>
                             <button type="submit" class="th-btn">Solicitar Presupuesto</button>
                         </form>
                     </div>
