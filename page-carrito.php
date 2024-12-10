@@ -69,83 +69,12 @@ Cart Area
                                 </td>
                             </tr>
                         <?php endforeach; ?>
+
                         
-                        <tr class="cart_item">
-                            <td data-title="Product">
-                                <a class="cart-productimage" href="shop-detailis.html"><img width="91" height="91" src="<?php echo get_stylesheet_directory_uri();?>/assets/img/tour/tour_box_1.jpg" alt="Image"></a>
-                            </td>
-                            <td data-title="Name">
-                                <a class="cart-productname" href="shop-detailis.html">Akamana Sheskin Ushuaia</a>
-                            </td>
-                            <td data-title="Price">
-                                <span class="amount"><bdi><span>u$d</span>980</bdi></span>
-                            </td>
-                            <td data-title="Quantity">
-                                <div class="quantity">
-                                    <button class="quantity-minus qty-btn"><i class="far fa-minus"></i></button>
-                                    <input type="number" class="qty-input" value="1" min="1" max="99">
-                                    <button class="quantity-plus qty-btn"><i class="far fa-plus"></i></button>
-                                </div>
-                            </td>
-                            <td data-title="Total">
-                                <span class="amount"><bdi><span>u$d</span>980</bdi></span>
-                            </td>
-                            <td data-title="Remove">
-                                <a href="#" class="remove"><i class="fal fa-trash-alt"></i></a>
-                            </td>
-                        </tr>
-                        <tr class="cart_item">
-                            <td data-title="Product">
-                                <a class="cart-productimage" href="shop-detailis.html"><img width="91" height="91" src="<?php echo get_stylesheet_directory_uri();?>/assets/img/tour/tour_box_2.jpg" alt="Image"></a>
-                            </td>
-                            <td data-title="Name">
-                                <a class="cart-productname" href="shop-detailis.html">Camino de Santiago de Compostela</a>
-                            </td>
-                            <td data-title="Price">
-                                <span class="amount"><bdi><span>u$d</span>1.080</bdi></span>
-                            </td>
-                            <td data-title="Quantity">
-                                <div class="quantity">
-                                    <button class="quantity-minus qty-btn"><i class="far fa-minus"></i></button>
-                                    <input type="number" class="qty-input" value="1" min="1" max="99">
-                                    <button class="quantity-plus qty-btn"><i class="far fa-plus"></i></button>
-                                </div>
-                            </td>
-                            <td data-title="Total">
-                                <span class="amount"><bdi><span>u$d</span>1.080</bdi></span>
-                            </td>
-                            <td data-title="Remove">
-                                <a href="#" class="remove"><i class="fal fa-trash-alt"></i></a>
-                            </td>
-                        </tr>
-                        <tr class="cart_item">
-                            <td data-title="Product">
-                                <a class="cart-productimage" href="shop-detailis.html"><img width="91" height="91" src="<?php echo get_stylesheet_directory_uri();?>/assets/img/tour/tour_box_3.jpg" alt="Image"></a>
-                            </td>
-                            <td data-title="Name">
-                                <a class="cart-productname" href="shop-detailis.html">Búzios Espiritual</a>
-                            </td>
-                            <td data-title="Price">
-                                <span class="amount"><bdi><span>u$d</span>2.200</bdi></span>
-                            </td>
-                            <td data-title="Quantity">
-                                <div class="quantity">
-                                    <button class="quantity-minus qty-btn"><i class="far fa-minus"></i></button>
-                                    <input type="number" class="qty-input" value="1" min="1" max="99">
-                                    <button class="quantity-plus qty-btn"><i class="far fa-plus"></i></button>
-                                </div>
-                            </td>
-                            <td data-title="Total">
-                                <span class="amount"><bdi><span>$</span>18</bdi></span>
-                            </td>
-                            <td data-title="Remove">
-                                <a href="#" class="remove"><i class="fal fa-trash-alt"></i></a>
-                            </td>
-                        </tr>
                         <tr>
                             <td colspan="6" class="actions">
-                                <button type="submit" class="th-btn">Actualizar</button>
-                                <a href="shop.html" class="th-btn">Continuar </a>
+                                <button type="submit" class="th-btn" name="update_cart"><?php esc_html_e( 'Actualizar', 'woocommerce' ); ?></button>
+                                <a href="<?php echo esc_url( wc_get_shop_url() ); ?>" class="th-btn"><?php esc_html_e( 'Continuar Comprando', 'woocommerce' ); ?></a>
                             </td>
                         </tr>
                     </tbody>
