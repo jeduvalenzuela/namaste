@@ -119,28 +119,57 @@ Cart Area
                                     <p class="woocommerce-shipping-destination">
                                         Pese a la modalidad que seleccione, Nuestro personal de atención se pondra en contacto con usted en nuestros horarios de atención procurando llegar a usted lo antes posible con una propuesta acorde a lo solicitado.
                                     </p>
-                                    <form action="#" method="post">
+                                    <form action="#" method="post" id="shipping-form">
                                         <a href="#" class="shipping-calculator-button">Complete los datos</a>
                                         <div class="shipping-calculator-form">
+                                            <?php
+                                                // Obtener países
+                                                $countries = WC()->countries->get_countries();
+
+                                                // Mostrar países en el formulario
+                                                echo '<select name="country" id="country" class="form-select">';
+                                                echo '<option value="">País</option>';
+                                                foreach ($countries as $code => $name) {
+                                                    echo '<option value="' . esc_attr($code) . '">' . esc_html($name) . '</option>';
+                                                }
+                                                echo '</select>';
+
+                                            ?>
                                             <p class="form-row">
-                                                <input type="text" class="form-control" placeholder="País">
-                                            </p>
-                                            <p>
-                                                <select class="form-select">
-                                                    <option value="">Localidad</option>
-                                                    <option value="BD-05">Bagerhat</option>
-                                                    <option value="BD-01">Bandarban</option>
-                                                    <option value="BD-02">Barguna</option>
-                                                    <option value="BD-06">Barishal</option>
-                                                </select>
+                                                <input type="text" class="form-control" name="city" placeholder="Ciudad*" required>
                                             </p>
                                             <p class="form-row">
-                                                <input type="text" class="form-control" placeholder="Mail">
+                                                <input type="email" class="form-control" name="email" placeholder="E-mail*" required>
                                             </p>
                                             <p class="form-row">
-                                                <input type="text" class="form-control" placeholder="Celular / WhatsApp">
-                                            </p>
+                                                <input type="text" class="form-control" name="cel" placeholder="Celular*" required>
+                                            </p>   
                                         </div>
+                                        <script>
+                                            jQuery(document).ready(function($) {
+                                                // Cargar países
+                                                $.ajax({
+                                                    url: ajaxurl, // URL de AJAX de WordPress
+                                                    type: 'POST',
+                                                    data: {
+                                                        action: 'load_countries'
+                                                    },
+                                                    success: function(response) {
+                                                        if (response.success) {
+                                                            const countrySelect = $('#country');
+                                                            response.data.forEach(country => {
+                                                                countrySelect.append('<option value="' + country.code + '">' + country.name + '</option>');
+                                                            });
+                                                        } else {
+                                                            console.error('Error al cargar los países');
+                                                        }
+                                                    },
+                                                    error: function() {
+                                                        console.error('Error en la solicitud AJAX');
+                                                    }
+                                                });
+                                            });
+                                        </script>
                                     </form>
                                 </td>
                             </tr>
