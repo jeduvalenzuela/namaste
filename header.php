@@ -60,7 +60,7 @@
 
     <!-- Theme Custom CSS -->
     <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri();?>/assets/css/style.css">
-
+	<?php wp_head(); ?>
 </head>
 
 <body>
