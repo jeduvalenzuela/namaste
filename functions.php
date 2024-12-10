@@ -184,3 +184,25 @@ function enqueue_custom_slider_script() {
     }
 }
 add_action('wp_enqueue_scripts', 'enqueue_custom_slider_script');
+
+add_action( 'woocommerce_cart_loaded_from_session', function( $cart ) {
+    foreach ( $cart->get_cart() as $cart_item_key => $cart_item ) {
+        $product = $cart_item['data'];
+        $quantity = $cart_item['quantity'];
+
+        // Log para depuración
+        error_log( "Producto cargado: " . $product->get_name() . " - Cantidad: " . $quantity );
+    }
+}, 10 );
+
+add_action( 'woocommerce_before_calculate_totals', function( $cart ) {
+    if ( ! is_admin() && ! wp_doing_ajax() && isset( $_POST['cart'] ) ) {
+        $cart_data = $_POST['cart'];
+        error_log( "Datos del carrito recibidos: " . print_r( $cart_data, true ) );
+    }
+}, 10, 1 );
+
+add_action( 'woocommerce_cart_updated', function() {
+    // Aquí puedes realizar acciones después de que el carrito se actualice.
+    error_log( "Carrito actualizado correctamente." );
+} );
