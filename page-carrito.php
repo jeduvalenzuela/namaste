@@ -156,7 +156,7 @@ Cart Area
                         </tbody>
                     </table>
                     <div class="wc-proceed-to-checkout mb-30">
-                        <a href="#" class="th-btn">Solicitar Presupuesto</a>
+                        <a href="<?php echo esc_url( wc_get_checkout_url() ); ?>" class="th-btn enviar">Solicitar Presupuesto</a>
                     </div>
                 </div>
             </div>
