@@ -94,76 +94,49 @@ Cart Area
             <div class="row justify-content-end">
                 <div class="col-md-8 col-lg-7 col-xl-6">
                     <h2 class="h4 summary-title">Solicitar Presupuesto</h2>
-                    <table class="cart_totals">
-                        <tbody>
-                            <tr>
-                                <td>Total</td>
-                                <td data-title="Cart Subtotal">
-                                    <span class="amount"><bdi><span>u$d</span>4.500</bdi></span>
-                                </td>
-                            </tr>
-                            <tr class="shipping">
-                                <th>Modalidad de solicitud</th>
-                                <td data-title="Shipping and Handling">
-                                    <ul class="woocommerce-shipping-methods list-unstyled">
-                                        <li>
-                                            <input type="radio" id="free_shipping" name="shipping_method" class="shipping_method">
-                                            <label for="free_shipping">Por Mail</label>
-                                        </li>
-                                        <li>
-                                            <input type="radio" id="flat_rate" name="shipping_method" class="shipping_method" checked="checked">
-                                            <label for="flat_rate">WhatsApp</label>
-                                        </li>
-                                    </ul>
-                                    <p class="woocommerce-shipping-destination">
-                                        Pese a la modalidad que seleccione, Nuestro personal de atención se pondra en contacto con usted en nuestros horarios de atención procurando llegar a usted lo antes posible con una propuesta acorde a lo solicitado.
-                                    </p>
-                                    <form action="#" method="post" id="shipping-form">
-                                        <a href="#" class="shipping-calculator-button">Complete los datos</a>
-                                        <div class="shipping-calculator-form">
-                                            <p class="form-row">
-                                                <input type="text" class="form-control" name="city" placeholder="Ciudad*" required>
-                                            </p>
-                                            <p class="form-row">
-                                                <input type="email" class="form-control" name="email" placeholder="E-mail*" required>
-                                            </p>
-                                            <p class="form-row">
-                                                <input type="text" class="form-control" name="cel" placeholder="Celular*" required>
-                                            </p>   
-                                        </div>
-                                        <script>
-                                            jQuery(document).ready(function($) {
-                                                // Cargar países
-                                                $.ajax({
-                                                    url: ajaxurl, // URL de AJAX de WordPress
-                                                    type: 'POST',
-                                                    data: {
-                                                        action: 'load_countries'
-                                                    },
-                                                    success: function(response) {
-                                                        if (response.success) {
-                                                            const countrySelect = $('#country');
-                                                            response.data.forEach(country => {
-                                                                countrySelect.append('<option value="' + country.code + '">' + country.name + '</option>');
-                                                            });
-                                                        } else {
-                                                            console.error('Error al cargar los países');
-                                                        }
-                                                    },
-                                                    error: function() {
-                                                        console.error('Error en la solicitud AJAX');
-                                                    }
-                                                });
-                                            });
-                                        </script>
-                                    </form>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
                     <div class="wc-proceed-to-checkout mb-30">
-                        <a href="<?php echo esc_url( wc_get_checkout_url() ); ?>" class="th-btn enviar">Solicitar Presupuesto</a>
+                        <form action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="post" id="solicitar-presupuesto-form">
+                            <input type="hidden" name="action" value="solicitar_presupuesto">
+                            <table class="cart_totals">
+                                <tbody>
+                                    <tr>
+                                        <td>Total</td>
+                                        <td data-title="Cart Subtotal">
+                                            <span class="amount"><bdi><span>u$d</span>4500</bdi></span>
+                                        </td>
+                                    </tr>
+                                    <tr class="shipping">
+                                        <th>Modalidad de solicitud</th>
+                                        <td data-title="Shipping and Handling">
+                                            <ul class="woocommerce-shipping-methods list-unstyled">
+                                                <li>
+                                                    <input type="radio" id="por_mail" name="modalidad_solicitud" value="mail">
+                                                    <label for="por_mail">Por Mail</label>
+                                                </li>
+                                                <li>
+                                                    <input type="radio" id="por_whatsapp" name="modalidad_solicitud" value="whatsapp" checked="checked">
+                                                    <label for="por_whatsapp">WhatsApp</label>
+                                                </li>
+                                            </ul>
+                                            <div class="shipping-calculator-form">
+                                                <p class="form-row">
+                                                    <input type="text" class="form-control" name="city" placeholder="Ciudad*" required>
+                                                </p>
+                                                <p class="form-row">
+                                                    <input type="email" class="form-control" name="email" placeholder="E-mail*" required>
+                                                </p>
+                                                <p class="form-row">
+                                                    <input type="text" class="form-control" name="cel" placeholder="Celular*" required>
+                                                </p>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <button type="submit" class="th-btn">Solicitar Presupuesto</button>
+                        </form>
                     </div>
+
                 </div>
             </div>
         </div>
