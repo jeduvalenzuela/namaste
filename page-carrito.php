@@ -21,6 +21,55 @@ Cart Area
                         </tr>
                     </thead>
                     <tbody>
+                        <?php foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) :
+                            $product = $cart_item['data'];
+                            $product_permalink = $product->is_visible() ? $product->get_permalink( $cart_item ) : '';
+                            ?>
+                            <tr class="cart_item">
+                                <td data-title="Product">
+                                    <?php echo $product_permalink ? '<a href="' . esc_url( $product_permalink ) . '">' : ''; ?>
+                                    <?php echo $product->get_image( 'thumbnail' ); ?>
+                                    <?php echo $product_permalink ? '</a>' : ''; ?>
+                                </td>
+                                <td data-title="Name">
+                                    <?php echo $product_permalink ? '<a href="' . esc_url( $product_permalink ) . '">' : ''; ?>
+                                    <?php echo $product->get_name(); ?>
+                                    <?php echo $product_permalink ? '</a>' : ''; ?>
+                                </td>
+                                <td data-title="Price">
+                                    <span class="amount"><?php echo WC()->cart->get_product_price( $product ); ?></span>
+                                </td>
+                                <td data-title="Quantity">
+                                    <?php if ( $product->is_sold_individually() ) : ?>
+                                        <span><?php echo esc_html( $cart_item['quantity'] ); ?></span>
+                                    <?php else : ?>
+                                        <div class="quantity">
+                                            <?php
+                                            woocommerce_quantity_input( array(
+                                                'input_name'  => "cart[{$cart_item_key}][qty]",
+                                                'input_value' => $cart_item['quantity'],
+                                                'max_value'   => $product->get_max_purchase_quantity(),
+                                                'min_value'   => '1',
+                                            ) );
+                                            ?>
+                                        </div>
+                                    <?php endif; ?>
+                                </td>
+                                <td data-title="Total">
+                                    <span class="amount"><?php echo WC()->cart->get_product_subtotal( $product, $cart_item['quantity'] ); ?></span>
+                                </td>
+                                <td data-title="Remove">
+                                    <?php echo sprintf(
+                                        '<a href="%s" class="remove" aria-label="%s" data-product_id="%s" data-product_sku="%s"><i class="fal fa-trash-alt"></i></a>',
+                                        esc_url( wc_get_cart_remove_url( $cart_item_key ) ),
+                                        esc_html__( 'Remove this item', 'woocommerce' ),
+                                        esc_attr( $product->get_id() ),
+                                        esc_attr( $product->get_sku() )
+                                    ); ?>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                        
                         <tr class="cart_item">
                             <td data-title="Product">
                                 <a class="cart-productimage" href="shop-detailis.html"><img width="91" height="91" src="<?php echo get_stylesheet_directory_uri();?>/assets/img/tour/tour_box_1.jpg" alt="Image"></a>
