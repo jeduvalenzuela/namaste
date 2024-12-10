@@ -8,7 +8,7 @@ Cart Area
             <div class="woocommerce-notices-wrapper">
                 <div class="woocommerce-message">Detalle de productos a presupuestar</div>
             </div>
-            <form action="#" class="woocommerce-cart-form">
+            <form action="<?php echo esc_url( wc_get_cart_url() ); ?>" class="woocommerce-cart-form">
                 <table class="cart_table">
                     <thead>
                         <tr>
