@@ -8,7 +8,7 @@ Cart Area
             <div class="woocommerce-notices-wrapper">
                 <div class="woocommerce-message">Detalle de productos a presupuestar</div>
             </div>
-            <form action="<?php echo esc_url( wc_get_cart_url() ); ?>" class="woocommerce-cart-form">
+            <form action="#" class="woocommerce-cart-form">
                 <table class="cart_table">
                     <thead>
                         <tr>
@@ -73,8 +73,8 @@ Cart Area
                         
                         <tr>
                             <td colspan="6" class="actions">
-                                <button type="submit" class="th-btn">Actualizar</button>
-                                <a href="shop.html" class="th-btn">Continuar </a>
+                                <button type="submit" class="th-btn" name="update_cart">Actualizar</button>
+                                <!--a href="shop.html" class="th-btn">Continuar </a-->
                             </td>
                         </tr>
                     </tbody>
