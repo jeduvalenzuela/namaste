@@ -23,7 +23,7 @@ Cart Area
                     <tbody>
                         <tr class="cart_item">
                             <td data-title="Product">
-                                <a class="cart-productimage" href="shop-detailis.html"><img width="91" height="91" src="assets/img/tour/tour_box_1.jpg" alt="Image"></a>
+                                <a class="cart-productimage" href="shop-detailis.html"><img width="91" height="91" src="<?php echo get_stylesheet_directory_uri();?>/assets/img/tour/tour_box_1.jpg" alt="Image"></a>
                             </td>
                             <td data-title="Name">
                                 <a class="cart-productname" href="shop-detailis.html">Akamana Sheskin Ushuaia</a>
@@ -47,7 +47,7 @@ Cart Area
                         </tr>
                         <tr class="cart_item">
                             <td data-title="Product">
-                                <a class="cart-productimage" href="shop-detailis.html"><img width="91" height="91" src="assets/img/tour/tour_box_2.jpg" alt="Image"></a>
+                                <a class="cart-productimage" href="shop-detailis.html"><img width="91" height="91" src="<?php echo get_stylesheet_directory_uri();?>/assets/img/tour/tour_box_2.jpg" alt="Image"></a>
                             </td>
                             <td data-title="Name">
                                 <a class="cart-productname" href="shop-detailis.html">Camino de Santiago de Compostela</a>
@@ -71,7 +71,7 @@ Cart Area
                         </tr>
                         <tr class="cart_item">
                             <td data-title="Product">
-                                <a class="cart-productimage" href="shop-detailis.html"><img width="91" height="91" src="assets/img/tour/tour_box_3.jpg" alt="Image"></a>
+                                <a class="cart-productimage" href="shop-detailis.html"><img width="91" height="91" src="<?php echo get_stylesheet_directory_uri();?>/assets/img/tour/tour_box_3.jpg" alt="Image"></a>
                             </td>
                             <td data-title="Name">
                                 <a class="cart-productname" href="shop-detailis.html">Búzios Espiritual</a>
