@@ -179,7 +179,7 @@ Header Area
                         </div>
                         <div class="col-auto d-none d-xl-block">
                             <div class="header-button">
-                                <a href="presupuesto.html" class="th-btn style3 th-icon">Tu Presupuesto</a>
+                                <a href="<?php echo home_url('/presupuesto/'); ?>" class="th-btn style3 th-icon">Tu Presupuesto</a>
 
                             </div>
                         </div>
