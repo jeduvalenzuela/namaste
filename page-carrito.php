@@ -165,7 +165,7 @@ Cart Area
                         <?php if (is_user_logged_in()) : ?>
                             <button type="button" class="th-btn enviar">Solicitar Presupuesto</button>
                         <?php else : ?>
-                            <a href="#login-form" class="th-btn">Inicia sesión para solicitar presupuesto</a>
+                            <a href="#login-form" class="th-btn popup-content">Inicia sesión para solicitar presupuesto</a>
                         <?php endif; ?>
                     </div>
 
