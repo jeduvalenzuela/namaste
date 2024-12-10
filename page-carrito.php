@@ -8,7 +8,7 @@ Cart Area
             <div class="woocommerce-notices-wrapper">
                 <div class="woocommerce-message">Detalle de productos a presupuestar</div>
             </div>
-            <form action="#" class="woocommerce-cart-form">
+            <form action="<?php echo esc_url( wc_get_cart_url() ); ?>" method="post" class="woocommerce-cart-form">
                 <table class="cart_table">
                     <thead>
                         <tr>
@@ -70,16 +70,16 @@ Cart Area
                             </tr>
                         <?php endforeach; ?>
 
-                        
                         <tr>
                             <td colspan="6" class="actions">
-                                <button type="submit" class="th-btn" name="update_cart">Actualizar</button>
-                                <!--a href="shop.html" class="th-btn">Continuar </a-->
+                                <button type="submit" class="th-btn" name="update_cart"><?php esc_html_e( 'Actualizar carrito', 'woocommerce' ); ?></button>
+                                <?php wp_nonce_field( 'woocommerce-cart' ); // Agrega el nonce de seguridad ?>
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </form>
+
             <div class="row justify-content-end">
                 <div class="col-md-8 col-lg-7 col-xl-6">
                     <h2 class="h4 summary-title">Solicitar Presupuesto</h2>
