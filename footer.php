@@ -123,7 +123,7 @@ modal Area
             <div class="tab-pane fade" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                 <h3 class="box-title mb-30">Inicia sesión en tu cuenta</h3>
                 <div class="th-login-form">
-                    <form action="<?php echo wp_login_url(); ?>" method="POST" class="login-form ajax-contact">
+                    <form action="<?php echo wp_login_url(); ?>" method="POST" class="login-form">
                         <div class="row">
                             <div class="form-group col-12">
                                 <label>Usuario o Mail</label>
@@ -143,6 +143,7 @@ modal Area
                         </div>
                         <p class="form-messages mb-0 mt-3"></p>
                     </form>
+
                 </div>
             </div>
             <div class="tab-pane fade active show" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
