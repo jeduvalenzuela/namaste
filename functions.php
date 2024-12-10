@@ -173,7 +173,8 @@ function my_enqueue_scripts() {
     // Encolar un script con soporte para AJAX
     wp_localize_script('my-custom-script', 'my_ajax_object', array(
         'ajax_url' => admin_url('admin-ajax.php'),
-        'nonce'    => wp_create_nonce('my_nonce')
+        'nonce'    => wp_create_nonce('my_nonce'),
+        'nonce1'    => wp_create_nonce('solicitar_presupuesto_nonce'),
     ));
 }
 add_action('wp_enqueue_scripts', 'my_enqueue_scripts');
@@ -206,3 +207,42 @@ add_action( 'woocommerce_cart_updated', function() {
     // Aquí puedes realizar acciones después de que el carrito se actualice.
     error_log( "Carrito actualizado correctamente." );
 } );
+
+
+
+add_action('wp_ajax_registrar_presupuesto', 'registrar_presupuesto');
+add_action('wp_ajax_nopriv_registrar_presupuesto', 'registrar_presupuesto');
+
+function registrar_presupuesto() {
+    check_ajax_referer('solicitar_presupuesto_nonce', 'nonce');
+
+    if (!WC()->cart->get_cart_contents_count()) {
+        wp_send_json_error('El carrito está vacío.');
+    }
+
+    $order = wc_create_order();
+
+    foreach (WC()->cart->get_cart() as $cart_item) {
+        $product = $cart_item['data'];
+        $quantity = $cart_item['quantity'];
+
+        $order->add_product($product, $quantity);
+    }
+
+    // Añadir datos del cliente (opcional)
+    $order->set_address([
+        'first_name' => 'Cliente',
+        'last_name'  => 'Anonimo',
+        'email'      => 'cliente@ejemplo.com',
+    ], 'billing');
+
+    // Guardar la orden
+    $order->calculate_totals();
+    $order->update_status('on-hold', 'Presupuesto solicitado desde el carrito.');
+
+    // Vaciar el carrito
+    WC()->cart->empty_cart();
+
+    // Enviar respuesta AJAX con redirección
+    wp_send_json_success(['redirect_url' => home_url('/gracias-por-tu-solicitud')]);
+}
