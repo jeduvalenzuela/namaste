@@ -209,7 +209,7 @@ add_action( 'woocommerce_cart_updated', function() {
 } );
 
 
-
+//Procesar el presupuesto
 add_action('wp_ajax_registrar_presupuesto', 'registrar_presupuesto');
 add_action('wp_ajax_nopriv_registrar_presupuesto', 'registrar_presupuesto');
 
