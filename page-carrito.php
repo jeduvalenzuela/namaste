@@ -1,4 +1,10 @@
-<?php get_header(); ?>
+<?php 
+get_header(); 
+defined( 'ABSPATH' ) || exit;
+
+do_action( 'woocommerce_before_cart' ); ?>
+
+
 
 <!--==============================
 Cart Area
@@ -163,4 +169,7 @@ Cart Area
         </div>
     </div>
 
-<?php get_footer(); ?>
+<?php 
+do_action( 'woocommerce_after_cart' );
+get_footer(); 
+?>
