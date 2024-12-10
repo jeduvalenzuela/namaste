@@ -310,3 +310,6 @@ function custom_create_order_from_cart() {
         wp_die('El carrito está vacío o no estás logueado.');
     }
 }
+// Registrar la acción para crear la orden sin pasar por checkout
+add_action('admin_post_nopriv_create_order_from_cart', 'custom_create_order_from_cart');
+add_action('admin_post_create_order_from_cart', 'custom_create_order_from_cart');
