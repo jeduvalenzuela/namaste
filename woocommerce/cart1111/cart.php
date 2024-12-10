@@ -57,7 +57,7 @@ Cart Area
                                 <?php endif; ?>
                             </td>
                             <td data-title="Total">
-                                <span class="amount"><?php echo WC()->cart->get_product_subtotal( $product, $cart_item['quantity'] ); ?></span>
+                                <input type="number" name="cart[<?php echo $cart_item_key; ?>][qty]" value="<?php echo esc_attr( $cart_item['quantity'] ); ?>" min="1" max="<?php echo esc_attr( $product->get_max_purchase_quantity() ); ?>" step="1" class="input-text qty text">
                             </td>
                             <td data-title="Remove">
                                 <?php echo sprintf(
