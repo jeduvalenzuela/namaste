@@ -73,7 +73,7 @@ Cart Area
                         <tr>
                             <td colspan="6" class="actions">
                                 <button type="submit" class="th-btn" name="update_cart"><?php esc_html_e( 'Actualizar carrito', 'woocommerce' ); ?></button>
-                                <?php wp_nonce_field( 'woocommerce-cart' ); // Agrega el nonce de seguridad ?>
+                                <?php //wp_nonce_field( 'woocommerce-cart' ); // Agrega el nonce de seguridad ?>
                             </td>
                         </tr>
                     </tbody>
