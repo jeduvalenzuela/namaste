@@ -164,7 +164,7 @@ Cart Area
                     </table>
                     <div class="wc-proceed-to-checkout mb-30">
                         <?php if (is_user_logged_in()) : ?>
-                            <form method="post">
+                            <form method="post" action="<?php echo home_url( '/checkout/' ); ?>">
                                 <button type="submit" name="generate_order" class="vs-btn enviar w-100 style4">Solicitar Presupuesto</button>
                             </form>
 
