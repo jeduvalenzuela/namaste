@@ -8,12 +8,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_order'])) {
 
     // Crear la orden de WooCommerce
     $order = wc_create_order();
+    
     if ($order) {
         $cart_items = WC()->cart->get_cart();
+        
         foreach ($cart_items as $cart_item_key => $cart_item) {
             $order->add_product($cart_item['data'], $cart_item['quantity']); // Añadir productos al pedido
         }
+
+        // Calcular totales y finalizar el pedido
         $order->calculate_totals();
+
+        // Marcar como creado el pedido
         $order_created = true;
 
         // Vaciar el carrito después de crear el pedido
@@ -23,7 +29,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_order'])) {
         wp_redirect($order->get_checkout_order_received_url());
         exit;
     } else {
+        // Si la orden no se creó
         $order_created = false;
+        echo '<p class="woocommerce-error">Hubo un problema al crear tu pedido. Intenta nuevamente.</p>';
     }
 }
 
