@@ -74,7 +74,8 @@ if ( isset( $_GET['key'] ) ) {
     else : 
         // Si la orden no existe o la clave es inválida.
         ?>
-        <p class="woocommerce-error">Lo sentimos, no se pudo encontrar el pedido.</p>
+        <p class="woocommerce-error">Lo sentimos, no se pudo encontrar el pedido. Parámetros de la URL: <br> 
+        key: <?php echo isset($_GET['key']) ? $_GET['key'] : 'No disponible'; ?></p>
         <?php
     endif;
 } else {
