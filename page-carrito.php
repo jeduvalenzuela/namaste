@@ -163,6 +163,8 @@ Cart Area
                     </table>
                     <div class="wc-proceed-to-checkout mb-30">
                         <?php if (is_user_logged_in()) : ?>
+                            <a href="<?php echo esc_url( wc_get_checkout_url() ); ?>" class="vs-btn enviar w-100 style4">Realizar el envio de experiencias</a>
+
                             <button type="button" class="th-btn enviar">Solicitar Presupuesto</button>
 
                             <script>
@@ -200,13 +202,12 @@ Cart Area
                                         });
                                     });
                                 });
-                                <script type="text/javascript">
+                            </script>
+                            <script type="text/javascript">
                                     var wc_cart_params = <?php echo json_encode( array(
                                         'ajax_url' => admin_url( 'admin-ajax.php' ),
                                         'cart_nonce' => wp_create_nonce( 'cart_nonce' ),
                                     ) ); ?>;
-                                </script>
-
                             </script>
                         <?php else : ?>
                             <a href="#login-form" class="th-btn popup-content">Inicia sesión para solicitar presupuesto</a>
