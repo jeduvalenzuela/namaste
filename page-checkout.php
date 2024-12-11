@@ -6,17 +6,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_order'])) {
     // Lógica para crear el pedido
     $order_created = false; // Cambiar a true si la orden se genera correctamente
 
-    // Ejemplo de lógica para crear el pedido
+    // Crear la orden de WooCommerce
     $order = wc_create_order();
     if ($order) {
         $cart_items = WC()->cart->get_cart();
         foreach ($cart_items as $cart_item_key => $cart_item) {
-            $order->add_product($cart_item['data'], $cart_item['quantity']); // Añade productos al pedido
+            $order->add_product($cart_item['data'], $cart_item['quantity']); // Añadir productos al pedido
         }
         $order->calculate_totals();
         $order_created = true;
 
-        // Vaciar carrito después de crear el pedido
+        // Vaciar el carrito después de crear el pedido
         WC()->cart->empty_cart();
 
         // Redirigir al detalle del pedido
@@ -29,10 +29,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_order'])) {
 
 defined( 'ABSPATH' ) || exit;
 
-// Verificar si estamos en una URL que contiene "order-received" y obtener el ID de la orden.
-if ( isset( $_GET['key'] ) && isset( $_GET['order-received'] ) ) {
-    $order_id = absint( $_GET['order-received'] );
-    $order = wc_get_order( $order_id ); // Obtén la orden.
+// Verificar si estamos en la URL de "order-received"
+if ( isset( $_GET['key'] ) ) {
+    $order_key = sanitize_text_field( $_GET['key'] );
+    $order = wc_get_order( $order_key ); // Obtener la orden usando la clave
 
     if ( $order ) : 
         ?>
@@ -64,17 +64,17 @@ if ( isset( $_GET['key'] ) && isset( $_GET['order-received'] ) ) {
         </div>
         <?php
     else : 
-        // Si la orden no existe.
+        // Si la orden no existe o la clave es inválida.
         ?>
         <p class="woocommerce-error">Lo sentimos, no se pudo encontrar el pedido.</p>
         <?php
     endif;
 } else {
-    // Aquí puedes cargar el contenido regular del checkout.
+    // Si no estamos en una URL de "order-received", mostrar el contenido regular del checkout.
     ?>
     <h2>Formulario de Checkout</h2>
     <!-- Aquí va el contenido normal del checkout -->
     <?php
 }
 
-get_footer(); ?>
+get_footer();
