@@ -268,18 +268,19 @@ add_action('admin_post_custom_register_user', 'custom_register_user');
 
 
 ///Order processing
-add_action('init', function() {
+add_action('woocommerce_before_cart', function () {
     if (isset($_POST['generate_order']) && is_user_logged_in()) {
-        $user_id = get_current_user_id();
         $cart = WC()->cart;
 
         if (!$cart->is_empty()) {
             // Crear pedido
+            $user_id = get_current_user_id();
             $order = wc_create_order(['customer_id' => $user_id]);
+
             foreach ($cart->get_cart() as $cart_item_key => $cart_item) {
                 $order->add_product(
-                    $cart_item['data'], 
-                    $cart_item['quantity'], 
+                    $cart_item['data'],
+                    $cart_item['quantity'],
                     [
                         'subtotal' => $cart_item['line_subtotal'],
                         'total' => $cart_item['line_total']
