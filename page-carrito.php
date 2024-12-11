@@ -115,14 +115,14 @@ if ( isset( $_GET['ver-orden'] ) && is_numeric( $_GET['ver-orden'] ) ) {
                                 <tr class="shipping">
                                     <th>Modalidad de solicitud</th>
                                     <td data-title="Shipping and Handling">
-                                    
+                                        
                                         <ul class="woocommerce-shipping-methods list-unstyled">
                                             <li>
-                                                <input type="radio" id="free_shipping" name="sent_method" value="mail" class="shipping_method">
+                                                <input type="radio" id="sent_method_mail" name="sent_method" value="mail" class="shipping_method">
                                                 <label for="sent_method_mail">Por Mail</label>
                                             </li>
                                             <li>
-                                                <input type="radio" id="flat_rate" name="sent_method" value="whatsapp" class="shipping_method" checked="checked">
+                                                <input type="radio" id="sent_method_whatsapp" name="sent_method" value="whatsapp" class="shipping_method" checked="checked">
                                                 <label for="sent_method_whatsapp">WhatsApp</label>
                                             </li>
                                         </ul>
@@ -168,7 +168,26 @@ if ( isset( $_GET['ver-orden'] ) && is_numeric( $_GET['ver-orden'] ) ) {
                                                 });
                                             </script>
                                         </form-->
-                                        <script>
+                                        
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="wc-proceed-to-checkout mb-30">
+                            <?php if (is_user_logged_in()) : ?>
+                                <form method="post" action="<?php echo home_url( '/checkout/' ); ?>" id="checkout-form">
+                                    <input type="hidden" name="sent_method" id="hidden_sent_method" value="whatsapp">
+                                    <button type="submit" name="generate_order" class="vs-btn enviar w-100 style4">Solicitar Presupuesto</button>
+                                </form>
+
+                                <!--a href="<?php echo esc_url( wc_get_checkout_url() ); ?>" class="vs-btn enviar w-100 style4">Solicitar Presupuesto</a-->
+                            <?php else : ?>
+                                <a href="#login-form" class="th-btn popup-content">Inicia sesión para solicitar presupuesto</a>
+                            <?php endif; ?>
+                        </div>
+
+
+                        <script>
                                             document.addEventListener('DOMContentLoaded', function () {
                                                 const sentMethodInputs = document.querySelectorAll('input[name="sent_method"]');
                                                 const hiddenSentMethodInput = document.getElementById('hidden_sent_method');
@@ -188,25 +207,6 @@ if ( isset( $_GET['ver-orden'] ) && is_numeric( $_GET['ver-orden'] ) ) {
                                                 });
                                             });
                                         </script>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <div class="wc-proceed-to-checkout mb-30">
-                            <?php if (is_user_logged_in()) : ?>
-                                <form method="post" action="<?php echo home_url( '/checkout/' ); ?>" id="checkout-form">
-                                    <input type="hidden" name="sent_method" id="hidden_sent_method" value="whatsapp">
-                                    <button type="submit" name="generate_order" class="vs-btn enviar w-100 style4">Solicitar Presupuesto</button>
-                                </form>
-
-                                <!--a href="<?php echo esc_url( wc_get_checkout_url() ); ?>" class="vs-btn enviar w-100 style4">Solicitar Presupuesto</a-->
-                            <?php else : ?>
-                                <a href="#login-form" class="th-btn popup-content">Inicia sesión para solicitar presupuesto</a>
-                            <?php endif; ?>
-                        </div>
-
-
-
 
                     </div>
                 </div>
