@@ -21,7 +21,7 @@ if ( $order ) {
     <div class="th-cart-wrapper space-top space-extra-bottom">
         <div class="container">
             <div class="woocommerce-notices-wrapper">
-                <div class="woocommerce-message">Detalle de productos a presupuestar</div>
+                <div class="woocommerce-message">Su solicitud fue enviada</div>
             </div>
 
             <table class="cart_table">
@@ -85,18 +85,7 @@ if ( $order ) {
                             </tr>
                         </tbody>
                     </table>
-                    <form action="#" method="post" id="shipping-form">
-                        <p class="form-row">
-                            <input type="text" class="form-control" name="city" placeholder="Ciudad*" required>
-                        </p>
-                        <p class="form-row">
-                            <input type="email" class="form-control" name="email" placeholder="E-mail*" required>
-                        </p>
-                        <p class="form-row">
-                            <input type="text" class="form-control" name="cel" placeholder="Celular*" required>
-                        </p>
-                        <button type="submit" class="btn btn-primary">Enviar Solicitud</button>
-                    </form>
+                    
                 </div>
             </div>
         </div>
