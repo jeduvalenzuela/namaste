@@ -117,12 +117,12 @@ if ( isset( $_GET['ver-orden'] ) && is_numeric( $_GET['ver-orden'] ) ) {
                                     <td data-title="Shipping and Handling">
                                         <ul class="woocommerce-shipping-methods list-unstyled">
                                             <li>
-                                                <input type="radio" id="" name="sent_method" class="sent_method">
-                                                <label for="free_shipping">Por Mail</label>
+                                                <input type="radio" id="sent_method_mail" name="sent_method" value="mail" class="sent_method">
+                                                <label for="sent_method_mail">Por Mail</label>
                                             </li>
                                             <li>
-                                                <input type="radio" id="" name="sent_method" class="sent_method" checked="checked">
-                                                <label for="flat_rate">WhatsApp</label>
+                                                <input type="radio" id="sent_method_whatsapp" name="sent_method" value="whatsapp" class="sent_method" checked="checked">
+                                                <label for="sent_method_whatsapp">WhatsApp</label>
                                             </li>
                                         </ul>
                                         <p class="woocommerce-shipping-destination">
@@ -167,13 +167,34 @@ if ( isset( $_GET['ver-orden'] ) && is_numeric( $_GET['ver-orden'] ) ) {
                                                 });
                                             </script>
                                         </form-->
+                                        <script>
+                                            document.addEventListener('DOMContentLoaded', function () {
+                                                const sentMethodInputs = document.querySelectorAll('input[name="sent_method"]');
+                                                const hiddenSentMethodInput = document.getElementById('hidden_sent_method');
+                                                const checkoutForm = document.getElementById('checkout-form');
+
+                                                // Actualizar el input oculto al seleccionar una opción
+                                                sentMethodInputs.forEach(input => {
+                                                    input.addEventListener('change', function () {
+                                                        hiddenSentMethodInput.value = this.value;
+                                                    });
+                                                });
+
+                                                // Actualizar la URL del formulario antes de enviarlo
+                                                checkoutForm.addEventListener('submit', function (e) {
+                                                    const selectedMethod = hiddenSentMethodInput.value;
+                                                    this.action = `<?php echo home_url('/checkout/'); ?>?sent_method=${encodeURIComponent(selectedMethod)}`;
+                                                });
+                                            });
+                                        </script>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
                         <div class="wc-proceed-to-checkout mb-30">
                             <?php if (is_user_logged_in()) : ?>
-                                <form method="post" action="<?php echo home_url( '/checkout/' ); ?>">
+                                <form method="post" action="<?php echo home_url( '/checkout/' ); ?>" id="checkout-form">
+                                    <input type="hidden" name="sent_method" id="hidden_sent_method" value="whatsapp">
                                     <button type="submit" name="generate_order" class="vs-btn enviar w-100 style4">Solicitar Presupuesto</button>
                                 </form>
 
