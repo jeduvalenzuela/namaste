@@ -163,11 +163,16 @@ Cart Area
                     </table>
                     <div class="wc-proceed-to-checkout mb-30">
                         <?php if (is_user_logged_in()) : ?>
-                            <a href="<?php echo esc_url( wc_get_checkout_url() ); ?>" class="vs-btn enviar w-100 style4">Solicitar Presupuesto</a>
+                            <form method="post">
+                                <button type="submit" name="generate_order" class="vs-btn enviar w-100 style4">Solicitar Presupuesto</button>
+                            </form>
+
+                            <!--a href="<?php echo esc_url( wc_get_checkout_url() ); ?>" class="vs-btn enviar w-100 style4">Solicitar Presupuesto</a-->
                         <?php else : ?>
                             <a href="#login-form" class="th-btn popup-content">Inicia sesión para solicitar presupuesto</a>
                         <?php endif; ?>
                     </div>
+
 
 
 

@@ -267,46 +267,55 @@ add_action('admin_post_nopriv_custom_register_user', 'custom_register_user');
 add_action('admin_post_custom_register_user', 'custom_register_user');
 
 
-// Acción AJAX para crear presupuesto
-function custom_create_presupuesto() {
-    // Verificar la seguridad del nonce
-    if ( !isset($_POST['security']) || !wp_verify_nonce( $_POST['security'], 'cart_nonce' ) ) {
-        wp_send_json_error(array('message' => 'Nonce de seguridad no válido'));
-        return;
+///Order processing
+add_action('init', function() {
+    if (isset($_POST['generate_order']) && is_user_logged_in()) {
+        $user_id = get_current_user_id();
+        $cart = WC()->cart;
+
+        if (!$cart->is_empty()) {
+            // Crear pedido
+            $order = wc_create_order(['customer_id' => $user_id]);
+            foreach ($cart->get_cart() as $cart_item_key => $cart_item) {
+                $order->add_product(
+                    $cart_item['data'], 
+                    $cart_item['quantity'], 
+                    [
+                        'subtotal' => $cart_item['line_subtotal'],
+                        'total' => $cart_item['line_total']
+                    ]
+                );
+            }
+
+            // Asignar dirección de facturación y envío
+            $user = wp_get_current_user();
+            $address = [
+                'first_name' => $user->first_name,
+                'last_name' => $user->last_name,
+                'email' => $user->user_email,
+                'phone' => get_user_meta($user_id, 'billing_phone', true),
+                'address_1' => get_user_meta($user_id, 'billing_address_1', true),
+                'city' => get_user_meta($user_id, 'billing_city', true),
+                'postcode' => get_user_meta($user_id, 'billing_postcode', true),
+                'country' => get_user_meta($user_id, 'billing_country', true),
+            ];
+            $order->set_address($address, 'billing');
+            $order->set_address($address, 'shipping');
+
+            // Finalizar pedido
+            $order->calculate_totals();
+            $order->update_status('pending', 'Solicitud de presupuesto generada desde el carrito.');
+
+            // Limpiar carrito
+            $cart->empty_cart();
+
+            // Redirigir al carrito con parámetro
+            wp_redirect(add_query_arg('ver_orden', $order->get_id(), wc_get_cart_url()));
+            exit;
+        } else {
+            // Carrito vacío
+            wp_redirect(add_query_arg('ver_orden', 'false', wc_get_cart_url()));
+            exit;
+        }
     }
-
-    // Verificar si el carrito está vacío
-    if ( WC()->cart->is_empty() ) {
-        wp_send_json_error(array('message' => 'El carrito está vacío.'));
-    }
-
-    // Crear la orden
-    $order = wc_create_order();
-
-    // Agregar productos del carrito al pedido
-    foreach (WC()->cart->get_cart() as $cart_item_key => $cart_item) {
-        $product_id = $cart_item['product_id'];
-        $quantity = $cart_item['quantity'];
-
-        // Agregar el producto al pedido
-        $order->add_product( wc_get_product($product_id), $quantity );
-    }
-
-    // Establecer el estado de la orden (pendiente, por ejemplo)
-    $order->update_status('pending'); 
-
-    // Vaciar el carrito
-    WC()->cart->empty_cart();
-
-    // Redirigir a una página de agradecimiento o confirmación
-    $redirect_url = home_url('/presupuesto-confirmado'); // Redirige a la página de confirmación
-
-    // Enviar respuesta exitosa con la URL de redirección
-    wp_send_json_success(array('redirect_url' => $redirect_url));
-}
-
-// Registrar la acción AJAX para usuarios logueados
-add_action('wp_ajax_crear_presupuesto', 'custom_create_presupuesto');
-// Registrar la acción AJAX para usuarios no logueados (si es necesario)
-add_action('wp_ajax_nopriv_crear_presupuesto', 'custom_create_presupuesto');
-
+});
