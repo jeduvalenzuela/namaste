@@ -267,59 +267,47 @@ add_action('admin_post_nopriv_custom_register_user', 'custom_register_user');
 add_action('admin_post_custom_register_user', 'custom_register_user');
 
 
-///Order processing
-add_action('woocommerce_before_cart', function () {
-    if (isset($_POST['generate_order']) && is_user_logged_in()) {
-        $cart = WC()->cart;
-
-        if (!$cart->is_empty()) {
-            // Crear pedido
-            $user_id = get_current_user_id();
-            $order = wc_create_order(['customer_id' => $user_id]);
-
-            foreach ($cart->get_cart() as $cart_item_key => $cart_item) {
-                $order->add_product(
-                    $cart_item['data'],
-                    $cart_item['quantity'],
-                    [
-                        'subtotal' => $cart_item['line_subtotal'],
-                        'total' => $cart_item['line_total']
-                    ]
-                );
-            }
-
-            // Asignar dirección de facturación y envío
-            $user = wp_get_current_user();
-            $address = [
-                'first_name' => $user->first_name,
-                'last_name' => $user->last_name,
-                'email' => $user->user_email,
-                'phone' => get_user_meta($user_id, 'billing_phone', true),
-                'address_1' => get_user_meta($user_id, 'billing_address_1', true),
-                'city' => get_user_meta($user_id, 'billing_city', true),
-                'postcode' => get_user_meta($user_id, 'billing_postcode', true),
-                'country' => get_user_meta($user_id, 'billing_country', true),
-            ];
-            $order->set_address($address, 'billing');
-            $order->set_address($address, 'shipping');
-
-            // Finalizar pedido
-            $order->calculate_totals();
-            $order->update_status('pending', 'Solicitud de presupuesto generada desde el carrito.');
-
-            // Limpiar carrito
-            $cart->empty_cart();
-
-            // Redirigir al carrito con parámetro
-            $redirect_url = home_url('/presupuesto/?ver_orden=' . $order->get_id());
-            wp_redirect($redirect_url);
-            exit;
-        } else {
-            // Carrito vacío
-            $redirect_url = home_url('/presupuesto/?ver_orden=false');
-            wp_redirect($redirect_url);
-            exit;
+//cart processing
+add_action('template_redirect', 'custom_checkout_generate_order');
+function custom_checkout_generate_order() {
+    if (is_page('checkout') && isset($_GET['generate_order'])) {
+        $user_id = get_current_user_id();
+        if (!$user_id) {
+            wp_die('Debes iniciar sesión para realizar una solicitud.');
         }
-    }
-});
 
+        // Verificar que el carrito no esté vacío
+        if (WC()->cart->is_empty()) {
+            wp_die('El carrito está vacío. No puedes realizar una solicitud.');
+        }
+
+        // Generar el pedido
+        $order_id = wc_create_order(array(
+            'customer_id' => $user_id,
+        ));
+
+        if (is_wp_error($order_id)) {
+            wp_die('Hubo un problema al crear tu pedido. Por favor, intenta nuevamente.');
+        }
+
+        // Agregar productos del carrito al pedido
+        foreach (WC()->cart->get_cart() as $cart_item) {
+            $product = $cart_item['data'];
+            $order = wc_get_order($order_id);
+            $order->add_product($product, $cart_item['quantity']);
+        }
+
+        // Configurar datos del pedido
+        $order->set_address(WC()->customer->get_billing(), 'billing');
+        $order->set_address(WC()->customer->get_shipping(), 'shipping');
+        $order->calculate_totals();
+        $order->update_status('on-hold', 'Solicitud generada desde la URL personalizada.');
+
+        // Vaciar el carrito
+        WC()->cart->empty_cart();
+
+        // Redirigir a la plantilla personalizada
+        wp_redirect(add_query_arg('order_id', $order_id, home_url('/checkout-details')));
+        exit;
+    }
+}
