@@ -2,6 +2,31 @@
 /* Template Name: Custom Checkout */
 get_header();
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_order'])) {
+    // Lógica para crear el pedido
+    $order_created = false; // Cambiar a true si la orden se genera correctamente
+
+    // Ejemplo de lógica para crear el pedido
+    $order = wc_create_order();
+    if ($order) {
+        $cart_items = WC()->cart->get_cart();
+        foreach ($cart_items as $cart_item_key => $cart_item) {
+            $order->add_product($cart_item['data'], $cart_item['quantity']); // Añade productos al pedido
+        }
+        $order->calculate_totals();
+        $order_created = true;
+
+        // Vaciar carrito después de crear el pedido
+        WC()->cart->empty_cart();
+
+        // Redirigir al detalle del pedido
+        wp_redirect($order->get_checkout_order_received_url());
+        exit;
+    } else {
+        $order_created = false;
+    }
+}
+
 defined( 'ABSPATH' ) || exit;
 
 // Verificar si estamos en una URL que contiene "order-received" y obtener el ID de la orden.
@@ -51,5 +76,5 @@ if ( isset( $_GET['key'] ) && isset( $_GET['order-received'] ) ) {
     <!-- Aquí va el contenido normal del checkout -->
     <?php
 }
- 
+
 get_footer(); ?>
