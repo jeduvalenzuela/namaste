@@ -128,7 +128,7 @@ if ( isset( $_GET['ver-orden'] ) && is_numeric( $_GET['ver-orden'] ) ) {
                                         <p class="woocommerce-shipping-destination">
                                             Pese a la modalidad que seleccione, Nuestro personal de atención se pondra en contacto con usted en nuestros horarios de atención procurando llegar a usted lo antes posible con una propuesta acorde a lo solicitado.
                                         </p>
-                                        <form action="#" method="post" id="shipping-form">
+                                        <!--form action="#" method="post" id="shipping-form">
                                             <a href="#" class="shipping-calculator-button">Complete los datos</a>
                                             <div class="shipping-calculator-form">
                                                 <p class="form-row">
@@ -166,7 +166,7 @@ if ( isset( $_GET['ver-orden'] ) && is_numeric( $_GET['ver-orden'] ) ) {
                                                     });
                                                 });
                                             </script>
-                                        </form>
+                                        </form-->
                                     </td>
                                 </tr>
                             </tbody>
