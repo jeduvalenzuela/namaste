@@ -311,12 +311,15 @@ add_action('woocommerce_before_cart', function () {
             $cart->empty_cart();
 
             // Redirigir al carrito con parámetro
-            wp_redirect(add_query_arg('ver_orden', $order->get_id(), wc_get_cart_url()));
+            $redirect_url = home_url('/presupuesto/?ver_orden=' . $order->get_id());
+            wp_redirect($redirect_url);
             exit;
         } else {
             // Carrito vacío
-            wp_redirect(add_query_arg('ver_orden', 'false', wc_get_cart_url()));
+            $redirect_url = home_url('/presupuesto/?ver_orden=false');
+            wp_redirect($redirect_url);
             exit;
         }
     }
 });
+
