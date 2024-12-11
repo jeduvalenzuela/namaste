@@ -115,13 +115,14 @@ if ( isset( $_GET['ver-orden'] ) && is_numeric( $_GET['ver-orden'] ) ) {
                                 <tr class="shipping">
                                     <th>Modalidad de solicitud</th>
                                     <td data-title="Shipping and Handling">
+                                    
                                         <ul class="woocommerce-shipping-methods list-unstyled">
                                             <li>
-                                                <input type="radio" id="sent_method_mail" name="sent_method" value="mail" class="sent_method">
+                                                <input type="radio" id="free_shipping" name="sent_method" value="mail" class="shipping_method">
                                                 <label for="sent_method_mail">Por Mail</label>
                                             </li>
                                             <li>
-                                                <input type="radio" id="sent_method_whatsapp" name="sent_method" value="whatsapp" class="sent_method" checked="checked">
+                                                <input type="radio" id="flat_rate" name="sent_method" value="whatsapp" class="shipping_method" checked="checked">
                                                 <label for="sent_method_whatsapp">WhatsApp</label>
                                             </li>
                                         </ul>
