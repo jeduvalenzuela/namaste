@@ -19,6 +19,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_order'])) {
         // Calcular totales y finalizar el pedido
         $order->calculate_totals();
 
+        // Obtener el ID del pedido
+        $order_id = $order->get_id();
+
         // Marcar como creado el pedido
         $order_created = true;
 
@@ -26,7 +29,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_order'])) {
         WC()->cart->empty_cart();
 
         // Redirigir al detalle del pedido
-        wp_redirect($order->get_checkout_order_received_url());
+        $redirect_url = home_url('/presupuesto/?ver-orden=' . $order_id);
+        wp_redirect($redirect_url);
         exit;
     } else {
         // Si la orden no se creó
