@@ -74,7 +74,7 @@ if ( $order ) {
 
             <div class="row justify-content-end">
                 <div class="col-md-8 col-lg-7 col-xl-6">
-                    <h2 class="h4 summary-title">Solicitar Presupuesto</h2>
+                    <h2 class="h4 summary-title">Total Presupuesto</h2>
                     <table class="cart_totals">
                         <tbody>
                             <tr>
