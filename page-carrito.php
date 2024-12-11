@@ -14,6 +14,18 @@ Cart Area
             <div class="woocommerce-notices-wrapper">
                 <div class="woocommerce-message">Detalle de productos a presupuestar</div>
             </div>
+
+            <?php if (isset($_GET['ver_orden'])): ?>
+                <div class="woocommerce-notices-wrapper">
+                    <?php if ($_GET['ver_orden'] === 'false'): ?>
+                        <div class="woocommerce-error">No se pudo generar la orden. Intenta nuevamente.</div>
+                    <?php else: ?>
+                        <div class="woocommerce-message">¡Gracias! Su solicitud de presupuesto ha sido generada con el ID de orden: <?php echo esc_html($_GET['ver_orden']); ?>.</div>
+                    <?php endif; ?>
+                </div>
+            <?php endif; ?>
+
+
             <form action="<?php echo esc_url( wc_get_cart_url() ); ?>" method="post" class="woocommerce-cart-form">
                 <table class="cart_table">
                     <thead>
