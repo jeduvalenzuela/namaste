@@ -28,8 +28,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_order'])) {
         // Vaciar el carrito después de crear el pedido
         WC()->cart->empty_cart();
 
+        $send_method = $_POST['sent_method'];
         // Redirigir al detalle del pedido
-        $redirect_url = home_url('/presupuesto/?ver-orden=' . $order_id);
+        $redirect_url = home_url(  '/presupuesto/?ver-orden=' . $order_id . '&sent_method=' . $send_method );
         wp_redirect($redirect_url);
         exit;
     } else {
