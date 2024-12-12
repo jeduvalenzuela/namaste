@@ -49,12 +49,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_order'])) {
                 ];
             }
 
-            // Imprimir resultados
-            echo "Nombre del cliente: $customer_name<br>";
-            echo "Productos solicitados:<br>";
-            foreach ($products as $product) {
-                echo "- " . $product['name'] . " (Cantidad: " . $product['quantity'] . ", Total: $" . $product['total'] . ")<br>";
-            }
         }
 
         if( isset($send_method) && $send_method === 'whatsapp'){
@@ -66,12 +60,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_order'])) {
                 'Producto 3 - $300'
             ];
 
-            $message = "Hola%2C%0AQuiero%20solicitar%20un%20presupuesto%20para%20los%20siguientes%20ítems%3A%0A";
+            // Crear el mensaje
+            $message = "Hola,\nQuiero solicitar un presupuesto para los siguientes ítems:\n";
             foreach ($products as $product) {
-                $message .= $product['quantity'] . '%20-%20' . $product['name'] . '%20-%20' . $product['total'] . '%0A'; // Añadir cada ítem a la lista con un salto de línea
+                $message .= $product['quantity'] . " - " . $product['name'] . " - $" . $product['total'] . "\n"; // Añadir cada ítem a la lista con salto de línea
             }
-            $message .= 'Atte%2C%0A' . $customer_name;
+            $message .= "Atte,\n" . $customer_name;
 
+            // Codificar el mensaje
             $redirect_url = 'https://wa.me/' . $phone_number . '?text=' . urlencode($message);
             wp_redirect($redirect_url);
             exit;
