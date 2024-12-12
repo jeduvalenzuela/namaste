@@ -51,11 +51,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_order'])) {
                     'total' => $product_total
                 ];
             }
-        }
-
-        if (isset($send_method) && $send_method === 'whatsapp') {
-            // Redirigir al detalle del pedido
-            $phone_number = '5492804341440'; // Reemplaza con el número de WhatsApp
 
             // Crear el mensaje
             $message = "Hola,\nQuiero solicitar un presupuesto para los siguientes ítems: \n";
@@ -64,6 +59,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_order'])) {
             }
             $message .= "Atte, \n" . $customer_name . ". \n";
             $message .= "Solicitud n: " . $order_id;
+        }
+
+        $to = 'j.eduvalenzuela@gmail.com'; // Dirección de correo del destinatario
+        $subject = 'Solicitud de presupuesto - Orden #' . $order_id;
+        $headers = array('Content-Type: text/plain; charset=UTF-8');
+          
+        // Enviar el correo
+        wp_mail($to, $subject, $message, $headers);
+
+        if (isset($send_method) && $send_method === 'whatsapp') {
+            // Redirigir al detalle del pedido
+            $phone_number = '5492804341440'; // Reemplaza con el número de WhatsApp
 
             // Codificar el mensaje de forma consistente
             $encoded_message = str_replace(
@@ -92,9 +99,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_order'])) {
 
         
     } else {
-        // Si la orden no se creó
-        $order_created = false;
-        echo '<p class="woocommerce-error">Hubo un problema al crear tu pedido. Intenta nuevamente.</p>';
+        $redirect_url = home_url(  '/presupuesto/?ver-orden=false' );
+        wp_redirect($redirect_url);
+        exit;
     }
 }
 
