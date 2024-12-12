@@ -34,12 +34,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_order'])) {
 
         if ($data_order) {
             // Obtener nombre del cliente
-            $customer_name = $data_order->get_billing_first_name() . '%20' . $data_order->get_billing_last_name();
-
+            $customer_name = trim($data_order->get_billing_first_name() . ' ' . $data_order->get_billing_last_name());
+        
             // Obtener lista de productos
             $products = [];
             foreach ($data_order->get_items() as $item_id => $item) {
-                $product_name = $item->get_name(); // Nombre del producto
+                $product_name = preg_replace('/[\r\n]+/', ' ', $item->get_name()); // Eliminar saltos de línea en nombres
                 $product_quantity = $item->get_quantity(); // Cantidad solicitada
                 $product_total = $item->get_total(); // Precio total del producto
                 $products[] = [
@@ -48,22 +48,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_order'])) {
                     'total' => $product_total
                 ];
             }
-
         }
-
-        if( isset($send_method) && $send_method === 'whatsapp'){
+        
+        if (isset($send_method) && $send_method === 'whatsapp') {
             // Redirigir al detalle del pedido
             $phone_number = '5492804341440'; // Reemplaza con el número de WhatsApp
-
+        
             // Crear el mensaje
-            $message = "Hola,\nQuiero solicitar un presupuesto para los siguientes ítems:\n";
+            $message = "Hola,%0AQuiero%20solicitar%20un%20presupuesto%20para%20los%20siguientes%20%ADtems%3A%0A";
             foreach ($products as $product) {
-                $message .= $product['quantity'] . " - " . $product['name'] . " - $" . $product['total'] . "\n"; // Añadir cada ítem a la lista con salto de línea
+                $message .= urlencode($product['quantity']) . "%20-%20" . urlencode($product['name']) . "%20-%20$" . urlencode($product['total']) . "%0A"; // Añadir cada ítem a la lista con salto de línea
             }
-            $message .= "Atte,\n" . $customer_name;
-
-            // Codificar el mensaje
-            $redirect_url = 'https://wa.me/' . $phone_number . '?text=' . urlencode($message);
+            $message .= "Atte%2C%0A" . urlencode($customer_name) . "%0A";
+            $message .= "Solicitud%20n:" . $order_id;
+        
+            // Generar la URL de redirección
+            $redirect_url = 'https://wa.me/' . $phone_number . '?text=' . $message;
             wp_redirect($redirect_url);
             exit;
         }else{
