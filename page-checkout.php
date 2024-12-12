@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_order'])) {
         if ($data_order) {
             // Obtener nombre del cliente
             $customer_name = trim($data_order->get_billing_first_name() . ' ' . $data_order->get_billing_last_name());
-
+            $customer_email = $data_order->get_billing_email();
             // Obtener lista de productos
             $products = [];
             foreach ($data_order->get_items() as $item_id => $item) {
@@ -50,17 +50,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_order'])) {
             }
         }
 
+        // Crear el mensaje
+        $message = "Hola,\nQuiero solicitar un presupuesto para los siguientes ítems: \n";
+        foreach ($products as $product) {
+            $message .=  $product['quantity'] . " - " . $product['name'] . " - $" . $product['total'] . ". \n";
+        }
+        $message .= "Atte, \n" . $customer_name . ". \n";
+        $message .= "Solicitud n: " . $order_id;
+
+        $to = 'j.eduvalenzuela@gmail.com'; // Dirección de correo del destinatario
+        $subject = 'Solicitud de presupuesto - Orden #' . $order_id;
+
+        // Definir los encabezados para el correo
+        $headers = [
+            'Content-Type: text/plain; charset=UTF-8',
+            'From: ' . $customer_email,
+            'Reply-To: ' . $customer_email
+        ];
+        
+        // Enviar el correo
+        wp_mail($to, $subject, $message, $headers);
+
         if (isset($send_method) && $send_method === 'whatsapp') {
             // Redirigir al detalle del pedido
             $phone_number = '5492804341440'; // Reemplaza con el número de WhatsApp
-
-            // Crear el mensaje
-            $message = "Hola,\nQuiero solicitar un presupuesto para los siguientes ítems: \n";
-            foreach ($products as $product) {
-                $message .=  $product['quantity'] . " - " . $product['name'] . " - $" . $product['total'] . ". \n";
-            }
-            $message .= "Atte, \n" . $customer_name . ". \n";
-            $message .= "Solicitud n: " . $order_id;
 
             // Codificar el mensaje de forma consistente
             $encoded_message = str_replace(
@@ -81,6 +94,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_order'])) {
             wp_redirect($redirect_url);
             exit;
         }else{
+            else{
+                
+    
+                // Redirigir al detalle del pedido
+                $redirect_url = home_url(  '/presupuesto/?ver-orden=' . $order_id . '&sent_method=' . $send_method );
+                wp_redirect($redirect_url);
+                exit;
+            }
             // Redirigir al detalle del pedido
             $redirect_url = home_url(  '/presupuesto/?ver-orden=' . $order_id . '&sent_method=' . $send_method );
             wp_redirect($redirect_url);
