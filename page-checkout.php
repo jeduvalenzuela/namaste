@@ -30,6 +30,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_order'])) {
 
         $send_method = $_POST['sent_method'];
 
+        $data_order = wc_get_order($order_id); // Obtén el pedido
+
+        if ($data_order) {
+            // Obtener nombre del cliente
+            $customer_name = $data_order->get_billing_first_name() . '%20' . $data_order->get_billing_last_name();
+
+            // Obtener lista de productos
+            $products = [];
+            foreach ($data_order->get_items() as $item_id => $item) {
+                $product_name = $item->get_name(); // Nombre del producto
+                $product_quantity = $item->get_quantity(); // Cantidad solicitada
+                $product_total = $item->get_total(); // Precio total del producto
+                $products[] = [
+                    'name' => $product_name,
+                    'quantity' => $product_quantity,
+                    'total' => $product_total
+                ];
+            }
+
+            // Imprimir resultados
+            echo "Nombre del cliente: $customer_name<br>";
+            echo "Productos solicitados:<br>";
+            foreach ($products as $product) {
+                echo "- " . $product['name'] . " (Cantidad: " . $product['quantity'] . ", Total: $" . $product['total'] . ")<br>";
+            }
+        }
+
         if( isset($send_method) && $send_method === 'whatsapp'){
             // Redirigir al detalle del pedido
             $phone_number = '5492804341440'; // Reemplaza con el número de WhatsApp
@@ -39,10 +66,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_order'])) {
                 'Producto 3 - $300'
             ];
 
-            $message = "Hola,%0AQuiero solicitar un presupuesto para los siguientes ítems:%0A";
-            foreach ($items as $item) {
-                $message .= "- " . $item . "%0A"; // Añadir cada ítem a la lista con un salto de línea
+            $message = "Hola%2C%0AQuiero%20solicitar%20un%20presupuesto%20para%20los%20siguientes%20ítems%3A%0A";
+            foreach ($products as $product) {
+                $message .= $product['quantity'] . '%20-%20' . $product['name'] . '%20-%20' . $product['total'] . '%0A'; // Añadir cada ítem a la lista con un salto de línea
             }
+            $message .= 'Atte%2C%0A' . $customer_name;
 
             $redirect_url = 'https://wa.me/' . $phone_number . '?text=' . urlencode($message);
             wp_redirect($redirect_url);
