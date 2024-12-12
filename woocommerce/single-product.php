@@ -163,7 +163,7 @@ tour Area
                         <div class="actions">
                             <form class="cart" method="post" enctype="multipart/form-data">
                                 <div class="quantity">
-                                    <input type="number" id="quantity" class="qty-input" min="1" max="50" name="quantity" value="1" title="Qty">
+                                    <input type="number" id="quantity" class="qty-input" step="2" min="1" max="50" name="quantity" value="1" title="Qty">
                                     <button type="button" class="quantity-plus qty-btn"><i class="far fa-chevron-up"></i></button>
                                     <button type="button" class="quantity-minus qty-btn"><i class="far fa-chevron-down"></i></button>
                                 </div>
