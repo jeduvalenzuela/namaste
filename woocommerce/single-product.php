@@ -160,17 +160,27 @@ tour Area
                         <style>
                             
                         </style>
-                            <form class="actions" method="post" enctype="multipart/form-data">
+                        <div class="actions">
+                            <form class="cart" method="post" enctype="multipart/form-data">
                                 <div class="quantity">
                                     <input type="number" id="quantity" class="qty-input" step="1" min="1" max="100" name="quantity" value="1" title="Qty">
                                     <button type="button" class="quantity-plus qty-btn"><i class="far fa-chevron-up"></i></button>
                                     <button type="button" class="quantity-minus qty-btn"><i class="far fa-chevron-down"></i></button>
                                 </div>
+                                <style>
+                                    button.th-btn {
+                                        background-color: #1ca8cb;
+                                        color: #fff;
+                                        border: unset;
+                                        border-radius: 50px;
+                                    }
+                                </style>
                                 <button type="submit" name="add-to-cart" value="<?php echo get_the_ID(); ?>" class="th-btn">
                                     <?php esc_html_e( 'Agregar al carrito', 'woocommerce' ); ?>
                                 </button>
                             </form>
                             <a href="#" class="icon-btn"><i class="far fa-heart"></i></a>
+                        </div>
                         <script>
                             document.addEventListener('DOMContentLoaded', function () {
                                 const plusBtns = document.querySelectorAll('.quantity-plus');
