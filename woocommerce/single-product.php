@@ -148,7 +148,7 @@ tour Area
 
                         <div class="product-about">
 						<!-- <p class="price">Valor por <i class="far fa-user"> : u$d 1.285<del>u$d1.599</del></i></p> -->
-                        <div class="actions">
+                        <!--div class="actions">
                             <div class="quantity">
                                 <input type="number" class="qty-input" step="1" min="1" max="100" name="quantity" value="1" title="Qty">
                                 <button class="quantity-plus qty-btn"><i class="far fa-chevron-up"></i></button>
@@ -156,10 +156,11 @@ tour Area
                             </div>
                             <button class="th-btn">Agregar a presupuesto</button>
                             <a href="#" class="icon-btn"><i class="far fa-heart"></i></a>
-                        </div>
-
-                        <div class="actions">
-                            <form class="cart" method="post" enctype="multipart/form-data">
+                        </div-->
+                        <style>
+                            
+                        </style>
+                            <form class="actions" method="post" enctype="multipart/form-data">
                                 <div class="quantity">
                                     <input type="number" id="quantity" class="qty-input" step="1" min="1" max="100" name="quantity" value="1" title="Qty">
                                     <button type="button" class="quantity-plus qty-btn"><i class="far fa-chevron-up"></i></button>
@@ -170,7 +171,6 @@ tour Area
                                 </button>
                             </form>
                             <a href="#" class="icon-btn"><i class="far fa-heart"></i></a>
-                        </div>
                         <script>
                             document.addEventListener('DOMContentLoaded', function () {
                                 const plusBtns = document.querySelectorAll('.quantity-plus');
