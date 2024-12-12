@@ -179,7 +179,7 @@ tour Area
                                     <?php esc_html_e( 'Agregar al carrito', 'woocommerce' ); ?>
                                 </button>
                             </form>
-                            <a href="#" class="icon-btn"><i class="far fa-heart"></i></a>
+                            <!--a href="#" class="icon-btn"><i class="far fa-heart"></i></a-->
                         </div>
                         <script>
                             document.addEventListener('DOMContentLoaded', function () {
