@@ -55,17 +55,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_order'])) {
             $phone_number = '5492804341440'; // Reemplaza con el número de WhatsApp
 
             // Crear el mensaje
-            $message = "Hola%2C%20%0AQuiero%20solicitar%20un%20presupuesto%20para%20los%20siguientes%20ítems:%20%0A";
+            $message = "Hola,\nQuiero solicitar un presupuesto para los siguientes ítems:\n";
             foreach ($products as $product) {
-                $message .= $product['quantity'] . "%20-%20" . urlencode($product['name']) . "%20-%20%24" . $product['total'] . "%2C%20%0A"; // Nota: %24 para el signo de pesos
+                $message .= $product['quantity'] . " - " . $product['name'] . " - $" . $product['total'] . "\n";
             }
-            $message .= "Atte,%20%0A" . urlencode($customer_name) . "%2C%20%0A";
-            $message .= "Solicitud%20n:%20" . $order_id;
+            $message .= "Atte,\n" . $customer_name . "\n";
+            $message .= "Solicitud n: " . $order_id;
 
-            error_log('Mensaje de WhatsApp: ' . $message);
+            // Codificar el mensaje de forma consistente
+            $encoded_message = str_replace(
+                [' ', "\n", '$'],
+                ['%20', '%0A', '%24'],
+                $message
+            );
+
+            error_log('Mensaje de WhatsApp: ' . $encoded_message);
 
             // Generar la URL de redirección
-            $redirect_url = 'https://wa.me/' . $phone_number . '?text=' . $message;
+            $redirect_url = 'https://wa.me/' . $phone_number . '?text=' . $encoded_message;
             wp_redirect($redirect_url);
             exit;
         }else{
