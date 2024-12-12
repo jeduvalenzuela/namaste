@@ -61,7 +61,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_order'])) {
             }
             $message .= "Atte%2C%0A" . urlencode($customer_name) . "%0A";
             $message .= "Solicitud%20n:" . $order_id;
-        
+            
+            error_log('mensaje de whatsapp: ' . print_r($message));
+
             // Generar la URL de redirección
             $redirect_url = 'https://wa.me/' . $phone_number . '?text=' . $message;
             wp_redirect($redirect_url);
