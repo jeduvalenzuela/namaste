@@ -33,11 +33,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_order'])) {
         $data_order = wc_get_order($order_id); // Obtén el pedido
 
         if ($data_order) {
-            // Obtén el objeto del usuario
-            $user = $data_order->get_user();
-
-            // Obtén el nombre de usuario mostrado (el nombre que se establece en el perfil)
-            $customer_name = $user->get_display_name();
+            // Obtener nombre del cliente
+            $customer_name = trim($data_order->get_billing_first_name() . ' ' . $data_order->get_billing_last_name());
 
             // Obtener lista de productos
             $products = [];
