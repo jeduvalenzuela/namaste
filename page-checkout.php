@@ -38,6 +38,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_order'])) {
 
             // Obtén el nombre de usuario mostrado (el nombre que se establece en el perfil)
             $customer_name = $user->get_display_name();
+            // Obtener el correo electrónico del cliente
+            $customer_email = $user->user_email;
 
             // Obtener lista de productos
             $products = [];
@@ -60,21 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_order'])) {
             $message .= "Atte, \n" . $customer_name . ". \n";
             $message .= "Solicitud n: " . $order_id;
         }
-        // Obtener el correo electrónico del cliente
-        $customer_email = $user->user_email;
-
-        $to = 'j.eduvalenzuela@gmail.com'; // Dirección de correo del destinatario
-        $subject = 'Solicitud de presupuesto - Orden #' . $order_id;
         
-        // Definir los encabezados para el correo
-        $headers = [
-            'Content-Type: text/plain; charset=UTF-8',
-            'From: ' . $customer_email,
-            'Reply-To: ' . $customer_email
-        ];
-          
-        // Enviar el correo
-        wp_mail($to, $subject, $message, $headers);
 
         if (isset($send_method) && $send_method === 'whatsapp') {
             // Redirigir al detalle del pedido
@@ -107,6 +95,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_order'])) {
 
         
     } else {
+        $to = 'j.eduvalenzuela@gmail.com'; // Dirección de correo del destinatario
+        $subject = 'Solicitud de presupuesto - Orden #' . $order_id;
+
+        // Definir los encabezados para el correo
+        $headers = [
+            'Content-Type: text/plain; charset=UTF-8',
+            'From: ' . $customer_email,
+            'Reply-To: ' . $customer_email
+        ];
+          
+        // Enviar el correo
+        wp_mail($to, $subject, $message, $headers);
+        
         $redirect_url = home_url(  '/presupuesto/?ver-orden=false' );
         wp_redirect($redirect_url);
         exit;
