@@ -38,8 +38,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_order'])) {
 
             // Obtén el nombre de usuario mostrado (el nombre que se establece en el perfil)
             $customer_name = $user->get_display_name();
-            // Obtener el correo electrónico del cliente
-            $customer_email = $user->user_email;
 
             // Obtener lista de productos
             $products = [];
@@ -54,12 +52,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_order'])) {
                 ];
             }
         }
-        
 
         if (isset($send_method) && $send_method === 'whatsapp') {
             // Redirigir al detalle del pedido
             $phone_number = '5492804341440'; // Reemplaza con el número de WhatsApp
-            
+
             // Crear el mensaje
             $message = "Hola,\nQuiero solicitar un presupuesto para los siguientes ítems: \n";
             foreach ($products as $product) {
@@ -87,27 +84,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_order'])) {
             wp_redirect($redirect_url);
             exit;
         }else{
-            // Crear el mensaje
-            $message = "Hola,\nQuiero solicitar un presupuesto para los siguientes ítems: \n";
-            foreach ($products as $product) {
-                $message .=  $product['quantity'] . " - " . $product['name'] . " - $" . $product['total'] . ". \n";
-            }
-            $message .= "Atte, \n" . $customer_name . ". \n";
-            $message .= "Solicitud n: " . $order_id;
-
-            $to = 'j.eduvalenzuela@gmail.com'; // Dirección de correo del destinatario
-            $subject = 'Solicitud de presupuesto - Orden #' . $order_id;
-
-            // Definir los encabezados para el correo
-            $headers = [
-                'Content-Type: text/plain; charset=UTF-8',
-                'From: ' . $customer_email,
-                'Reply-To: ' . $customer_email
-            ];
-            
-            // Enviar el correo
-            wp_mail($to, $subject, $message, $headers);
-
             // Redirigir al detalle del pedido
             $redirect_url = home_url(  '/presupuesto/?ver-orden=' . $order_id . '&sent_method=' . $send_method );
             wp_redirect($redirect_url);
@@ -116,12 +92,61 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_order'])) {
 
         
     } else {
-                
-        $redirect_url = home_url(  '/presupuesto/?ver-orden=false' );
-        wp_redirect($redirect_url);
-        exit;
+        // Si la orden no se creó
+        $order_created = false;
+        echo '<p class="woocommerce-error">Hubo un problema al crear tu pedido. Intenta nuevamente.</p>';
     }
 }
 
+defined( 'ABSPATH' ) || exit;
+
+// Verificar si estamos en la URL de "order-received"
+if ( isset( $_GET['key'] ) ) {
+    $order_key = sanitize_text_field( $_GET['key'] );
+    $order = wc_get_order( $order_key ); // Obtener la orden usando la clave
+
+    if ( $order ) : 
+        ?>
+        <div class="woocommerce-order-details">
+            <h2>Detalles de tu pedido</h2>
+            <p>Número de pedido: <strong><?php echo $order->get_order_number(); ?></strong></p>
+            <p>Fecha: <strong><?php echo wc_format_datetime( $order->get_date_created() ); ?></strong></p>
+            <p>Total: <strong><?php echo $order->get_formatted_order_total(); ?></strong></p>
+
+            <h3>Productos:</h3>
+            <table class="shop_table order_details">
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ( $order->get_items() as $item_id => $item ) : ?>
+                        <tr>
+                            <td><?php echo esc_html( $item->get_name() ); ?></td>
+                            <td><?php echo esc_html( $item->get_quantity() ); ?></td>
+                            <td><?php echo wp_kses_post( $order->get_formatted_line_subtotal( $item ) ); ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+        <?php
+    else : 
+        // Si la orden no existe o la clave es inválida.
+        ?>
+        <p class="woocommerce-error">Lo sentimos, no se pudo encontrar el pedido. Parámetros de la URL: <br> 
+        key: <?php echo isset($_GET['key']) ? $_GET['key'] : 'No disponible'; ?></p>
+        <?php
+    endif;
+} else {
+    // Si no estamos en una URL de "order-received", mostrar el contenido regular del checkout.
+    ?>
+    <h2>Formulario de Checkout</h2>
+    <!-- Aquí va el contenido normal del checkout -->
+    <?php
+}
 
 get_footer();
