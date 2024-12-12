@@ -59,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_order'])) {
             foreach ($products as $product) {
                 $message .=  $product['quantity'] . " - " . $product['name'] . " - $" . $product['total'] . ". \n";
             }
-            $message .= "Atte,\n" . $customer_name . ".\n";
+            $message .= "Atte, \n" . $customer_name . ". \n";
             $message .= "Solicitud n: " . $order_id;
 
             // Codificar el mensaje de forma consistente
