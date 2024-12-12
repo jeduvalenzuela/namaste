@@ -57,9 +57,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_order'])) {
             // Crear el mensaje
             $message = "Hola,\nQuiero solicitar un presupuesto para los siguientes ítems:\n";
             foreach ($products as $product) {
-                $message .= $product['quantity'] . " - " . $product['name'] . " - $" . $product['total'] . "\n";
+                $message .= $product['quantity'] . " - " . $product['name'] . " - $" . $product['total'] . ".\n";
             }
-            $message .= "Atte,\n" . $customer_name . "\n";
+            $message .= "Atte,\n" . $customer_name . ".\n";
             $message .= "Solicitud n: " . $order_id;
 
             // Codificar el mensaje de forma consistente
