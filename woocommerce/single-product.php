@@ -146,70 +146,58 @@ tour Area
                             ?>
                                     
 
-                        <div class="product-about">
-						<!-- <p class="price">Valor por <i class="far fa-user"> : u$d 1.285<del>u$d1.599</del></i></p> -->
-                        <!--div class="actions">
-                            <div class="quantity">
-                                <input type="number" class="qty-input" step="1" min="1" max="100" name="quantity" value="1" title="Qty">
-                                <button class="quantity-plus qty-btn"><i class="far fa-chevron-up"></i></button>
-                                <button class="quantity-minus qty-btn"><i class="far fa-chevron-down"></i></button>
-                            </div>
-                            <button class="th-btn">Agregar a presupuesto</button>
-                            <a href="#" class="icon-btn"><i class="far fa-heart"></i></a>
-                        </div-->
-                        <style>
+                            <div class="product-about">
                             
-                        </style>
-                        <div class="actions">
-                            <form class="cart" method="post" enctype="multipart/form-data">
-                                <div class="quantity">
-                                    <input type="number" id="quantity" class="qty-input" step="1" min="1" max="50" name="quantity" value="1" title="Qty">
-                                    <button type="button" class="quantity-plus qty-btn"><i class="far fa-chevron-up"></i></button>
-                                    <button type="button" class="quantity-minus qty-btn"><i class="far fa-chevron-down"></i></button>
+                                <div class="actions">
+                                    <form class="cart" method="post" enctype="multipart/form-data">
+                                        <div class="quantity">
+                                            <input type="number" id="quantity" class="qty-input" step="1" min="1" max="50" name="quantity" value="1" title="Qty">
+                                            <button type="button" class="quantity-plus qty-btn"><i class="far fa-chevron-up"></i></button>
+                                            <button type="button" class="quantity-minus qty-btn"><i class="far fa-chevron-down"></i></button>
+                                        </div>
+                                        <style>
+                                            button.th-btn {
+                                                background-color: #1ca8cb;
+                                                color: #fff;
+                                                border: unset;
+                                                border-radius: 50px;
+                                            }
+                                        </style>
+                                        <button type="submit" name="add-to-cart" value="<?php echo get_the_ID(); ?>" class="th-btn">
+                                            <?php esc_html_e( 'Agregar al carrito', 'woocommerce' ); ?>
+                                        </button>
+                                    </form>
+                                    <!--a href="#" class="icon-btn"><i class="far fa-heart"></i></a-->
                                 </div>
-                                <style>
-                                    button.th-btn {
-                                        background-color: #1ca8cb;
-                                        color: #fff;
-                                        border: unset;
-                                        border-radius: 50px;
-                                    }
-                                </style>
-                                <button type="submit" name="add-to-cart" value="<?php echo get_the_ID(); ?>" class="th-btn">
-                                    <?php esc_html_e( 'Agregar al carrito', 'woocommerce' ); ?>
-                                </button>
-                            </form>
-                            <!--a href="#" class="icon-btn"><i class="far fa-heart"></i></a-->
-                        </div>
-                        <script>
-                            document.addEventListener('DOMContentLoaded', function () {
-                                const plusBtns = document.querySelectorAll('.quantity-plus');
-                                const minusBtns = document.querySelectorAll('.quantity-minus');
+                                <script>
+                                    document.addEventListener('DOMContentLoaded', function () {
+                                        const plusBtns = document.querySelectorAll('.quantity-plus');
+                                        const minusBtns = document.querySelectorAll('.quantity-minus');
 
-                                plusBtns.forEach(btn => {
-                                    btn.addEventListener('click', function (e) {
-                                        e.preventDefault();
-                                        const qtyInput = this.parentElement.querySelector('.qty-input');
-                                        if (qtyInput) {
-                                            qtyInput.stepUp();
-                                        }
+                                        plusBtns.forEach(btn => {
+                                            btn.addEventListener('click', function (e) {
+                                                e.preventDefault();
+                                                const qtyInput = this.parentElement.querySelector('.qty-input');
+                                                if (qtyInput) {
+                                                    qtyInput.stepUp();
+                                                }
+                                            });
+                                        });
+
+                                        minusBtns.forEach(btn => {
+                                            btn.addEventListener('click', function (e) {
+                                                e.preventDefault();
+                                                const qtyInput = this.parentElement.querySelector('.qty-input');
+                                                if (qtyInput && qtyInput.value > 1) {
+                                                    qtyInput.stepDown();
+                                                }
+                                            });
+                                        });
                                     });
-                                });
 
-                                minusBtns.forEach(btn => {
-                                    btn.addEventListener('click', function (e) {
-                                        e.preventDefault();
-                                        const qtyInput = this.parentElement.querySelector('.qty-input');
-                                        if (qtyInput && qtyInput.value > 1) {
-                                            qtyInput.stepDown();
-                                        }
-                                    });
-                                });
-                            });
+                                </script>
 
-                        </script>
-
-						</div>
+                            </div>
 						</div>
 						
                         <!-- Comment end --> <!-- Comment Form -->
