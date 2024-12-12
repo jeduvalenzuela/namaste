@@ -54,11 +54,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_order'])) {
         if( isset($send_method) && $send_method === 'whatsapp'){
             // Redirigir al detalle del pedido
             $phone_number = '5492804341440'; // Reemplaza con el número de WhatsApp
-            $items = [
-                'Producto 1 - $100',
-                'Producto 2 - $200',
-                'Producto 3 - $300'
-            ];
 
             // Crear el mensaje
             $message = "Hola,\nQuiero solicitar un presupuesto para los siguientes ítems:\n";
