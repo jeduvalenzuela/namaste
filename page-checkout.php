@@ -64,8 +64,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_order'])) {
 
             // Codificar el mensaje de forma consistente
             $encoded_message = str_replace(
-                [' ', "\n", '$'],
-                ['%20', '%0A', '%24'],
+                [
+                    ' ', "\n", '$', ',', ':', '(', ')', 'á', 'é', 'í', 'ó', 'ú', 'Á', 'É', 'Í', 'Ó', 'Ú', 'ñ', 'Ñ'
+                ],
+                [
+                    '%20', '%0A', '%24', '%2C', '%3A', '%28', '%29', '%C3%A1', '%C3%A9', '%C3%AD', '%C3%B3', '%C3%BA', 
+                    '%C3%81', '%C3%89', '%C3%8D', '%C3%93', '%C3%9A', '%C3%B1', '%C3%91'
+                ],
                 $message
             );
 
