@@ -29,10 +29,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_order'])) {
         WC()->cart->empty_cart();
 
         $send_method = $_POST['sent_method'];
-        // Redirigir al detalle del pedido
-        $redirect_url = home_url(  '/presupuesto/?ver-orden=' . $order_id . '&sent_method=' . $send_method );
-        wp_redirect($redirect_url);
-        exit;
+
+        if( isset($send_method) && $send_method === 'whatsapp'){
+            // Redirigir al detalle del pedido
+            $phone_number = '5492804341440'; // Reemplaza con el número de WhatsApp
+            $items = [
+                'Producto 1 - $100',
+                'Producto 2 - $200',
+                'Producto 3 - $300'
+            ];
+
+            $message = "Hola,%0AQuiero solicitar un presupuesto para los siguientes ítems:%0A";
+            foreach ($items as $item) {
+                $message .= "- " . $item . "%0A"; // Añadir cada ítem a la lista con un salto de línea
+            }
+
+            $redirect_url = 'https://wa.me/' . $phone_number . '?text=' . urlencode($message);
+            wp_redirect($redirect_url);
+            exit;
+        }else{
+            // Redirigir al detalle del pedido
+            $redirect_url = home_url(  '/presupuesto/?ver-orden=' . $order_id . '&sent_method=' . $send_method );
+            wp_redirect($redirect_url);
+            exit;
+        }
+
+        
     } else {
         // Si la orden no se creó
         $order_created = false;
