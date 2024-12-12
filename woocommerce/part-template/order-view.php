@@ -5,6 +5,9 @@
 if (isset($_GET['ver_orden']) && !empty($_GET['ver_orden'])) {
     $order_id = $_GET['ver_orden']; // Llamar a la función que genera y envía el PDF
 }
+if (isset($_GET['sent_method']) && !empty($_GET['sent_method'])) {
+    $sent_method = ' por ' . $_GET['sent_method'] . ' al operador'; // Llamar a la función que genera y envía el PDF
+}
 
 $order = wc_get_order( $order_id ); // Obtén la orden actual
 
@@ -21,7 +24,7 @@ if ( $order ) {
     <div class="th-cart-wrapper space-top space-extra-bottom">
         <div class="container">
             <div class="woocommerce-notices-wrapper">
-                <div class="woocommerce-message">Su solicitud fue enviada</div>
+                <div class="woocommerce-message">Su solicitud fue enviada<?php echo isset($sent_method) ? $sent_method : ''; ?>. Por favor aguarde su respuesta. Muchas Gracias.</div>
             </div>
 
             <table class="cart_table">
