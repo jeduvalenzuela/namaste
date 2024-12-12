@@ -94,14 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_order'])) {
             wp_redirect($redirect_url);
             exit;
         }else{
-            else{
                 
-    
-                // Redirigir al detalle del pedido
-                $redirect_url = home_url(  '/presupuesto/?ver-orden=' . $order_id . '&sent_method=' . $send_method );
-                wp_redirect($redirect_url);
-                exit;
-            }
             // Redirigir al detalle del pedido
             $redirect_url = home_url(  '/presupuesto/?ver-orden=' . $order_id . '&sent_method=' . $send_method );
             wp_redirect($redirect_url);
