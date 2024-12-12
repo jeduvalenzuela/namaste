@@ -148,38 +148,47 @@ modal Area
             </div>
             <div class="tab-pane fade active show" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
                 <h3 class="th-form-title mb-30">Iniciar registro</h3>
-                <form action="<?php echo esc_url( admin_url('admin-post.php') ); ?>" method="POST" class="login-form">
+                <form action="<?php echo esc_url( wc_get_account_endpoint_url( 'register' ) ); ?>" method="post" class="login-form ajax-contact">
                     <div class="row">
                         <div class="form-group col-12">
-                            <label>Usuario*</label>
-                            <input type="text" class="form-control" name="username" id="username" required="required">
+                            <label for="username">Usuario*</label>
+                            <input type="text" class="form-control" name="username" id="username" required="required" value="<?php if ( ! empty( $_POST['username'] ) ) echo esc_attr( $_POST['username'] ); ?>">
                         </div>
                         <div class="form-group col-12">
-                            <label>Nombre*</label>
-                            <input type="text" class="form-control" name="firstname" id="firstname" required="required">
+                            <label for="firstname">Nombre*</label>
+                            <input type="text" class="form-control" name="firstname" id="firstname" required="required" value="<?php if ( ! empty( $_POST['firstname'] ) ) echo esc_attr( $_POST['firstname'] ); ?>">
                         </div>
                         <div class="form-group col-12">
-                            <label>Apellido*</label>
-                            <input type="text" class="form-control" name="lastname" id="lastname" required="required">
+                            <label for="lastname">Apellido*</label>
+                            <input type="text" class="form-control" name="lastname" id="lastname" required="required" value="<?php if ( ! empty( $_POST['lastname'] ) ) echo esc_attr( $_POST['lastname'] ); ?>">
                         </div>
                         <div class="form-group col-12">
-                            <label for="new_email">Mail*</label>
-                            <input type="email" class="form-control" name="new_email" id="new_email" required="required">
+                            <label for="email">Correo Electrónico*</label>
+                            <input type="email" class="form-control" name="email" id="email" required="required" value="<?php if ( ! empty( $_POST['email'] ) ) echo esc_attr( $_POST['email'] ); ?>">
                         </div>
                         <div class="form-group col-12">
-                            <label for="new_email_confirm">Confirmar mail*</label>
-                            <input type="email" class="form-control" name="new_email_confirm" id="new_email_confirm" required="required">
+                            <label for="confirm_email">Confirmar Correo Electrónico*</label>
+                            <input type="email" class="form-control" name="confirm_email" id="confirm_email" required="required">
+                        </div>
+                        <div class="form-group col-12">
+                            <label for="password">Contraseña*</label>
+                            <input type="password" class="form-control" name="password" id="password" required="required">
+                        </div>
+                        <div class="form-group col-12">
+                            <label for="confirm_password">Confirmar Contraseña*</label>
+                            <input type="password" class="form-control" name="confirm_password" id="confirm_password" required="required">
                         </div>
                         <div class="statement">
                             <span class="register-notes">Se te enviará una contraseña por correo electrónico.</span>
                         </div>
 
                         <div class="form-btn mt-20 col-12">
-                            <button class="th-btn btn-fw th-radius2">Registrarme</button>
+                            <button type="submit" class="th-btn btn-fw th-radius2 ">Registrarme</button>
                         </div>
                     </div>
                     <p class="form-messages mb-0 mt-3"></p>
                 </form>
+
 
             </div>
         </div>
