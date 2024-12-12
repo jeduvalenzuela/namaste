@@ -60,10 +60,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_order'])) {
             $message .= "Atte, \n" . $customer_name . ". \n";
             $message .= "Solicitud n: " . $order_id;
         }
+        // Obtener el correo electrónico del cliente
+        $customer_email = $user->user_email;
 
         $to = 'j.eduvalenzuela@gmail.com'; // Dirección de correo del destinatario
         $subject = 'Solicitud de presupuesto - Orden #' . $order_id;
-        $headers = array('Content-Type: text/plain; charset=UTF-8');
+        
+        // Definir los encabezados para el correo
+        $headers = [
+            'Content-Type: text/plain; charset=UTF-8',
+            'From: ' . $customer_email,
+            'Reply-To: ' . $customer_email
+        ];
           
         // Enviar el correo
         wp_mail($to, $subject, $message, $headers);
