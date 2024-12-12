@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_order'])) {
             $phone_number = '5492804341440'; // Reemplaza con el número de WhatsApp
         
             // Crear el mensaje
-            $message = "Hola,%0AQuiero%20solicitar%20un%20presupuesto%20para%20los%20siguientes%20%ADtems%3A%0A";
+            $message = "Hola%2C%0AQuiero%20solicitar%20un%20presupuesto%20para%20los%20siguientes%20%ADtems%3A%0A";
             foreach ($products as $product) {
                 $message .= urlencode($product['quantity']) . "%20-%20" . urlencode($product['name']) . "%20-%20$" . urlencode($product['total']) . "%0A"; // Añadir cada ítem a la lista con salto de línea
             }
