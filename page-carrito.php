@@ -23,7 +23,14 @@ if ( isset( $_GET['ver-orden'] ) && is_numeric( $_GET['ver-orden'] ) ) {
                 <div class="woocommerce-notices-wrapper">
                     <div class="woocommerce-message">Detalle de productos a presupuestar</div>
                 </div>
-
+                <style>
+                    button.th-btn, button.enviar {
+                        background-color: #1ca8cb;
+                        color: #fff;
+                        border: unset;
+                        border-radius: 50px;
+                    }
+                </style>
                 <form action="<?php echo esc_url( wc_get_cart_url() ); ?>" method="post" class="woocommerce-cart-form">
                     <table class="cart_table">
                         <thead>
@@ -93,7 +100,7 @@ if ( isset( $_GET['ver-orden'] ) && is_numeric( $_GET['ver-orden'] ) ) {
 
     <tr>
                                 <td colspan="6" class="actions">
-                                    <button type="submit" class="button" name="update_cart" value="<?php esc_attr_e( 'Update cart', 'woocommerce' ); ?>"><?php esc_html_e( 'Update cart', 'woocommerce' ); ?></button>
+                                    <button type="submit" class="th-btn" name="update_cart" value="<?php esc_attr_e( 'Update cart', 'woocommerce' ); ?>"><?php esc_html_e( 'Update cart', 'woocommerce' ); ?></button>
                                     <?php wp_nonce_field( 'woocommerce-cart', 'woocommerce-cart-nonce' ); ?>
                                 </td>
                             </tr>
@@ -173,14 +180,7 @@ if ( isset( $_GET['ver-orden'] ) && is_numeric( $_GET['ver-orden'] ) ) {
                                 </tr>
                             </tbody>
                         </table>
-                        <style>
-                            button.th-btn, button.enviar {
-                                background-color: #1ca8cb;
-                                color: #fff;
-                                border: unset;
-                                border-radius: 50px;
-                            }
-                        </style>
+                        
                         <div class="wc-proceed-to-checkout mb-30">
                             <?php if (is_user_logged_in()) : ?>
                                 <form method="post" action="<?php echo home_url( '/checkout/' ); ?>" id="checkout-form">
