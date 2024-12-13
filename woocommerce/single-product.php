@@ -212,31 +212,6 @@
                             <!-- Comment end --> <!-- Comment Form -->
                             <?php echo do_shortcode( '[contact-form-7 id="1ce7f18" title="Formulario de contacto 1"]' ); ?>
 
-                            <!--div class="th-comment-form ">
-                                <div class="row">
-                                    <h3 class="blog-inner-title h4 mb-2">Dejanos tu consulta</h3>
-                                    <p class="mb-25">Puedes enviarnos una consulta directamente desde el formulario o agregarlo a tu presupuesto y enviar lo que te interesa todo junto.</p>
-                                    <div class="col-md-6 form-group">
-                                        <input type="text" placeholder="Nombre completo*" class="form-control" required>
-                                        <i class="far fa-user"></i>
-                                    </div>
-                                    <div class="col-md-6 form-group">
-                                        <input type="text" placeholder="Tu Email*" class="form-control" required>
-                                        <i class="far fa-envelope"></i>
-                                    </div>
-                                    <div class="col-12 form-group">
-                                        <textarea placeholder="Tu consulta*" class="form-control"></textarea>
-                                        <i class="far fa-pencil"></i>
-                                    </div>
-                                    <div class="col-12 form-group">
-                                        <input type="checkbox" id="html">
-                                        <label for="html">Guarda mi nombre, correo electrónico y sitio web en este navegador para la próxima vez que ingrese.</label>
-                                    </div>
-                                    <div class="col-12 form-group mb-0">
-                                        <button class="th-btn">Enviar consulta<img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/icon/plane2.svg" alt=""></button>
-                                    </div>
-                                </div>
-                            </div-->
                         </div>
                     </div>
                     <div class="col-xxl-4 col-lg-5">
