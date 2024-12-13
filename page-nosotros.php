@@ -17,7 +17,8 @@ get_header(); ?>
                 </ul>
             </div>
         </div>
-    </div><!--==============================
+    </div>
+    <!--==============================
 About Area  
 ==============================-->
     <div class="about-area position-relative overflow-hidden overflow-hidden space" id="about-sec">
