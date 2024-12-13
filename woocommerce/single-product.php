@@ -212,7 +212,7 @@
                             <!-- Comment end --> <!-- Comment Form -->
                             <?php echo do_shortcode( '[contact-form-7 id="1ce7f18" title="Formulario de contacto 1"]' ); ?>
 
-                            <div class="th-comment-form ">
+                            <!--div class="th-comment-form ">
                                 <div class="row">
                                     <h3 class="blog-inner-title h4 mb-2">Dejanos tu consulta</h3>
                                     <p class="mb-25">Puedes enviarnos una consulta directamente desde el formulario o agregarlo a tu presupuesto y enviar lo que te interesa todo junto.</p>
@@ -236,7 +236,7 @@
                                         <button class="th-btn">Enviar consulta<img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/icon/plane2.svg" alt=""></button>
                                     </div>
                                 </div>
-                            </div>
+                            </div-->
                         </div>
                     </div>
                     <div class="col-xxl-4 col-lg-5">
