@@ -40,37 +40,24 @@
                                             </div>
                                         <?php } ?>
                                         
-                                        <!--div class="swiper-slide" role="group" aria-label="1 / 8" data-swiper-slide-index="0" style="width: 872px; opacity: 1; transform: translate3d(-2616px, 0px, 0px); transition-duration: 0ms;">
-                                            <div class="tour-slider-img">
-                                                <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/tour/tour_inner_2_1.jpg" alt="img">
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide" role="group" aria-label="2 / 8" data-swiper-slide-index="1" style="width: 872px; opacity: 1; transform: translate3d(-3488px, 0px, 0px); transition-duration: 0ms;">
-                                            <div class="tour-slider-img">
-                                                <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/tour/tour_inner_2_2.jpg" alt="img">
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide" role="group" aria-label="3 / 8" data-swiper-slide-index="2" style="width: 872px; opacity: 1; transform: translate3d(-4360px, 0px, 0px); transition-duration: 0ms;">
-                                            <div class="tour-slider-img">
-                                                <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/tour/tour_inner_2_3.jpg" alt="img">
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide swiper-slide-prev" role="group" aria-label="4 / 8" data-swiper-slide-index="3" style="width: 872px; opacity: 1; transform: translate3d(-5232px, 0px, 0px); transition-duration: 0ms;">
-                                            <div class="tour-slider-img">
-                                                <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/tour/tour_inner_2_4.jpg" alt="img">
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide swiper-slide-visible swiper-slide-active" role="group" aria-label="5 / 8" data-swiper-slide-index="4" style="width: 872px; opacity: 1; transform: translate3d(-6104px, 0px, 0px); transition-duration: 0ms;">
-                                            <div class="tour-slider-img">
-                                                <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/tour/tour_inner_2_5.jpg" alt="img">
-                                            </div>
-                                        </div-->
+                                        
                                     </div>
                                 <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
                                 <div class="swiper th-slider tour-thumb-slider swiper-initialized swiper-horizontal swiper-backface-hidden swiper-thumbs" data-slider-options="{&quot;effect&quot;:&quot;slide&quot;,&quot;loop&quot;:true,&quot;breakpoints&quot;:{&quot;0&quot;:{&quot;slidesPerView&quot;:2},&quot;576&quot;:{&quot;slidesPerView&quot;:&quot;2&quot;},&quot;768&quot;:{&quot;slidesPerView&quot;:&quot;3&quot;},&quot;992&quot;:{&quot;slidesPerView&quot;:&quot;3&quot;},&quot;1200&quot;:{&quot;slidesPerView&quot;:&quot;3&quot;}},&quot;autoplayDisableOnInteraction&quot;:&quot;true&quot;}">
                                     <div class="swiper-wrapper" id="swiper-wrapper-a12b3591079192697" aria-live="off" style="transform: translate3d(-896px, 0px, 0px); transition-duration: 0ms; transition-delay: 0ms;">
                                         
-                                        <div class="swiper-slide" role="group" aria-label="2 / 8" data-swiper-slide-index="1" style="width: 274.667px; margin-right: 24px;">
+                                        <?php  foreach($gallery_image_ids as $key => $thumb){
+                                            $thumb_indice = $key + 1;
+                                            $thumb = '' ?>
+
+                                            <div class="swiper-slide" role="group" aria-label="<?php echo $thumb_indice; ?> / 8" data-swiper-slide-index="1" style="width: 274.667px; margin-right: 24px;">
+                                                <div class="tour-slider-img">
+                                                    <?php echo wp_get_attachment_image( $thumb, 'thumbnail' ); ?>
+                                                </div>
+                                            </div>
+                                            
+                                        <?php } ?>
+                                        <!-- div class="swiper-slide" role="group" aria-label="2 / 8" data-swiper-slide-index="1" style="width: 274.667px; margin-right: 24px;">
                                             <div class="tour-slider-img">
                                                 <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/tour/tour_inner_2_2.jpg" alt="Image">
                                             </div>
@@ -89,7 +76,7 @@
                                             <div class="tour-slider-img">
                                                 <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/tour/tour_inner_2_1.jpg" alt="Image">
                                             </div>
-                                        </div>
+                                        </div-->
                                         <!--div class="swiper-slide swiper-slide-visible swiper-slide-next" role="group" aria-label="6 / 8" data-swiper-slide-index="5" style="width: 274.667px; margin-right: 24px;">
                                             <div class="tour-slider-img">
                                                 <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/tour/tour_inner_2_2.jpg" alt="Image">
