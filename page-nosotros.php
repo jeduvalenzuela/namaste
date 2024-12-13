@@ -87,6 +87,8 @@ Team Area
                     <div class="swiper-wrapper">
 
                         <?php
+                                $back_img = get_stylesheet_directory_uri() . '/assets/img/team/team_img_1.jpg';
+
 								// Consulta personalizada de productos de WooCommerce
 								$args = array(
 									'post_type' => 'partner', // Tipo de post: productos
@@ -97,21 +99,24 @@ Team Area
 								if ($loop->have_posts()) :
 									while ($loop->have_posts()) : $loop->the_post();
                                         $foto = get_field('foto');
-                                        echo print_r($foto);
+                                        if ($foto) {
+                                            $url_foto = $foto['sizes']['medium'];
+                                        }
+                                         
 								        ?>
                                         <!-- Single Item -->
 
                                         <div class="swiper-slide">
                                             <div class="th-team team-grid">
                                                 <div class="team-img">
-                                                    <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/team/team_img_1.jpg" alt="Team">
+                                                    <img src="<?php echo $back_img;?>" alt="Team">
                                                 </div>
                                                 <div class="team-img2">
-                                                    <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/team/team_1_1.jpg" alt="Team">
+                                                    <img src="<?php echo $foto;?>" alt="Team">
                                                 </div>
                                                 <div class="team-content">
                                                     <div class="media-body">
-                                                        <h3 class="box-title"><a href="tour-guider-details.html"><?php the_title(); ?></a></h3>
+                                                        <h3 class="box-title"><a><?php the_title(); ?></a></h3>
                                                         <span class="team-desig"><?php the_field('cargo'); ?></span>
 
                                                         <div class="th-social">
