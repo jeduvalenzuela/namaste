@@ -194,6 +194,35 @@ modal Area
         </div>
     </div>
 
+
+    <style>
+        .float{
+            position:fixed;
+            width:60px;
+            height:60px;
+            bottom:80px;
+            right:15px;
+            background-color:#25d366;
+            color:#FFF;
+            border-radius:50px;
+            text-align:center;
+            font-size:30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index:100;
+        }
+        .float:hover {
+            text-decoration: none;
+            color: #25d366;
+            background-color:#fff;
+        }
+
+        .my-float{
+            margin-top:16px;
+        }
+    |</style>
+    <a href="https://api.whatsapp.com/send?phone=5492804341440&text=Hola%2C%20Quisiera%20solicitar%20un%20presupuesto." class="float" target="_blank">
+        <i class="fab fa-whatsapp my-float"></i>
+    </a>
     <!--==============================
     All Js File
 ============================== -->
