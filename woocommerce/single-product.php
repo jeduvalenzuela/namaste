@@ -34,7 +34,7 @@
 
                                             <div class="swiper-slide" role="group" aria-label="<?php echo $indice; ?> / 8" data-swiper-slide-index="0" style="width: 872px; opacity: 1; transform: translate3d(-2616px, 0px, 0px); transition-duration: 0ms;">
                                                 <div class="tour-slider-img">
-                                                    <?php echo wp_get_attachment_image( $imag_gallery, 'large' ); ?>
+                                                    <?php echo wp_get_attachment_image( $imag_gallery, 'medium' ); ?>
                                                 </div>
                                             </div>
                                         <?php } ?>
