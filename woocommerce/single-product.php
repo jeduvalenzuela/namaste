@@ -34,7 +34,7 @@
 
                                             <div class="swiper-slide" role="group" aria-label="<?php echo $indice; ?> / 8" data-swiper-slide-index="0" style="width: 872px; opacity: 1; transform: translate3d(-2616px, 0px, 0px); transition-duration: 0ms;">
                                                 <div class="tour-slider-img">
-                                                    <?php echo wp_get_attachment_image( $imag_gallery, 'medium' ); ?>
+                                                    <?php echo wp_get_attachment_image( $imag_gallery, 'large' ); ?>
                                                 </div>
                                             </div>
                                         <?php } ?>
@@ -50,7 +50,7 @@
 
                                             <div class="swiper-slide" role="group" aria-label="<?php echo $thumb_indice; ?> / 8" data-swiper-slide-index="1" style="width: 274.667px; margin-right: 24px;">
                                                 <div class="tour-slider-img">
-                                                    <?php echo wp_get_attachment_image( $thumb, 'thumbnail' ); ?>
+                                                    <?php echo wp_get_attachment_image( $thumb, 'medium' ); ?>
                                                 </div>
                                             </div>
                                             
