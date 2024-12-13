@@ -31,12 +31,16 @@
                                         
                                         foreach($gallery_image_ids as $key => $imag_gallery){
                                             $indice = $key + 1;
-                                            $thumb = wp_get_attachment_image( $imag_gallery, 'thumbnail' );
-                                            print_r( '<br>Data: ' . $indice . ' - ' . $thumb );
-                                        }
-                                        ?>
+                                            $thumb = '' ?>
+
+                                            <div class="swiper-slide" role="group" aria-label="<?php echo $indice; ?> / 8" data-swiper-slide-index="0" style="width: 872px; opacity: 1; transform: translate3d(-2616px, 0px, 0px); transition-duration: 0ms;">
+                                                <div class="tour-slider-img">
+                                                    <?php wp_get_attachment_image( $imag_gallery, 'medium' ); ?>
+                                                </div>
+                                            </div>
+                                        <?php } ?>
                                         
-                                        <div class="swiper-slide" role="group" aria-label="1 / 8" data-swiper-slide-index="0" style="width: 872px; opacity: 1; transform: translate3d(-2616px, 0px, 0px); transition-duration: 0ms;">
+                                        <!--div class="swiper-slide" role="group" aria-label="1 / 8" data-swiper-slide-index="0" style="width: 872px; opacity: 1; transform: translate3d(-2616px, 0px, 0px); transition-duration: 0ms;">
                                             <div class="tour-slider-img">
                                                 <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/tour/tour_inner_2_1.jpg" alt="img">
                                             </div>
@@ -60,7 +64,7 @@
                                             <div class="tour-slider-img">
                                                 <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/tour/tour_inner_2_5.jpg" alt="img">
                                             </div>
-                                        </div>
+                                        </div-->
                                     </div>
                                 <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
                                 <div class="swiper th-slider tour-thumb-slider swiper-initialized swiper-horizontal swiper-backface-hidden swiper-thumbs" data-slider-options="{&quot;effect&quot;:&quot;slide&quot;,&quot;loop&quot;:true,&quot;breakpoints&quot;:{&quot;0&quot;:{&quot;slidesPerView&quot;:2},&quot;576&quot;:{&quot;slidesPerView&quot;:&quot;2&quot;},&quot;768&quot;:{&quot;slidesPerView&quot;:&quot;3&quot;},&quot;992&quot;:{&quot;slidesPerView&quot;:&quot;3&quot;},&quot;1200&quot;:{&quot;slidesPerView&quot;:&quot;3&quot;}},&quot;autoplayDisableOnInteraction&quot;:&quot;true&quot;}">
