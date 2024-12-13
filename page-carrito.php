@@ -173,6 +173,14 @@ if ( isset( $_GET['ver-orden'] ) && is_numeric( $_GET['ver-orden'] ) ) {
                                 </tr>
                             </tbody>
                         </table>
+                        <style>
+                            button.th-btn, button.enviar {
+                                background-color: #1ca8cb;
+                                color: #fff;
+                                border: unset;
+                                border-radius: 50px;
+                            }
+                        </style>
                         <div class="wc-proceed-to-checkout mb-30">
                             <?php if (is_user_logged_in()) : ?>
                                 <form method="post" action="<?php echo home_url( '/checkout/' ); ?>" id="checkout-form">
