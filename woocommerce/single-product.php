@@ -29,7 +29,7 @@
                                         $product = wc_get_product(get_the_ID());
                                         $gallery_image_ids = $product->get_gallery_image_ids();
                                         
-                                        foreach($gallery_image_ids as $key->$imag_gallery){
+                                        foreach($gallery_image_ids as $key => $imag_gallery){
                                             print_r( '<br>Data: ' . $key . ' - ' . $imag_gallery );
                                         }
                                         ?>
