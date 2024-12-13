@@ -30,7 +30,9 @@
                                         $gallery_image_ids = $product->get_gallery_image_ids();
                                         
                                         foreach($gallery_image_ids as $key => $imag_gallery){
-                                            print_r( '<br>Data: ' . $key . ' - ' . $imag_gallery );
+                                            $indice = $key + 1;
+                                            $thumb = wp_get_attachment_image( $imag_gallery, 'thumbnail' );
+                                            print_r( '<br>Data: ' . $indice . ' - ' . $thumb );
                                         }
                                         ?>
                                         
