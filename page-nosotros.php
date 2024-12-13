@@ -85,7 +85,73 @@ Team Area
             <div class="slider-area">
                 <div class="swiper th-slider teamSlider3 has-shadow" id="teamSlider3" data-slider-options='{"breakpoints":{"0":{"slidesPerView":1},"576":{"slidesPerView":"1"},"768":{"slidesPerView":"2"},"992":{"slidesPerView":"3"},"1200":{"slidesPerView":"3"}}}'>
                     <div class="swiper-wrapper">
+
+                        <?php
+								// Consulta personalizada de productos de WooCommerce
+								$args = array(
+									'post_type' => 'partner', // Tipo de post: productos
+									'posts_per_page' => -1, // Número de productos a mostrar
+								);
+								$loop = new WP_Query($args);
+
+								if ($loop->have_posts()) :
+									while ($loop->have_posts()) : $loop->the_post();
+                                        $foto = get_field('foto');
+                                        print_r($foto);
+								        ?>
+                                        <!-- Single Item -->
+
+                                        <div class="swiper-slide">
+                                            <div class="th-team team-grid">
+                                                <div class="team-img">
+                                                    <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/team/team_img_1.jpg" alt="Team">
+                                                </div>
+                                                <div class="team-img2">
+                                                    <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/team/team_1_1.jpg" alt="Team">
+                                                </div>
+                                                <div class="team-content">
+                                                    <div class="media-body">
+                                                        <h3 class="box-title"><a href="tour-guider-details.html"><?php the_title(); ?></a></h3>
+                                                        <span class="team-desig"><?php the_field('cargo'); ?></span>
+
+                                                        <div class="th-social">
+                                                            <a target="_blank" href="<?php the_field('facebook'); ?>"><i class="fab fa-facebook-f"></i></a>
+                                                            <a target="_blank" href="<?php the_field('linkedin'); ?>"><i class="fab fa-linkedin-in"></i></a>
+                                                            <a target="_blank" href="<?php the_field('instagram'); ?>"><i class="fab fa-instagram"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+										<!--iv class="swiper-slide">
+											<div class="tour-box th-ani gsap-cursor">
+												<div class="tour-box_img global-img">
+													<img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'medium'); ?>" alt="<?php echo get_the_title(); ?>">
+												</div>
+												<div class="tour-content">
+													<h3 class="box-title"><a href="<?php echo get_permalink(); ?>"><?php echo get_the_title(); ?></a></h3>
+													<div class="tour-rating"><i class="fa-light fa-calendar"></i>
+														<a href="<?php echo get_permalink(); ?>" class="woocommerce-review-link">
+															Salida: <strong><?php echo get_field('salidas', get_the_ID()); // Campo ACF para fecha de salida ?></strong>
+														</a>
+													</div>
+													<h4 class="tour-box_price"><span class="currency"><?php echo $product->get_price_html(); ?></span>/x Persona</h4>
+													<div class="tour-action">
+														<span><i class="fa-light fa-clock"></i><?php echo get_field('dias', get_the_ID()); // Campo ACF para duración ?></span>
+														<a href="<?php echo get_permalink(); ?>" class="th-btn style4 th-icon">Ver info</a>
+													</div>
+												</div>
+											</div>
+										</div-->
+								<?php
+									endwhile;
+									wp_reset_postdata(); // Restablecer datos globales de consulta
+								else :
+									echo '<p>No hay productos disponibles en esta categoría.</p>';
+								endif;
+						?>
                         <!-- Single Item -->
+
                         <div class="swiper-slide">
                             <div class="th-team team-grid">
                                 <div class="team-img">
