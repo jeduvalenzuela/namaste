@@ -21,19 +21,18 @@
                 <div class="row">
                     <div class="col-xxl-8 col-lg-7">
                         <div class="page-single">
-
-    <?php 
-    $product = wc_get_product(get_the_ID());
-    $gallery_image_ids = $product->get_gallery_image_ids();
-    print_r($gallery_image_ids);
-    
-    ?>
-
                             <div class="slider-area tour-slider1">
                                 <div class="swiper th-slider mb-4 swiper-fade swiper-initialized swiper-horizontal swiper-watch-progress swiper-backface-hidden" id="tourSlider4" data-slider-options="{&quot;effect&quot;:&quot;fade&quot;,&quot;loop&quot;:true,&quot;thumbs&quot;:{&quot;swiper&quot;:&quot;.tour-thumb-slider&quot;},&quot;autoplayDisableOnInteraction&quot;:&quot;true&quot;}">
                                     <div class="swiper-wrapper" id="swiper-wrapper-5f744b19fe31f5e6" aria-live="off" style="transition-duration: 0ms; transition-delay: 0ms;">
 
+                                        <?php 
+                                        $product = wc_get_product(get_the_ID());
+                                        $gallery_image_ids = $product->get_gallery_image_ids();
                                         
+                                        foreach($gallery_image_ids as $key->$imag_gallery){
+                                            print_r( '<br>Data: ' . $key . ' - ' . $imag_gallery );
+                                        }
+                                        ?>
                                         
                                         <div class="swiper-slide" role="group" aria-label="1 / 8" data-swiper-slide-index="0" style="width: 872px; opacity: 1; transform: translate3d(-2616px, 0px, 0px); transition-duration: 0ms;">
                                             <div class="tour-slider-img">
