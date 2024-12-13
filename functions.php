@@ -311,3 +311,19 @@ function custom_checkout_generate_order() {
         exit;
     }
 }
+
+function cf7_populate_post_title($tag) {
+    if ($tag['name'] !== 'post-title') {
+        return $tag;
+    }
+
+    global $post;
+
+    // Asegúrate de que estamos en un post válido
+    if (is_singular() && isset($post->ID)) {
+        $tag['values'] = [get_the_title($post->ID)];
+    }
+
+    return $tag;
+}
+add_filter('wpcf7_form_tag', 'cf7_populate_post_title', 10, 2);
