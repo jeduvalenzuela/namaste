@@ -210,6 +210,8 @@
                             </div>
                             
                             <!-- Comment end --> <!-- Comment Form -->
+                            <?php echo do_shortcode( '[contact-form-7 id="1ce7f18" title="Formulario de contacto 1"]' ); ?>
+
                             <div class="th-comment-form ">
                                 <div class="row">
                                     <h3 class="blog-inner-title h4 mb-2">Dejanos tu consulta</h3>
