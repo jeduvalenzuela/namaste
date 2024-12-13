@@ -460,7 +460,7 @@ Blog Area
                         </div>
                     </div>
                     <div class="col-md-auto">
-                        <a href="blog.html" class="th-btn style4 th-icon">Ver más</a>
+                        <a href="<?php echo home_url( '/categoria-producto/incoming/' ); ?>" class="th-btn style4 th-icon">Ver más</a>
                     </div>
                 </div>
             </div>
