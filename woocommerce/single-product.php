@@ -30,8 +30,7 @@
                                         $gallery_image_ids = $product->get_gallery_image_ids();
                                         
                                         foreach($gallery_image_ids as $key => $imag_gallery){
-                                            $indice = $key + 1;
-                                            $thumb = '' ?>
+                                            $indice = $key + 1; ?>
 
                                             <div class="swiper-slide" role="group" aria-label="<?php echo $indice; ?> / 8" data-swiper-slide-index="0" style="width: 872px; opacity: 1; transform: translate3d(-2616px, 0px, 0px); transition-duration: 0ms;">
                                                 <div class="tour-slider-img">
@@ -47,8 +46,7 @@
                                     <div class="swiper-wrapper" id="swiper-wrapper-a12b3591079192697" aria-live="off" style="transform: translate3d(-896px, 0px, 0px); transition-duration: 0ms; transition-delay: 0ms;">
                                         
                                         <?php  foreach($gallery_image_ids as $key => $thumb){
-                                            $thumb_indice = $key + 1;
-                                            $thumb = '' ?>
+                                            $thumb_indice = $key + 1; ?>
 
                                             <div class="swiper-slide" role="group" aria-label="<?php echo $thumb_indice; ?> / 8" data-swiper-slide-index="1" style="width: 274.667px; margin-right: 24px;">
                                                 <div class="tour-slider-img">
