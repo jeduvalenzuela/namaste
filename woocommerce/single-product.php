@@ -21,10 +21,25 @@ tour Area
             <div class="row">
                 <div class="col-xxl-8 col-lg-7">
                     <div class="page-single">
+
+<?php global $product;
+
+$gallery_image_ids = $product->get_gallery_image_ids();
+
+if ( ! empty( $gallery_image_ids ) ) {
+    foreach ( $gallery_image_ids as $image_id ) {
+        $image_url = wp_get_attachment_url( $image_id );
+        echo '<img src="' . esc_url( $image_url ) . '" alt="' . esc_attr( get_post_meta( $image_id, '_wp_attachment_image_alt', true ) ) . '">';
+    }
+} ?>
+
                         <div class="slider-area tour-slider1">
                             <div class="swiper th-slider mb-4 swiper-fade swiper-initialized swiper-horizontal swiper-watch-progress swiper-backface-hidden" id="tourSlider4" data-slider-options="{&quot;effect&quot;:&quot;fade&quot;,&quot;loop&quot;:true,&quot;thumbs&quot;:{&quot;swiper&quot;:&quot;.tour-thumb-slider&quot;},&quot;autoplayDisableOnInteraction&quot;:&quot;true&quot;}">
                                 <div class="swiper-wrapper" id="swiper-wrapper-5f744b19fe31f5e6" aria-live="off" style="transition-duration: 0ms; transition-delay: 0ms;">
-									<div class="swiper-slide" role="group" aria-label="1 / 8" data-swiper-slide-index="0" style="width: 872px; opacity: 1; transform: translate3d(-2616px, 0px, 0px); transition-duration: 0ms;">
+
+                                    
+                                    
+                                    <div class="swiper-slide" role="group" aria-label="1 / 8" data-swiper-slide-index="0" style="width: 872px; opacity: 1; transform: translate3d(-2616px, 0px, 0px); transition-duration: 0ms;">
                                         <div class="tour-slider-img">
                                             <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/tour/tour_inner_2_1.jpg" alt="img">
                                         </div>
