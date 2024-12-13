@@ -101,7 +101,6 @@ Team Area
                                         $foto = get_field('foto');
                                         if ($foto) {
                                             $url_foto = $foto['sizes']['medium'];
-                                            echo print_r($url_foto);
                                         }
                                          
 								        ?>
@@ -113,7 +112,7 @@ Team Area
                                                     <img src="<?php echo $back_img;?>" alt="Team">
                                                 </div>
                                                 <div class="team-img2">
-                                                    <img src="<?php echo $foto;?>" alt="Team">
+                                                    <img src="<?php echo $url_fotooto; ?>" alt="Team">
                                                 </div>
                                                 <div class="team-content">
                                                     <div class="media-body">
