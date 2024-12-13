@@ -165,7 +165,7 @@
                                                 <button type="button" class="quantity-minus qty-btn"><i class="far fa-chevron-down"></i></button>
                                             </div>
                                             <style>
-                                                button.th-btn {
+                                                button.th-btn, input.wpcf7-form-control.wpcf7-submit.has-spinner.th-btn {
                                                     background-color: #1ca8cb;
                                                     color: #fff;
                                                     border: unset;
