@@ -22,8 +22,8 @@
                     <div class="col-xxl-8 col-lg-7">
                         <div class="page-single">
 
-    <?php global $product;
-
+    <?php 
+    $product = wc_get_product(get_the_ID());
     $gallery_image_ids = $product->get_gallery_image_ids();
     print_r($gallery_image_ids);
     
