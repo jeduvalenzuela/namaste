@@ -223,7 +223,7 @@ Category Area
 													</div>
 													<h4 class="tour-box_price"><span class="currency"><?php echo $product->get_price_html(); ?></span>/x Persona</h4>
 													<div class="tour-action">
-														<span><i class="fa-light fa-clock"></i><?php echo get_field('dias', get_the_ID()); // Campo ACF para duración ?></span>
+														<span><i class="fa-light fa-clock"></i><?php echo get_field('dias', get_the_ID()); // Campo ACF para duración ?> Dias</span>
 														<a href="<?php echo get_permalink(); ?>" class="th-btn style4 th-icon">Ver info</a>
 													</div>
 												</div>
@@ -468,6 +468,47 @@ Blog Area
                 <div class="swiper th-slider has-shadow" id="blogSlider1" data-slider-options='{"breakpoints":{"0":{"slidesPerView":1},"576":{"slidesPerView":"1"},"768":{"slidesPerView":"2"},"992":{"slidesPerView":"2"},"1200":{"slidesPerView":"3"}}}'>
                     <div class="swiper-wrapper">
                         
+                    <?php
+								// Consulta personalizada de productos de WooCommerce
+								$args = array(
+									'post_type' => 'product', // Tipo de post: productos
+									'posts_per_page' => 10, // Número de productos a mostrar
+									'product_cat' => 'incoming', // Slug de la categoría
+									'post_status' => 'publish' // Solo productos publicados
+								);
+								$loop = new WP_Query($args);
+
+								if ($loop->have_posts()) :
+									while ($loop->have_posts()) : $loop->the_post();
+										$product = wc_get_product(get_the_ID()); // Obtener producto actual
+								?>
+
+                                        <div class="swiper-slide">
+                                            <div class="tour-box th-ani gsap-cursor">
+                                                <div class="tour-box_img global-img">
+                                                    <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'medium'); ?>" alt="<?php echo get_the_title(); ?>">
+                                                </div>
+                                                <div class="tour-content">
+                                                    <h3 class="box-title"><a href="<?php echo get_permalink(); ?>"><?php echo get_the_title(); ?></a></h3>
+                                                    <div class="tour-rating"><i class="fa-light fa-calendar"></i>
+                                                        <a href="<?php echo get_permalink(); ?>" class="woocommerce-review-link">Salida: <strong><?php echo get_field('salidas', get_the_ID()); // Campo ACF para fecha de salida ?></strong></a>
+                                                    </div>
+                                                    <h4 class="tour-box_price"><span class="currency">u$d 2.547</span>/x Persona</h4>
+                                                    <div class="tour-action">
+                                                        <span><i class="fa-light fa-clock"></i><?php echo get_field('dias', get_the_ID()); // Campo ACF para duración ?> Días</span>
+                                                        <a href="<?php echo get_permalink(); ?>" class="th-btn style4 th-icon">Ver info</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+								<?php
+									endwhile;
+									wp_reset_postdata(); // Restablecer datos globales de consulta
+								else :
+									echo '<p>No hay productos disponibles en esta categoría.</p>';
+								endif;
+								?>
+
                         <div class="swiper-slide">
                                     <div class="tour-box th-ani gsap-cursor">
                                         <div class="tour-box_img global-img">
