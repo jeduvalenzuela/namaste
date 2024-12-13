@@ -313,7 +313,7 @@ function custom_checkout_generate_order() {
 }
 
 function cf7_populate_post_title($tag) {
-    if ($tag['name'] !== 'post-title') {
+    if ($tag['name'] !== 'titulo-post') {
         return $tag;
     }
 
