@@ -71,7 +71,28 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-xl-4"><div class="widget mb-0 footer-widget"><h4 class="widget_title">Recibí nuestras novedades</h4><div class="newsletter-widget"><div class="footer-search-contact mt-30"><form><input class="form-control" type="email" placeholder="Ingresa tu Email" wfd-id="id3"></form><div class="footer-btn mt-10"><button type="submit" class="th-btn btn-fw style1">Suscribirme<img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/icon/plane2.svg" alt=""></button></div></div></div></div>
+                    <style>
+                        button.th-btn {
+                            background-color: #1ca8cb;
+                            color: #fff;
+                            border: unset;
+                            border-radius: 50px;
+                        }
+                    </style>
+                    <div class="col-md-6 col-xl-4">
+                        <div class="widget mb-0 footer-widget">
+                            <h4 class="widget_title">Recibí nuestras novedades</h4>
+                            <div class="newsletter-widget">
+                                <div class="footer-search-contact mt-30">
+                                    <form>
+                                        <input class="form-control" type="email" placeholder="Ingresa tu Email" wfd-id="id3">
+                                    </form>
+                                    <div class="footer-btn mt-10">
+                                        <button type="submit" class="th-btn btn-fw style1">Suscribirme<img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/icon/plane2.svg" alt=""></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 					</div>
                 </div>
             </div>
