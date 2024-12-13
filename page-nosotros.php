@@ -101,6 +101,7 @@ Team Area
                                         $foto = get_field('foto');
                                         if ($foto) {
                                             $url_foto = $foto['sizes']['medium'];
+                                            echo print_r($url_foto);
                                         }
                                          
 								        ?>
