@@ -328,28 +328,3 @@ function cf7_populate_post_title($tag) {
 }
 add_filter('wpcf7_form_tag', 'cf7_populate_post_title', 10, 2);
 
-add_filter('wpcf7_form_elements', 'add_custom_icons_to_cf7');
-function add_custom_icons_to_cf7($content) {
-    $stylesheet_directory = get_stylesheet_directory_uri();
-    $content = str_replace(
-        '{{icon_user}}', 
-        '<img src="' . $stylesheet_directory . '/assets/img/icon/user.svg" alt="">',
-        $content
-    );
-    $content = str_replace(
-        '{{icon_mail}}', 
-        '<img src="' . $stylesheet_directory . '/assets/img/icon/mail.svg" alt="">',
-        $content
-    );
-    $content = str_replace(
-        '{{icon_chat}}', 
-        '<img src="' . $stylesheet_directory . '/assets/img/icon/chat.svg" alt="">',
-        $content
-    );
-    $content = str_replace(
-        '{{icon_plane}}', 
-        '<img src="' . $stylesheet_directory . '/assets/img/icon/plane.svg" alt="">',
-        $content
-    );
-    return $content;
-}
