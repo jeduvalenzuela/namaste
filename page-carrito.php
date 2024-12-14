@@ -1,4 +1,8 @@
 <?php 
+/*
+Template Name: Presupuesto
+*/
+
 get_header(); 
 
 if ( isset( $_GET['ver-orden'] ) && is_numeric( $_GET['ver-orden'] ) ) {
