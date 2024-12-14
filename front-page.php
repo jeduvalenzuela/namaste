@@ -26,7 +26,7 @@ Hero Area
 									while ($loop->have_posts()) : $loop->the_post();
                                         $video_url = '';
                                         $url_foto = '';
-                                        $foto = get_field('foto');
+                                        $foto = get_field('image');
                                         if ($foto) {
                                             echo print_r($foto);
                                             //$url_foto = $foto['sizes']['medium'];
