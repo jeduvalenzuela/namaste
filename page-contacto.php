@@ -76,7 +76,8 @@ Video Area
                 </div>
                 <div class="col-lg-6">
                     <div>
-                        <form action="mail.php" method="POST" class="contact-form style2 ajax-contact">
+                        <?php echo do_shortcode( '[contact-form-7 id="b2c28fa" title="contacto"]' ); ?>
+                        <!--form action="mail.php" method="POST" class="contact-form style2 ajax-contact">
                             <h3 class="sec-title mb-30 text-capitalize">Envianos tus inquietudes</h3>
                             <div class="row">
                                 <div class="col-12 form-group">
@@ -96,7 +97,7 @@ Video Area
                                 </div>
                             </div>
                             <p class="form-messages mb-0 mt-3"></p>
-                        </form>
+                        </form-->
                     </div>
                 </div>
             </div>
