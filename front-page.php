@@ -64,12 +64,14 @@ Hero Area
                                         <div class="swiper-slide">
                                             <div class="hero-inner">
 
-                                                <!--div class="th-hero-bg" data-bg-src="<?php echo get_stylesheet_directory_uri();?>/assets/img/hero/hero_bg_2_1.jpg">
-                                                </div-->
-
-                                                <video autoplay loop muted>
-                                                    <source src="<?php echo get_stylesheet_directory_uri();?>/assets/img/hero/hero-video.mp4" type="video/mp4">
-                                                </video>
+                                                <?php if (!empty($video)) { ?>
+                                                    <video autoplay loop muted>
+                                                        <source src="<?php echo get_stylesheet_directory_uri();?>/assets/img/hero/hero-video.mp4" type="video/mp4">
+                                                    </video>
+                                                <?php }else{ ?>
+                                                    <div class="th-hero-bg" data-bg-src="<?php echo get_stylesheet_directory_uri();?>/assets/img/hero/hero_bg_2_1.jpg">
+                                                    </div>
+                                                <?php } ?>
 
                                                 <div class="container">
                                                     <div class="hero-style2">
