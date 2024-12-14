@@ -3,7 +3,12 @@
     <!--==============================
         Breadcumb
     ============================== -->
-    <div class="breadcumb-wrapper " data-bg-src="<?php echo get_stylesheet_directory_uri();?>/assets/img/bg/breadcumb-bg-buzios.jpg">
+    <?php $img_cabecera = get_field('img_cabecera');
+        if ($img_cabecera) {
+            $url_img_cabecera = $img_cabecera['sizes']['1536x1536'];
+        } 
+    ?>
+    <div class="breadcumb-wrapper " data-bg-src="<?php echo $url_img_cabecera;?>">
             <div class="container">
                 <div class="breadcumb-content">
                     <h1 class="breadcumb-title"><?php the_title(); ?></h1>
