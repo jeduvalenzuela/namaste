@@ -164,7 +164,7 @@ Hero Area
 									echo '<p>No hay productos disponibles en esta categoría.</p>';
 								endif;
                 ?>
-                <div class="swiper-slide">
+                <!--div class="swiper-slide">
                     <div class="hero-inner">
                         <div class="hero-card">
                             <div class="hero-img">
@@ -208,7 +208,7 @@ Hero Area
                             </div>
                         </div>
                     </div>
-                </div>
+                </div-->
             </div>
         </div>
         <div class="scroll-down">
