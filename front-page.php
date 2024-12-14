@@ -15,8 +15,6 @@ Hero Area
 
 
                 <?php
-                                $back_img = get_stylesheet_directory_uri() . '/assets/img/team/team_img_1.jpg';
-
 								// Consulta personalizada de productos de WooCommerce
 								$args = array(
 									'post_type' => 'slider', // Tipo de post: productos
@@ -76,14 +74,14 @@ Hero Area
                                                 <div class="container">
                                                     <div class="hero-style2">
                                                         <h1 class="hero-title" data-ani="slideinup" data-ani-delay="0.4s">
-                                                            <?php the_title(); ?> <span class="hero-text"><?php the_field('initro'); ?></span>
+                                                            <?php the_title(); ?> <span class="hero-text"><?php the_field('intro'); ?></span>
                                                         </h1>
                                                         
                                                         <div class="hero-desc" data-ani="slideinup" data-ani-delay="0.5s">
                                                             <?php the_field('descripcion'); ?>
                                                         </div>
                                                         <div class="btn-group" data-ani="slideinup" data-ani-delay="0.6s">
-                                                            <a href="div" class="th-btn white-btn th-icon">Ver info</a>
+                                                            <a href="<?php the_field('link'); ?>" class="th-btn white-btn th-icon">Ver info</a>
                                                         </div>
                                                     </div>
                                                 </div>
