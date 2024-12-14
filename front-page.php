@@ -24,6 +24,8 @@ Hero Area
 
 								if ($loop->have_posts()) :
 									while ($loop->have_posts()) : $loop->the_post();
+                                        $video_url = '';
+                                        $url_foto = '';
                                         $foto = get_field('foto');
                                         if ($foto) {
                                             echo print_r($foto);
@@ -32,7 +34,6 @@ Hero Area
                                         $video = get_field('video');
                                         if ($video) {
                                             $video_url = $video['url'];
-                                            //$url_foto = $video['sizes']['medium'];
                                         }
                                          
 								        ?>
