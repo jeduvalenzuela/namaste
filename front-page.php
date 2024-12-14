@@ -36,30 +36,7 @@ Hero Area
                                         }
                                          
 								        ?>
-                                        <!-- Single Item -->
-
-                                        <div class="swiper-slide">
-                                            <div class="th-team team-grid">
-                                                <div class="team-img">
-                                                    <img src="<?php echo $back_img;?>" alt="Team">
-                                                </div>
-                                                <div class="team-img2">
-                                                    <img src="<?php echo $url_foto; ?>" alt="Team">
-                                                </div>
-                                                <div class="team-content">
-                                                    <div class="media-body">
-                                                        <h3 class="box-title"><a><?php the_title(); ?></a></h3>
-                                                        <span class="team-desig"><?php the_field('cargo'); ?></span>
-
-                                                        <div class="th-social">
-                                                            <a target="_blank" href="<?php the_field('facebook'); ?>"><i class="fab fa-facebook-f"></i></a>
-                                                            <a target="_blank" href="<?php the_field('linkedin'); ?>"><i class="fab fa-linkedin-in"></i></a>
-                                                            <a target="_blank" href="<?php the_field('instagram'); ?>"><i class="fab fa-instagram"></i></a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        
 
                                         <div class="swiper-slide">
                                             <div class="hero-inner">
@@ -98,7 +75,7 @@ Hero Area
 								endif;
 				?>
 
-                <div class="swiper-slide">
+                <!--div class="swiper-slide">
                     <div class="hero-inner">
                         <div class="th-hero-bg" data-bg-src="<?php echo get_stylesheet_directory_uri();?>/assets/img/hero/hero_bg_2_1.jpg">
                         </div>
@@ -138,7 +115,7 @@ Hero Area
                             </div>
                         </div>
                     </div>
-                </div>
+                </div-->
             </div>
             <div class="th-swiper-custom">
                 <div class="swiper-pagination"></div>
