@@ -28,8 +28,8 @@ Hero Area
                                         $url_foto = '';
                                         $foto = get_field('image');
                                         if ($foto) {
-                                            echo print_r($foto);
-                                            //$url_foto = $foto['sizes']['medium'];
+                                            //echo print_r($foto);
+                                            $url_foto = $foto['sizes']['1536x1536'];
                                         }
                                         $video = get_field('video');
                                         if ($video) {
@@ -47,7 +47,7 @@ Hero Area
                                                         <source src="<?php echo $video_url ;?>" type="video/mp4">
                                                     </video>
                                                 <?php }else{ ?>
-                                                    <div class="th-hero-bg" data-bg-src="<?php echo get_stylesheet_directory_uri();?>/assets/img/hero/hero_bg_2_1.jpg">
+                                                    <div class="th-hero-bg" data-bg-src="<?php echo $url_foto ;?>">
                                                     </div>
                                                 <?php } ?>
 
