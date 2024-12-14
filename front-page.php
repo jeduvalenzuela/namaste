@@ -10,6 +10,94 @@ Hero Area
         <div class="hero2-overlay" data-bg-src="<?php echo get_stylesheet_directory_uri();?>/assets/img/bg/line-pattern.png"></div>
         <div class="swiper hero-slider-2" id="heroSlide2">
             <div class="swiper-wrapper">
+                
+                
+
+
+                <?php
+                                $back_img = get_stylesheet_directory_uri() . '/assets/img/team/team_img_1.jpg';
+
+								// Consulta personalizada de productos de WooCommerce
+								$args = array(
+									'post_type' => 'slider', // Tipo de post: productos
+									'posts_per_page' => -1, // Número de productos a mostrar
+								);
+								$loop = new WP_Query($args);
+
+								if ($loop->have_posts()) :
+									while ($loop->have_posts()) : $loop->the_post();
+                                        $foto = get_field('foto');
+                                        if ($foto) {
+                                            echo print_r($foto);
+                                            //$url_foto = $foto['sizes']['medium'];
+                                        }
+                                        $video = get_field('video');
+                                        if ($video) {
+                                            echo print_r($video);
+                                            //$url_foto = $video['sizes']['medium'];
+                                        }
+                                         
+								        ?>
+                                        <!-- Single Item -->
+
+                                        <div class="swiper-slide">
+                                            <div class="th-team team-grid">
+                                                <div class="team-img">
+                                                    <img src="<?php echo $back_img;?>" alt="Team">
+                                                </div>
+                                                <div class="team-img2">
+                                                    <img src="<?php echo $url_foto; ?>" alt="Team">
+                                                </div>
+                                                <div class="team-content">
+                                                    <div class="media-body">
+                                                        <h3 class="box-title"><a><?php the_title(); ?></a></h3>
+                                                        <span class="team-desig"><?php the_field('cargo'); ?></span>
+
+                                                        <div class="th-social">
+                                                            <a target="_blank" href="<?php the_field('facebook'); ?>"><i class="fab fa-facebook-f"></i></a>
+                                                            <a target="_blank" href="<?php the_field('linkedin'); ?>"><i class="fab fa-linkedin-in"></i></a>
+                                                            <a target="_blank" href="<?php the_field('instagram'); ?>"><i class="fab fa-instagram"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="swiper-slide">
+                                            <div class="hero-inner">
+
+                                                <!--div class="th-hero-bg" data-bg-src="<?php echo get_stylesheet_directory_uri();?>/assets/img/hero/hero_bg_2_1.jpg">
+                                                </div-->
+
+                                                <video autoplay loop muted>
+                                                    <source src="<?php echo get_stylesheet_directory_uri();?>/assets/img/hero/hero-video.mp4" type="video/mp4">
+                                                </video>
+
+                                                <div class="container">
+                                                    <div class="hero-style2">
+                                                        <h1 class="hero-title" data-ani="slideinup" data-ani-delay="0.4s">
+                                                            <?php the_title(); ?> <span class="hero-text"><?php the_field('initro'); ?></span>
+                                                        </h1>
+                                                        
+                                                        <div class="hero-desc" data-ani="slideinup" data-ani-delay="0.5s">
+                                                            <?php the_field('descripcion'); ?>
+                                                        </div>
+                                                        <div class="btn-group" data-ani="slideinup" data-ani-delay="0.6s">
+                                                            <a href="div" class="th-btn white-btn th-icon">Ver info</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+										
+								<?php
+									endwhile;
+									wp_reset_postdata(); // Restablecer datos globales de consulta
+								else :
+									echo '<p>No hay productos disponibles en esta categoría.</p>';
+								endif;
+				?>
+
                 <div class="swiper-slide">
                     <div class="hero-inner">
                         <div class="th-hero-bg" data-bg-src="<?php echo get_stylesheet_directory_uri();?>/assets/img/hero/hero_bg_2_1.jpg">
@@ -60,6 +148,8 @@ Hero Area
                 </div>
             </div>
         </div>
+
+
         <div class="swiper heroThumbs" id="heroSlide3">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
