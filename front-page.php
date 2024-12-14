@@ -76,47 +76,6 @@ Hero Area
 								endif;
 				?>
 
-                <!--div class="swiper-slide">
-                    <div class="hero-inner">
-                        <div class="th-hero-bg" data-bg-src="<?php echo get_stylesheet_directory_uri();?>/assets/img/hero/hero_bg_2_1.jpg">
-                        </div>
-                        <div class="container">
-                            <div class="hero-style2">
-                                <h1 class="hero-title" data-ani="slideinup" data-ani-delay="0.4s">
-                                    Enjoy Disney <span class="hero-text">Salidas desde Córdoba, Rosario & Bs.As.</span>
-                                </h1>
-                                <p class="hero-desc" data-ani="slideinup" data-ani-delay="0.5s">
-                                    Tus 15 en un lugar mágico.
-									<br>¡Vos, tus amigas y mucha diversión!
-                                </p>
-                                <div class="btn-group" data-ani="slideinup" data-ani-delay="0.6s">
-                                    <a href="salidasgrupales.html" class="th-btn white-btn th-icon">Ver info</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="hero-inner">
-                        <video autoplay loop muted>
-                            <source src="<?php echo get_stylesheet_directory_uri();?>/assets/img/hero/hero-video.mp4" type="video/mp4">
-                        </video>
-
-                        <div class="container">
-                            <div class="hero-style2">
-                                <h1 class="hero-title" data-ani="slideinup" data-ani-delay="0.4s">
-                                    Búzios Espiritual<span class="hero-text">Sintonizá con la Naturaleza</span>
-                                </h1>
-                                <p class="hero-desc" data-ani="slideinup" data-ani-delay="0.5s">
-                                    Te invitamos a que tengas unos días de conexión con tu interior en completa sintonía con la Naturaleza; en un lugar mágico, rodeado de vegetación y frente al mar
-                                </p>
-                                <div class="btn-group" data-ani="slideinup" data-ani-delay="0.6s">
-                                    <a href="salidasgrupales.html" class="th-btn white-btn th-icon">Explore Tours</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div-->
             </div>
             <div class="th-swiper-custom">
                 <div class="swiper-pagination"></div>
@@ -164,51 +123,7 @@ Hero Area
 									echo '<p>No hay productos disponibles en esta categoría.</p>';
 								endif;
                 ?>
-                <!--div class="swiper-slide">
-                    <div class="hero-inner">
-                        <div class="hero-card">
-                            <div class="hero-img">
-                                <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/hero/hero_bg_2_1.jpg" alt="">
-                            </div>
-                            <div class="hero-card_content">
-                                <h3 class="box-title">Enjoy Disney</h3>
-                                <h4 class="hero-card_price"><span class="currency">u$s 3.790</span> x persona</h4>
-                                <span><i class="fa-light fa-clock"></i>8 Días</span>
-                                <a href="detalle-viaje.html" class="th-btn style2">Ver info</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="hero-inner">
-                        <div class="hero-card">
-                            <div class="hero-img">
-                                <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/hero/hero_bg_2_2.jpg" alt="">
-                            </div>
-                            <div class="hero-card_content">
-                                <h3 class="box-title">Búzios Espiritual</h3>
-                                <h4 class="hero-card_price"><span class="currency">u$d 1.750</span> x persona </h4>
-                                <span><i class="fa-light fa-clock"></i>6 Days</span>
-                                <a href="detalle-viaje.html" class="th-btn style2">Ver info</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-				<div class="swiper-slide">
-                    <div class="hero-inner">
-                        <div class="hero-card">
-                            <div class="hero-img">
-                                <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/hero/hero_bg_2_2.jpg" alt="">
-                            </div>
-                            <div class="hero-card_content">
-                                <h3 class="box-title">Búzios Espiritual</h3>
-                                <h4 class="hero-card_price"><span class="currency">u$d 1.750</span> x persona </h4>
-                                <span><i class="fa-light fa-clock"></i>6 Days</span>
-                                <a href="detalle-viaje.html" class="th-btn style2">Ver info</a>
-                            </div>
-                        </div>
-                    </div>
-                </div-->
+                
             </div>
         </div>
         <div class="scroll-down">
