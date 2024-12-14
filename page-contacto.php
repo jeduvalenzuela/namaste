@@ -55,8 +55,8 @@ Contact Area
                         </div>
                         <div class="about-contact-details">
                             <h6 class="box-title">Email Address</h6>
-                            <p class="about-contact-details-text"><a href="mailto:mailinfo00@tourm.com">info@namaste.tur.ar</a></p>
-                            <p class="about-contact-details-text"><a href="mailto:support24@tourm.com">ventas@namaste.tur.ar</a></p>
+                            <p class="about-contact-details-text"><a href="mailto:info@namaste.tur.ar">info@namaste.tur.ar</a></p>
+                            <!--p class="about-contact-details-text"><a href="mailto:ventas@namaste.tur.ar">ventas@namaste.tur.ar</a></p-->
                         </div>
                     </div>
                 </div>
