@@ -526,62 +526,7 @@ Blog Area
 								endif;
 								?>
 
-                        <div class="swiper-slide">
-                                    <div class="tour-box th-ani gsap-cursor">
-                                        <div class="tour-box_img global-img">
-                                            <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/tour/tour_box_8.jpg" alt="image">
-                                        </div>
-                                        <div class="tour-content">
-                                            <h3 class="box-title"><a href="tour-details.html">Rivera Maya con Iberostar</a></h3>
-                                            <div class="tour-rating"><i class="fa-light fa-calendar"></i>
-                                                <a href="tour-details.html" class="woocommerce-review-link">Salida: <strong>Marzo del 2025</strong></a>
-                                            </div>
-                                            <h4 class="tour-box_price"><span class="currency">u$d 2.547</span>/x Persona</h4>
-                                            <div class="tour-action">
-                                                <span><i class="fa-light fa-clock"></i>8 Días</span>
-                                                <a href="contacto.html" class="th-btn style4 th-icon">Ver info</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                        <div class="swiper-slide">
-                                    <div class="tour-box th-ani gsap-cursor">
-                                        <div class="tour-box_img global-img">
-                                            <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/tour/tour_box_7.jpg" alt="image">
-                                        </div>
-                                        <div class="tour-content">
-                                            <h3 class="box-title"><a href="tour-details.html">Fortaleza & Jericoacoara</a></h3>
-                                            <div class="tour-rating"><i class="fa-light fa-calendar"></i>
-                                                <a href="tour-details.html" class="woocommerce-review-link">Salida: <strong>01 al 08 de abril 2024</strong></a>
-                                            </div>
-                                            <h4 class="tour-box_price"><span class="currency">u$d 1.388</span>/x Persona</h4>
-                                            <div class="tour-action">
-                                                <span><i class="fa-light fa-clock"></i>8 Días</span>
-                                                <a href="contacto.html" class="th-btn style4 th-icon">Ver info</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                        <div class="swiper-slide">
-                                    <div class="tour-box th-ani gsap-cursor">
-                                        <div class="tour-box_img global-img">
-                                            <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/tour/tour_box_6.jpg" alt="image">
-                                        </div>
-                                        <div class="tour-content">
-                                            <h3 class="box-title"><a href="tour-details.html">Explora Machu Pichu</a></h3>
-                                            <div class="tour-rating"><i class="fa-light fa-calendar"></i>
-                                                <a href="tour-details.html" class="woocommerce-review-link">Salida: <strong>Todo el año</strong></a>
-                                            </div>
-                                            <h4 class="tour-box_price"><span class="currency">u$d 695</span>/x Persona</h4>
-                                            <div class="tour-action">
-                                                <span><i class="fa-light fa-clock"></i>7 Noches</span>
-                                                <a href="contacto.html" class="th-btn style4 th-icon">Ver info</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                        
 
                     </div>
                 </div>
