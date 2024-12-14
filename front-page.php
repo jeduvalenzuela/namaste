@@ -20,10 +20,10 @@ Hero Area
 									'post_type' => 'slider', // Tipo de post: productos
 									'posts_per_page' => -1, // Número de productos a mostrar
 								);
-								$loop = new WP_Query($args);
+								$slider = new WP_Query($args);
 
-								if ($loop->have_posts()) :
-									while ($loop->have_posts()) : $loop->the_post();
+								if ($slider->have_posts()) :
+									while ($slider->have_posts()) : $slider->the_post();
                                         $video_url = '';
                                         $url_foto = '';
                                         $foto = get_field('image');
@@ -130,6 +130,40 @@ Hero Area
 
         <div class="swiper heroThumbs" id="heroSlide3">
             <div class="swiper-wrapper">
+                <?php if ($slider->have_posts()) :
+									while ($slider->have_posts()) : $slider->the_post();
+                                        $video_url = '';
+                                        $url_foto = '';
+                                        $foto = get_field('image');
+                                        if ($foto) {
+                                            //echo print_r($foto);
+                                            $url_foto = $foto['sizes']['1536x1536'];
+                                        }
+                                        ?>
+                                        
+                                        <div class="swiper-slide">
+                                            <div class="hero-inner">
+                                                <div class="hero-card">
+                                                    <div class="hero-img">
+                                                        <img src="<?php echo $url_foto ;?>" alt="">
+                                                    </div>
+                                                    <div class="hero-card_content">
+                                                        <h3 class="box-title"><?php the_title(); ?></h3>
+                                                        <h4 class="hero-card_price"><span class="currency">u$s <?php the_field('precio'); ?></span> x persona</h4>
+                                                        <span><i class="fa-light fa-clock"></i><?php the_field('dias'); ?> Días</span>
+                                                        <a href="<?php the_field('link'); ?>" class="th-btn style2">Ver info</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+										
+								<?php
+									endwhile;
+									wp_reset_postdata(); // Restablecer datos globales de consulta
+								else :
+									echo '<p>No hay productos disponibles en esta categoría.</p>';
+								endif;
+                ?>
                 <div class="swiper-slide">
                     <div class="hero-inner">
                         <div class="hero-card">
