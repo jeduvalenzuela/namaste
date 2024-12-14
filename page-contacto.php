@@ -43,8 +43,8 @@ Contact Area
                         </div>
                         <div class="about-contact-details">
                             <h6 class="box-title">Nuestras lineas</h6>
-                            <p class="about-contact-details-text"><a href="tel:01234567890">+54 9 221 4567 8901</a></p>
-                            <p class="about-contact-details-text"><a href="tel:01234567890">+54 9 221 4567 8901</a></p>
+                            <p class="about-contact-details-text"><a href="tel:+5492216824848">+54 9 221 682 4848</a></p>
+                            <!--p class="about-contact-details-text"><a href="tel:01234567890">+54 9 221 4567 8901</a></p-->
                         </div>
                     </div>
                 </div>
