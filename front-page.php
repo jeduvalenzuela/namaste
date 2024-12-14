@@ -137,7 +137,7 @@ Hero Area
                                         $foto = get_field('image');
                                         if ($foto) {
                                             //echo print_r($foto);
-                                            $url_foto = $foto['sizes']['1536x1536'];
+                                            $url_foto = $foto['sizes']['medium'];
                                         }
                                         ?>
                                         
