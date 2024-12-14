@@ -31,7 +31,7 @@ Hero Area
                                         }
                                         $video = get_field('video');
                                         if ($video) {
-                                            echo print_r($video);
+                                            $video_url = $video['url'];
                                             //$url_foto = $video['sizes']['medium'];
                                         }
                                          
@@ -41,9 +41,9 @@ Hero Area
                                         <div class="swiper-slide">
                                             <div class="hero-inner">
 
-                                                <?php if (!empty($video)) { ?>
+                                                <?php if (isset($video_url) && !empty($video_url)) { ?>
                                                     <video autoplay loop muted>
-                                                        <source src="<?php echo get_stylesheet_directory_uri();?>/assets/img/hero/hero-video.mp4" type="video/mp4">
+                                                        <source src="<?php echo $video_url ;?>" type="video/mp4">
                                                     </video>
                                                 <?php }else{ ?>
                                                     <div class="th-hero-bg" data-bg-src="<?php echo get_stylesheet_directory_uri();?>/assets/img/hero/hero_bg_2_1.jpg">
