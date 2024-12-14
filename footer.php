@@ -240,7 +240,7 @@ modal Area
         .my-float{
             margin-top:16px;
         }
-    |</style>
+    </style>
     <a href="https://api.whatsapp.com/send?phone=5492216824848&text=Hola%2C%20Quisiera%20solicitar%20un%20presupuesto." class="float" target="_blank">
         <i class="fab fa-whatsapp my-float"></i>
     </a>
