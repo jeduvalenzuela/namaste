@@ -10,7 +10,7 @@ get_header(); ?>
 <div class="breadcumb-wrapper " data-bg-src="<?php echo get_stylesheet_directory_uri();?>/assets/img/bg/breadcumb-bg.jpg">
         <div class="container">
             <div class="breadcumb-content">
-                <h1 class="breadcumb-title" style="color: darkcyan">Somos Namaste Wellness Trips</h1>
+                <h1 class="breadcumb-title" style="color: darkcyan">Somos Namaste Viajes</h1>
                 <ul class="breadcumb-menu" style="color: darkcyan">
                     <li><a href="index.html" style="color: darkcyan">Inicio</a></li>
                     <li style="color: darkcyan">Nos Presentamos</li>

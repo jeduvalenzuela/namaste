@@ -250,7 +250,7 @@
                                         </div>
                                         <div class="offer">
                                             <h6 class="offer-title">Llamado a la acción</h6>
-                                            <a class="offter-num" href="+256214203215">+123 4567 8912</a>
+                                            <a class="offter-num" href="tel:+5492216824848">+54 9 221 682-4848</a>
                                         </div>
                                         <a href="<?php echo home_url( '/contacto/' ); ?>" class="th-btn style2 th-icon">Comunicarme</a>
                                     </div>
