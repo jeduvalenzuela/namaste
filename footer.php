@@ -17,11 +17,11 @@
                                 </div>
                                 <p class="about-text">En Namaste Viajes, creemos que cada aventura comienza con un sueño, y estamos aquí para hacerlo realidad.</p>
                                 <div class="th-social">
-                                    <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="https://www.twitter.com/"><i class="fab fa-twitter"></i></a>
-                                    <a href="https://www.linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
-                                    <a href="https://www.whatsapp.com/"><i class="fab fa-whatsapp"></i></a>
-                                    <a href="https://instagram.com/"><i class="fab fa-instagram"></i></a>
+                                    <a href="https://www.facebook.com/namasteviajes.tur.ar/"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="https://www.twitter.com/NamasteViajes/"><i class="fab fa-twitter"></i></a>
+                                    <a href="https://www.linkedin.com/company/cityscope-turismo/"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="https://api.whatsapp.com/send?phone=5492216824848&text=Hola%2C%20Quisiera%20solicitar%20un%20presupuesto."><i class="fab fa-whatsapp"></i></a>
+                                    <a href="https://instagram.com/namasteviajes/"><i class="fab fa-instagram"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -60,7 +60,7 @@
                                         <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/icon/envelope.svg" alt="img">
                                     </div>
                                     <div class="details">
-                                        <p><a href="mailto:support24@tourm.com" class="info-box_link">info@namaste.tur.ar</a></p>
+                                        <p><a href="mailto:info@namaste.tur.ar" class="info-box_link">info@namaste.tur.ar</a></p>
                                     </div>
                                 </div>
                                 <div class="info-box_text">
