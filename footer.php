@@ -36,6 +36,7 @@
                                     <li><a href="<?php echo home_url( '/nosotros/' ); ?>">Nos Presentamos</a></li>
                                     <li><a href="<?php echo home_url( '/categoria-producto/grupales/' ); ?>">Salidas Grupales</a></li>
                                     <li><a href="<?php echo home_url( '/categoria-producto/incoming/' ); ?>">Incoming</a></li>
+                                    <li><a href="<?php echo home_url( '/categoria-producto/paquetes/' ); ?>">Paquetes</a></li>
                                     <li><a href="<?php echo home_url( '/contacto/' ); ?>">Contaco</a></li>
                                 </ul>
                             </div>
@@ -50,8 +51,8 @@
                                         <img src="<?php echo get_stylesheet_directory_uri();?>/assets/img/icon/phone.svg" alt="img">
                                     </div>
                                     <div class="details">
-                                        <p><a href="tel:+01234567890" class="info-box_link">+54 9 2215 07-9520</a></p>
-                                        <p><a href="tel:+09876543210" class="info-box_link">+54 9 2216 42-2475</a></p>
+                                        <p><a href="tel:+5492216824848" class="info-box_link">+54 9 221 682-4848</a></p>
+                                        <p><a href="tel:+5492216422475" class="info-box_link">+54 9 221 642-2475</a></p>
                                     </div>
                                 </div>
                                 <div class="info-box_text">
