@@ -17,11 +17,11 @@
                                 </div>
                                 <p class="about-text">En Namaste Viajes, creemos que cada aventura comienza con un sueño, y estamos aquí para hacerlo realidad.</p>
                                 <div class="th-social">
-                                    <a href="https://www.facebook.com/namasteviajes.tur.ar/"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="https://www.twitter.com/NamasteViajes/"><i class="fab fa-twitter"></i></a>
-                                    <a href="https://www.linkedin.com/company/cityscope-turismo/"><i class="fab fa-linkedin-in"></i></a>
-                                    <a href="https://api.whatsapp.com/send?phone=5492216824848&text=Hola%2C%20Quisiera%20solicitar%20un%20presupuesto."><i class="fab fa-whatsapp"></i></a>
-                                    <a href="https://instagram.com/namasteviajes/"><i class="fab fa-instagram"></i></a>
+                                    <a href="https://www.facebook.com/namasteviajes.tur.ar/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="https://www.twitter.com/NamasteViajes/" target="_blank"><i class="fab fa-twitter"></i></a>
+                                    <a href="https://www.linkedin.com/company/cityscope-turismo/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="https://api.whatsapp.com/send?phone=5492216824848&text=Hola%2C%20Quisiera%20solicitar%20un%20presupuesto." target="_blank"><i class="fab fa-whatsapp"></i></a>
+                                    <a href="https://instagram.com/namasteviajes/" target="_blank"><i class="fab fa-instagram"></i></a>
                                 </div>
                             </div>
                         </div>
