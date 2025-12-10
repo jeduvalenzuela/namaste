@@ -10,18 +10,18 @@ jQuery(document).ready(function ($) {
                 nonce: my_ajax_object.nonce1,
             },
             beforeSend: function () {
-                alert('Procesando solicitud...');
+                alert('Processing request...');
             },
             success: function (response) {
                 if (response.success) {
-                    alert('¡Presupuesto registrado correctamente!');
-                    window.location.href = response.redirect_url; // Redirige a la página de gracias
+                    alert('Budget registered successfully!');
+                    window.location.href = response.redirect_url; // Redirect to thank you page
                 } else {
-                    alert('Hubo un error: ' + response.data);
+                    alert('There was an error: ' + response.data);
                 }
             },
             error: function () {
-                alert('Hubo un error inesperado. Por favor, inténtelo de nuevo.');
+                alert('An unexpected error occurred. Please try again.');
             },
         });
     });

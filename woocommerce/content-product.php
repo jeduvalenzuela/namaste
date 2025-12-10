@@ -3,7 +3,7 @@ defined('ABSPATH') || exit;
 
 global $product;
 
-// Asegúrate de que el producto esté definido.
+// Make sure the product is defined.
 if (empty($product) || !$product->is_visible()) {
     return;
 }

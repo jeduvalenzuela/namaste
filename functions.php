@@ -16,7 +16,7 @@ function hello_elementor_child_enqueue_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'hello_elementor_child_enqueue_scripts', 20 );
 
-// Función para registrar las taxonomías personalizadas
+// Function to register custom taxonomies
 function custom_register_taxonomies() {
     $labels = array(
         'name' => __('Categorías de images'),
@@ -33,7 +33,7 @@ function custom_register_taxonomies() {
     );
 
     $args = array(
-        'hierarchical' => true, // Como categorías, no etiquetas
+        'hierarchical' => true, // Like categories, not tags
         'labels' => $labels,
         'show_ui' => true,
         'show_admin_column' => true,
@@ -44,9 +44,9 @@ function custom_register_taxonomies() {
 
     register_taxonomy('image_category', array('image'), $args);
 }
-add_action('init', 'custom_register_taxonomies'); // Registra las taxonomías en la inicialización de WordPress
+add_action('init', 'custom_register_taxonomies'); // Register taxonomies on WordPress initialization
 
-// Función para registrar el tipo de entrada personalizado "image" and "sponsor"
+// Function to register custom post types "image" and "sponsor"
 function custom_register_post_type() {
     $labels = array(
         'name' => __('sliders'),
@@ -68,8 +68,8 @@ function custom_register_post_type() {
         'supports' => array('title'),
         'has_archive' => true,
         'rewrite' => array('slug' => 'slider'),
-        'menu_icon' => 'dashicons-images-alt2', // Icono del menú (opcional)
-        'show_in_rest' => true, // Habilita Gutenberg editor
+        'menu_icon' => 'dashicons-images-alt2', // Menu icon (optional)
+        'show_in_rest' => true, // Enable Gutenberg editor
     );
 
     register_post_type('slider', $args);
@@ -94,8 +94,8 @@ function custom_register_post_type() {
         'supports' => array('title'),
         'has_archive' => true,
         'rewrite' => array('slug' => 'partner'),
-        'menu_icon' => 'dashicons-images-alt2', // Icono del menú (opcional)
-        'show_in_rest' => true, // Habilita Gutenberg editor
+        'menu_icon' => 'dashicons-images-alt2', // Menu icon (optional)
+        'show_in_rest' => true, // Enable Gutenberg editor
     );
 
     register_post_type('partner', $args2);
@@ -120,8 +120,8 @@ function custom_register_post_type() {
         'supports' => array('title'),
         'has_archive' => true,
         'rewrite' => array('slug' => 'sponsor'),
-        'menu_icon' => 'dashicons-images-alt2', // Icono del menú (opcional)
-        'show_in_rest' => true, // Habilita Gutenberg editor
+        'menu_icon' => 'dashicons-images-alt2', // Menu icon (optional)
+        'show_in_rest' => true, // Enable Gutenberg editor
     );
 
     register_post_type('sponsor', $args3);
@@ -146,13 +146,13 @@ function custom_register_post_type() {
         'supports' => array('title'),
         'has_archive' => true,
         'rewrite' => array('slug' => 'image'),
-        'menu_icon' => 'dashicons-images-alt2', // Icono del menú (opcional)
-        'show_in_rest' => true, // Habilita Gutenberg editor
+        'menu_icon' => 'dashicons-images-alt2', // Menu icon (optional)
+        'show_in_rest' => true, // Enable Gutenberg editor
     );
 
     register_post_type('image', $args1);
 }
-add_action('init', 'custom_register_post_type'); // Registra el tipo de entrada personalizado en la inicialización de WordPress
+add_action('init', 'custom_register_post_type'); // Register custom post type on WordPress initialization
 function registrar_mi_menu() {
     register_nav_menu('menu-principal', __('Menú Principal'));
 }
@@ -162,15 +162,15 @@ add_action('init', 'registrar_mi_menu');
  * wp_enqueue_scripts
  */
 function my_enqueue_scripts() {
-    // Encolar jQuery si no está ya encolado
+    // Enqueue jQuery if not already enqueued
     if (!wp_script_is('jquery')) {
         wp_enqueue_script('jquery');
     }
 
-    // Encolar un script personalizado que dependa de jQuery
+    // Enqueue custom script that depends on jQuery
     //wp_enqueue_script('my-custom-script', get_template_directory_uri() . '/js/my-custom-script.js', array('jquery'), null, true);
 
-    // Encolar un script con soporte para AJAX
+    // Enqueue script with AJAX support
     wp_localize_script('my-custom-script', 'my_ajax_object', array(
         'ajax_url' => admin_url('admin-ajax.php'),
         'nonce'    => wp_create_nonce('my_nonce'),
@@ -191,21 +191,21 @@ add_action( 'woocommerce_cart_loaded_from_session', function( $cart ) {
         $product = $cart_item['data'];
         $quantity = $cart_item['quantity'];
 
-        // Log para depuración
-        error_log( "Producto cargado: " . $product->get_name() . " - Cantidad: " . $quantity );
+        // Debug log
+        error_log( "Product loaded: " . $product->get_name() . " - Quantity: " . $quantity );
     }
 }, 10 );
 
 add_action( 'woocommerce_before_calculate_totals', function( $cart ) {
     if ( ! is_admin() && ! wp_doing_ajax() && isset( $_POST['cart'] ) ) {
         $cart_data = $_POST['cart'];
-        error_log( "Datos del carrito recibidos: " . print_r( $cart_data, true ) );
+        error_log( "Cart data received: " . print_r( $cart_data, true ) );
     }
 }, 10, 1 );
 
 add_action( 'woocommerce_cart_updated', function() {
-    // Aquí puedes realizar acciones después de que el carrito se actualice.
-    error_log( "Carrito actualizado correctamente." );
+    // You can perform actions after the cart is updated here.
+    error_log( "Cart updated successfully." );
 } );
 
 
@@ -220,29 +220,29 @@ function custom_register_user() {
         $new_email = sanitize_email($_POST['new_email']);
         $new_email_confirm = sanitize_email($_POST['new_email_confirm']);
         
-        // Verifica si los correos electrónicos coinciden
+        // Check if emails match
         if ($new_email !== $new_email_confirm) {
-            // Mostrar un error si los correos no coinciden
-            wp_die('Los correos electrónicos no coinciden.');
+            // Show error if emails don't match
+            wp_die('The emails do not match.');
         }
 
-        // Verifica si el correo ya está registrado
+        // Check if email is already registered
         if (email_exists($new_email)) {
-            wp_die('El correo electrónico ya está registrado.');
+            wp_die('The email address is already registered.');
         }
 
-        // Crear la contraseña aleatoria
+        // Create random password
         $password = wp_generate_password();
 
-        // Crear el nuevo usuario en WordPress
+        // Create new user in WordPress
         $user_id = wp_create_user($username, $password, $new_email);
 
-        // Verifica si el usuario fue creado correctamente
+        // Check if user was created successfully
         if (is_wp_error($user_id)) {
-            wp_die('Hubo un error al registrar al usuario.');
+            wp_die('There was an error registering the user.');
         }
 
-        // Actualizar los campos del perfil del usuario (nombre y apellido)
+        // Update user profile fields (first name and last name)
         wp_update_user([
             'ID' => $user_id,
             'first_name' => $firstname,
@@ -253,16 +253,16 @@ function custom_register_user() {
         $user = get_user_by('ID', $user_id);
         $user->set_role('customer');
 
-        // Enviar correo electrónico con la contraseña
-        wp_mail($new_email, 'Bienvenido a nuestro sitio', 'Tu contraseña es: ' . $password);
+        // Send email with password
+        wp_mail($new_email, 'Welcome to our site', 'Your password is: ' . $password);
 
-        // Redirigir al usuario a la página de éxito o al login
-        wp_redirect(home_url('/mi-cuenta')); // Redirigir al login o página que desees
+        // Redirect user to success page or login
+        wp_redirect(home_url('/mi-cuenta')); // Redirect to login or desired page
         exit;
     }
 }
 
-// Registrar la acción para procesar el formulario
+// Register action to process the form
 add_action('admin_post_nopriv_custom_register_user', 'custom_register_user');
 add_action('admin_post_custom_register_user', 'custom_register_user');
 
@@ -276,7 +276,7 @@ function custom_checkout_generate_order() {
             wp_die('Debes iniciar sesión para realizar una solicitud.');
         }
 
-        // Verificar que el carrito no esté vacío
+        // Check that cart is not empty
         if (WC()->cart->is_empty()) {
             wp_die('El carrito está vacío. No puedes realizar una solicitud.');
         }
@@ -319,7 +319,7 @@ function cf7_populate_post_title($tag) {
 
     global $post;
 
-    // Asegúrate de que estamos en un post válido
+    // Make sure we are on a valid post
     if (is_singular() && isset($post->ID)) {
         $tag['values'] = [get_the_title($post->ID)];
     }

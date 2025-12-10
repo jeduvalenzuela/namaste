@@ -5,9 +5,9 @@ Template Name: Single Post
 
 get_header();
 
-// Verifica si el post pertenece a la categoría 'cursos'
+// Check if the post belongs to the 'courses' category
 if (in_category('cursos')) {
-    // Si el post pertenece a la categoría 'cursos', carga la plantilla específica
+    // If the post belongs to the 'courses' category, load the specific template
     get_template_part('single', 'category-cursos');
 } else { ?>
     
@@ -29,7 +29,7 @@ if (in_category('cursos')) {
 								</li>
 								<li class="breadcrumb-item">
 									<?php
-										// Obtener las categorías del post actual
+										// Get the categories of the current post
 										$categories = get_the_category();
 
 										if ( ! empty( $categories ) ) {
@@ -51,11 +51,11 @@ if (in_category('cursos')) {
 
 						<aside class="col-lg-4">
 							<ul class="list-services">
-								<?php // Configurar los argumentos para WP_Query
+								<?php // Set up arguments for WP_Query
 								$args = array(
 									'post_type' => 'post',
-									'cat' => $category->term_id, // Filtrar por ID de la categoría "excursiones"
-									'posts_per_page' => -1, // Número de posts a mostrar, puedes cambiarlo según sea necesario
+									'cat' => $category->term_id, // Filter by category ID
+									'posts_per_page' => -1, // Number of posts to display
 								);
 
 								// Crear la consulta personalizada

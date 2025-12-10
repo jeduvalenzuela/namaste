@@ -89,10 +89,10 @@ Team Area
                         <?php
                                 $back_img = get_stylesheet_directory_uri() . '/assets/img/team/team_img_1.jpg';
 
-								// Consulta personalizada de productos de WooCommerce
+								// Custom query for WooCommerce partners
 								$args = array(
-									'post_type' => 'partner', // Tipo de post: productos
-									'posts_per_page' => -1, // Número de productos a mostrar
+									'post_type' => 'partner', // Post type: partners
+									'posts_per_page' => -1, // Number of partners to display
 								);
 								$loop = new WP_Query($args);
 

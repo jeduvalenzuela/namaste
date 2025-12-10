@@ -155,9 +155,9 @@ if ( isset( $_GET['ver-orden'] ) && is_numeric( $_GET['ver-orden'] ) ) {
                                             </div>
                                             <script>
                                                 jQuery(document).ready(function($) {
-                                                    // Cargar países
+                                                    // Load countries
                                                     $.ajax({
-                                                        url: ajaxurl, // URL de AJAX de WordPress
+                                                        url: ajaxurl, // WordPress AJAX URL
                                                         type: 'POST',
                                                         data: {
                                                             action: 'load_countries'
@@ -205,14 +205,14 @@ if ( isset( $_GET['ver-orden'] ) && is_numeric( $_GET['ver-orden'] ) ) {
                                                 const hiddenSentMethodInput = document.getElementById('hidden_sent_method');
                                                 const checkoutForm = document.getElementById('checkout-form');
 
-                                                // Actualizar el input oculto al seleccionar una opción
+                                                // Update hidden input when selecting an option
                                                 sentMethodInputs.forEach(input => {
                                                     input.addEventListener('change', function () {
                                                         hiddenSentMethodInput.value = this.value;
                                                     });
                                                 });
 
-                                                // Actualizar la URL del formulario antes de enviarlo
+                                                // Update form URL before submitting
                                                 checkoutForm.addEventListener('submit', function (e) {
                                                     const selectedMethod = hiddenSentMethodInput.value;
                                                     this.action = `<?php echo home_url('/checkout/'); ?>?sent_method=${encodeURIComponent(selectedMethod)}`;

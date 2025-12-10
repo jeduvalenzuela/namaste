@@ -1,24 +1,24 @@
 <?php
-/* Template Name: Ver Orden */
+/* Template Name: View Order */
 
-// Si el parámetro está presente en la URL, generar y enviar el PDF
+// If parameter is present in URL, generate and send PDF
 if (isset($_GET['ver_orden']) && !empty($_GET['ver_orden'])) {
-    $order_id = $_GET['ver_orden']; // Llamar a la función que genera y envía el PDF
+    $order_id = $_GET['ver_orden']; // Call function that generates and sends PDF
 }
 if (isset($_GET['sent_method']) && !empty($_GET['sent_method'])) {
-    $sent_method = ' por ' . $_GET['sent_method'] . ' al operador'; // Llamar a la función que genera y envía el PDF
+    $sent_method = ' by ' . $_GET['sent_method'] . ' to the operator'; // Call function that generates and sends PDF
 }
 
-$order = wc_get_order( $order_id ); // Obtén la orden actual
+$order = wc_get_order( $order_id ); // Get current order
 
 if ( $order ) {
-    $order_id = $order->get_id(); // ID de la orden
-    $order_date = wc_format_datetime($order->get_date_created()); // Fecha de creación de la orden
-    $order_status = wc_get_order_status_name($order->get_status()); // Estado de la orden
-    $order_total = $order->get_total(); // Total de la orden
-    $order_currency = $order->get_currency(); // Moneda de la orden
+    $order_id = $order->get_id(); // Order ID
+    $order_date = wc_format_datetime($order->get_date_created()); // Order creation date
+    $order_status = wc_get_order_status_name($order->get_status()); // Order status
+    $order_total = $order->get_total(); // Order total
+    $order_currency = $order->get_currency(); // Order currency
 
-    // Obtener los productos de la orden
+    // Get order items
     $items = $order->get_items();
     ?>
     <div class="th-cart-wrapper space-top space-extra-bottom">

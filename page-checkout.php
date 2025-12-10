@@ -3,17 +3,17 @@
 get_header();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_order'])) {
-    // Lógica para crear el pedido
-    $order_created = false; // Cambiar a true si la orden se genera correctamente
+    // Logic to create the order
+    $order_created = false; // Change to true if order is generated correctly
 
-    // Crear la orden de WooCommerce
+    // Create WooCommerce order
     $order = wc_create_order();
     
     if ($order) {
         $cart_items = WC()->cart->get_cart();
         
         foreach ($cart_items as $cart_item_key => $cart_item) {
-            $order->add_product($cart_item['data'], $cart_item['quantity']); // Añadir productos al pedido
+            $order->add_product($cart_item['data'], $cart_item['quantity']); // Add products to order
         }
 
         // Calcular totales y finalizar el pedido
@@ -25,23 +25,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_order'])) {
         // Marcar como creado el pedido
         $order_created = true;
 
-        // Vaciar el carrito después de crear el pedido
+        // Clear cart after creating order
         WC()->cart->empty_cart();
 
         $send_method = $_POST['sent_method'];
 
-        $data_order = wc_get_order($order_id); // Obtén el pedido
+        $data_order = wc_get_order($order_id); // Get the order
 
         if ($data_order) {
-            // Obtener nombre del cliente
+            // Get customer name
             $customer_name = trim($data_order->get_billing_first_name() . ' ' . $data_order->get_billing_last_name());
             $customer_email = $data_order->get_billing_email();
-            // Obtener lista de productos
+            // Get product list
             $products = [];
             foreach ($data_order->get_items() as $item_id => $item) {
-                $product_name = preg_replace('/[\r\n]+/', ' ', $item->get_name()); // Eliminar saltos de línea en nombres
-                $product_quantity = $item->get_quantity(); // Cantidad solicitada
-                $product_total = $item->get_total(); // Precio total del producto
+                $product_name = preg_replace('/[\r\n]+/', ' ', $item->get_name()); // Remove line breaks in names
+                $product_quantity = $item->get_quantity(); // Requested quantity
+                $product_total = $item->get_total(); // Total price of product
                 $products[] = [
                     'name' => $product_name,
                     'quantity' => $product_quantity,
@@ -50,32 +50,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_order'])) {
             }
         }
 
-        // Crear el mensaje
-        $message = "Hola,\nQuiero solicitar un presupuesto para los siguientes ítems: \n";
+        // Create message
+        $message = "Hello,\nI would like to request a budget for the following items: \n";
         foreach ($products as $product) {
             $message .=  $product['quantity'] . " - " . $product['name'] . " - $" . $product['total'] . ". \n";
         }
-        $message .= "Atte, \n" . $customer_name . ". \n";
-        $message .= "Solicitud n: " . $order_id;
+        $message .= "Best regards, \n" . $customer_name . ". \n";
+        $message .= "Request number: " . $order_id;
 
-        $to = 'j.eduvalenzuela@gmail.com'; // Dirección de correo del destinatario
-        $subject = 'Solicitud de presupuesto - Orden #' . $order_id;
+        $to = 'j.eduvalenzuela@gmail.com'; // Recipient email address
+        $subject = 'Budget Request - Order #' . $order_id;
 
-        // Definir los encabezados para el correo
+        // Define headers for email
         $headers = [
             'Content-Type: text/plain; charset=UTF-8',
             'From: ' . $customer_email,
             'Reply-To: ' . $customer_email
         ];
         
-        // Enviar el correo
+        // Send email
         wp_mail($to, $subject, $message, $headers);
 
         if (isset($send_method) && $send_method === 'whatsapp') {
-            // Redirigir al detalle del pedido
-            $phone_number = '5492804341440'; // Reemplaza con el número de WhatsApp
+            // Redirect to order details
+            $phone_number = '5492804341440'; // Replace with WhatsApp number
 
-            // Codificar el mensaje de forma consistente
+            // Encode message consistently
             $encoded_message = str_replace(
                 [
                     ' ', "\n", '$', ',', ':', '(', ')', 'á', 'é', 'í', 'ó', 'ú', 'Á', 'É', 'Í', 'Ó', 'Ú', 'ñ', 'Ñ'
@@ -89,13 +89,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_order'])) {
 
             error_log('Mensaje de WhatsApp: ' . $encoded_message);
 
-            // Generar la URL de redirección
+            // Generate redirect URL
             $redirect_url = 'https://wa.me/' . $phone_number . '?text=' . $encoded_message;
             wp_redirect($redirect_url);
             exit;
         }else{
                 
-            // Redirigir al detalle del pedido
+            // Redirect to order details
             $redirect_url = home_url(  '/presupuesto/?ver-orden=' . $order_id . '&sent_method=' . $send_method );
             wp_redirect($redirect_url);
             exit;
@@ -103,9 +103,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['generate_order'])) {
 
         
     } else {
-        // Si la orden no se creó
+        // If order was not created
         $order_created = false;
-        echo '<p class="woocommerce-error">Hubo un problema al crear tu pedido. Intenta nuevamente.</p>';
+        echo '<p class="woocommerce-error">There was a problem creating your order. Try again.</p>';
     }
 }
 

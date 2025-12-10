@@ -75,7 +75,7 @@ Product Area
                 </div>
                 <div class="th-pagination text-center mt-60 mb-0">
                     <?php
-                    // Muestra la paginación de WooCommerce.
+                    // Display WooCommerce pagination.
                     woocommerce_pagination();
                     ?>
                 </div>
